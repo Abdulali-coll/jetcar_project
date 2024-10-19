@@ -1,19 +1,19 @@
 <template>
   <div class="main-container">
-    <!-- Верхняя панель с информацией -->
+    <!-- Header -->
     <header class="header">
       <div class="contact-info">
-        <span>+ 7 988 152-65-67</span>
-        <a href="#">Связаться!</a>
+        <span><div class="number"> 7 988 152-65-67</div></span>
+        <span><div class="contact-text">Связаться!</div></span>
       </div>
       <h1 class="logo">JET CAR</h1>
       <div class="company-info">
-        <span>г. Сыктывкар, ул. Андерграунд</span>
+        <span><div class="adress"> Сыктывкар, ул. Андерграунд </div></span>
         <span>График: с 10:00 до 20:00</span>
       </div>
     </header>
 
-    <!-- Навигация -->
+    <!-- Navigation Btns -->
     <nav class="navigation">
       <a href="#">Купить Авто</a>
       <a href="#">Каталог</a>
@@ -21,7 +21,7 @@
       <a href="#">О нас</a>
     </nav>
 
-    <!-- Главная карточка -->
+    <!-- Main Card -->
     <section class="main-card">
       <div class="car-image">
         <img :src="mainCarImage" alt="Main Car" />
@@ -29,15 +29,23 @@
       <div class="car-info">
         <h2>Черноморский катамаран с забугорья IV Рестайлинг</h2>
         <h3>12 500 999 ₸</h3>
-        <p><strong>Пробег:</strong> 1137 км</p>
+        <div class="car-spec">
+            <div class="spec-name">Пробег:</div>
+            <div class="spec-value">1137 км</div>
+        </div>
         <hr class="divider">
-        <p><strong>Мощность:</strong> 525 л.с.</p>
+        <div class="car-spec">
+            <div class="spec-name">Мощность:</div>
+            <div class="spec-value">525 л.с.</div>
+        </div>
         <hr class="divider">
-        <p>Прекрасный семейный катамаран для обыденных поездок за картошкой в деревню...</p>
+          <div class="descript-text"> Cемейный катамаран для обыденых поездок за картошкой в деревню.
+           Изящные черты заставят вас сожалеть даже о самом небрежном столновении. Если вам 40+ лет и вы одинокий скуф - эта машина для вас!
+          </div>
       </div>
     </section>
 
-    <!-- Кнопки брендов -->
+    <!-- Brends Btns -->
     <section class="brand-buttons">
       <button>Майбах</button>
       <button>Ауби</button>
@@ -49,7 +57,7 @@
       <button>МММ</button>
     </section>
 
-    <!-- Мелкие карточки машин -->
+    <!-- Small Cards -->
     <section class="small-cards">
       <div class="car-card">
         <div class="car-image">
@@ -69,7 +77,6 @@
       </div>
     </section>
 
-    <!-- Ещё два ряда мелких карточек -->
     <section class="small-cards">
       <div class="car-card">
         <div class="car-image"></div>
@@ -88,7 +95,25 @@
       </div>
     </section>
 
-    <!-- Блок с картой и изображением -->
+    <section class="small-cards">
+      <div class="car-card">
+        <div class="car-image"></div>
+        <h4>Гоночная Спортивная Коляска (F77)</h4>
+        <p>7 500 999 ₸</p>
+      </div>
+      <div class="car-card">
+        <div class="car-image"></div>
+        <h4>Гоночная Спортивная Коляска (F77)</h4>
+        <p>7 500 999 ₸</p>
+      </div>
+      <div class="car-card">
+        <div class="car-image"></div>
+        <h4>Гоночная Спортивная Коляска (F77)</h4>
+        <p>7 500 999 ₸</p>
+      </div>
+    </section>
+
+    <!-- Map and Img-->
     <section class="map-and-info">
       <div class="map-container"></div>
       <div class="promo-text">
@@ -98,7 +123,7 @@
       </div>
     </section>
 
-    <!-- Футер -->
+    <!-- Footer -->
     <footer class="footer">
       <p>© 2004-2024 Все права были защищены JetCar. <br> не лом немного похуй AbdulDian Inc.</p>
     </footer>
@@ -123,12 +148,44 @@ export default {
 </script>
 
 <style scoped>
-/* Общие стили */
+
 .main-container {
   background-color: black;
   color: white;
   font-family: 'Roboto', sans-serif;
+  font-weight: 200;
   padding: 20px;
+}
+.number{
+  font-size: 22px;
+}
+
+.descript-text{
+  color: gray;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+}
+
+.adress{
+  font-weight: 500;
+  padding-right: 25px;
+  padding-bottom: 5px;
+}
+.contact-text{
+  font-size: 15px;
+  color: #E5B748;
+  padding-top: 5px;
+}
+.car-spec {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: gray;
+}
+
+.spec-value {
+  text-align: right;
+  margin-right: 80px;
 }
 
 .header {
@@ -140,12 +197,12 @@ export default {
 }
 
 .contact-info, .company-info {
-  font-size: 12px;
+  padding-left: 25px;
 }
 
 .logo {
   font-family: 'Oswald', sans-serif;
-  font-size: 32px;
+  font-size: 38px;
   color: #E5B748;
 }
 
@@ -163,7 +220,6 @@ export default {
   font-size: 16px;
 }
 
-/* Главная карточка */
 .main-card {
   display: flex;
   justify-content: center;
@@ -172,14 +228,14 @@ export default {
 }
 
 .car-image {
-  margin-right: 40px; /* Добавим отступ справа от изображения */
+  margin-right: 40px; 
 }
 
 .car-image img {
   width: 460px;
   height: 300px;
-  object-fit: cover; /* Масштабируем изображение, чтобы заполнить блок */
-  border-radius: 8px;
+  object-fit: cover;
+  border-radius: 35px;
 }
 
 .car-info {
@@ -192,7 +248,9 @@ export default {
 }
 
 .car-info h3 {
-  font-size: 28px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
   color: #E5B748;
 }
 
@@ -200,10 +258,9 @@ export default {
   border: 0;
   height: 1px;
   background-color: grey;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
-/* Кнопки брендов */
 .brand-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -220,7 +277,6 @@ export default {
   text-transform: uppercase;
 }
 
-/* Мелкие карточки машин */
 .small-cards {
   display: flex;
   justify-content: space-between;
@@ -246,7 +302,6 @@ export default {
   color: #E5B748;
 }
 
-/* Блок карты и текста */
 .map-and-info {
   display: flex;
   justify-content: space-between;
@@ -256,7 +311,7 @@ export default {
 .map-container {
   width: 60%;
   height: 300px;
-  background-color: grey; /* Под карту */
+  background-color: grey; 
 }
 
 .promo-text {
@@ -274,7 +329,6 @@ export default {
   color: white;
 }
 
-/* Футер */
 .footer {
   margin-top: 20px;
   text-align: center;
