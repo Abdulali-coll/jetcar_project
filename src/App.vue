@@ -23,7 +23,9 @@
 
     <!-- Главная карточка -->
     <section class="main-card">
-      <div class="car-image"></div>
+      <div class="car-image">
+        <img :src="mainCarImage" alt="Main Car" />
+      </div>
       <div class="car-info">
         <h2>Черноморский катамаран с забугорья IV Рестайлинг</h2>
         <h3>12 500 999 ₸</h3>
@@ -50,7 +52,8 @@
     <!-- Мелкие карточки машин -->
     <section class="small-cards">
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
@@ -102,10 +105,21 @@
   </div>
 </template>
 
+
+
 <script>
+import mainCarImage from '@/assets/car_card_0.jpg';
+
 export default {
   name: 'App',
+  data() {
+    return {
+      mainCarImage
+    };
+  }
 };
+
+
 </script>
 
 <style scoped>
@@ -158,11 +172,14 @@ export default {
 }
 
 .car-image {
+  margin-right: 40px; /* Добавим отступ справа от изображения */
+}
+
+.car-image img {
   width: 460px;
   height: 300px;
-  background-color: white;
+  object-fit: cover; /* Масштабируем изображение, чтобы заполнить блок */
   border-radius: 8px;
-  margin-right: 20px;
 }
 
 .car-info {
