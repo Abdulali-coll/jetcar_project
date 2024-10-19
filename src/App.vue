@@ -160,17 +160,24 @@
     </section>
 
     <!-- Map and Promo Image -->
+    <!-- Added new container and car img -->
     <section class="map-and-info">
-      <div class="map-container"></div>
-      <div class="promo-text">
-        <p>Уфф было это что за чёртолет такой... <br>
-          Тебя давно не было в уличных гонках! Садись за руль и приезжай к нам в Чайна таун...</p>
-      </div>
-    </section>
+  <div class="map-container"></div>
+  <div class="promo-container">
+  <div class="car-promo">
+    <img :src="PromoCar" alt="Promo car" />
+  </div>
+  <div class="promo-text">
+    <p>Уфф было это что за чёртолет такой... <br>
+      Тебя давно не было в уличных гонках! Садись за руль и приезжай к нам в Чайна таун...</p>
+  </div>
+  </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="footer">
-      <p>© 2004-2024 Все права были защищены JetCar. <br> не лом немного похуй AbdulDian Inc.</p>
+      <p>© 2004-2024 Все права были защищены JetCar. <br> но нам немного похуй AbdulDian Inc. and BogdanDjan Ind. (ps. На карте указан адрес пребывания всех этих удивительных лайнеров из мира животных с Николаем Дроздовым. RIP, легенда!)</p>
     </footer>
   </div>
 </template>
@@ -179,6 +186,7 @@
 import mainCarImage from '@/assets/car_card_0.jpg';
 import carLogo from '@/assets/mercedes_logo.png';
 import bmwImage from '@/assets/bmw-image_0.jpg';
+import PromoCar from '@/car-image.jpg';
 
 export default {
   name: 'App',
@@ -187,12 +195,14 @@ export default {
       mainCarImage,
       carLogo,
       bmwImage,
+      PromoCar,
     };
   },
 };
 </script>
 
 <style scoped>
+
 .main-container {
   background-color: black;
   color: white;
@@ -390,16 +400,28 @@ export default {
   justify-content: space-between;
   margin-top: 30px;
 }
-
+/*A temporary map image has been added */
 .map-container {
-  width: 60%;
-  height: 300px;
-  background-color: grey;
+  width: 40%; 
+  height: 300px; 
+  background-image: url('@/assets/map.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+}
+/*added new promo contanier and car promo image, edit text
+position  */
+.promo-container{
+  background-position: center;
 }
 
+.car-promo img{
+  width: 337px;
+  height: 195px;
+}
 .promo-text {
-  width: 35%;
-  text-align: right;
+  width: 90%;
+  text-align: left;
 }
 
 .promo-text p {
