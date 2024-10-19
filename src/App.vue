@@ -39,39 +39,73 @@
             <div class="spec-value">525 л.с.</div>
         </div>
         <hr class="divider">
-          <div class="descript-text"> Cемейный катамаран для обыденых поездок за картошкой в деревню.
+          <div class="descript-text"> Cемейный катамаран для обыденных поездок за картошкой в деревню.
            Изящные черты заставят вас сожалеть даже о самом небрежном столновении. Если вам 40+ лет и вы одинокий скуф - эта машина для вас!
           </div>
       </div>
     </section>
 
     <!-- Brends Btns -->
+    <hr class="divider">
     <section class="brand-buttons">
-      <button>Майбах</button>
-      <button>Ауби</button>
-      <button>Какделак</button>
-      <button>Чехословацкий Автопром</button>
-      <button>Мохентохен Моторспорт</button>
-      <button>Чингизхан Inc</button>
-      <button>ГАЗ</button>
-      <button>МММ</button>
+      <button>
+        <img :src="carLogo" alt="Mercedes Logo" />
+        <span>Майбах</span>
+      </button>
+      <button>
+        <img :src="carLogo" alt="Mercedes Logo" />
+        <span>Ауби</span>
+      </button>
+      <button>
+        <img :src="carLogo" alt="Mercedes Logo" />
+        <span>Какделак</span>
+      </button>
+      <button>
+        <img :src="carLogo" alt="Mercedes Logo" />
+        <span>Чехословацкий Автопром</span>
+      </button>
+      <button>
+        <img :src="carLogo" alt="Mercedes Logo" />
+        <span>Мохентохен Моторспорт</span>
+      </button>
+      <button>
+        <img :src="carLogo" alt="Mercedes Logo" />
+        <span>Чингизхан Inc</span>
+      </button>
+      <button>
+        <img :src="carLogo" alt="Mercedes Logo" />
+        <span>ГАЗ</span>
+      </button>
+      <button>
+        <img :src="carLogo" alt="Mercedes Logo" />
+        <span>МММ</span>
+      </button>
     </section>
 
+    <hr class="divider">
+
+
     <!-- Small Cards -->
+    
     <section class="small-cards">
       <div class="car-card">
         <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
         </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
@@ -79,17 +113,23 @@
 
     <section class="small-cards">
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
@@ -97,27 +137,32 @@
 
     <section class="small-cards">
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
       <div class="car-card">
-        <div class="car-image"></div>
+        <div class="car-image">
+          <img :src="bmwImage" alt="Car Image" />
+        </div>
         <h4>Гоночная Спортивная Коляска (F77)</h4>
         <p>7 500 999 ₸</p>
       </div>
     </section>
 
-    <!-- Map and Img-->
+    <!-- Map and Promo Image -->
     <section class="map-and-info">
       <div class="map-container"></div>
       <div class="promo-text">
-        <!--<img src="car-image.png" alt="Car Promo">-->
         <p>Уфф было это что за чёртолет такой... <br>
           Тебя давно не было в уличных гонках! Садись за руль и приезжай к нам в Чайна таун...</p>
       </div>
@@ -130,25 +175,24 @@
   </div>
 </template>
 
-
-
 <script>
 import mainCarImage from '@/assets/car_card_0.jpg';
+import carLogo from '@/assets/mercedes_logo.png';
+import bmwImage from '@/assets/bmw-image_0.jpg';
 
 export default {
   name: 'App',
   data() {
     return {
-      mainCarImage
+      mainCarImage,
+      carLogo,
+      bmwImage,
     };
-  }
+  },
 };
-
-
 </script>
 
 <style scoped>
-
 .main-container {
   background-color: black;
   color: white;
@@ -156,26 +200,29 @@ export default {
   font-weight: 200;
   padding: 20px;
 }
-.number{
+
+.number {
   font-size: 22px;
 }
 
-.descript-text{
+.descript-text {
   color: gray;
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
 }
 
-.adress{
+.adress {
   font-weight: 500;
   padding-right: 25px;
   padding-bottom: 5px;
 }
-.contact-text{
+
+.contact-text {
   font-size: 15px;
-  color: #E5B748;
+  color: #e5b748;
   padding-top: 5px;
 }
+
 .car-spec {
   display: flex;
   justify-content: space-between;
@@ -192,32 +239,38 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #E5B748;
+  border-bottom: 2px solid #e5b748;
   padding-bottom: 8px;
 }
 
-.contact-info, .company-info {
+.contact-info,
+.company-info {
   padding-left: 25px;
 }
 
 .logo {
   font-family: 'Oswald', sans-serif;
   font-size: 38px;
-  color: #E5B748;
+  color: #e5b748;
 }
 
 .navigation {
+  background-color: #242424;
   display: flex;
   justify-content: center;
+  height: 45px;
+  align-items: center;
   margin: 10px 0;
+  gap: 150px;
 }
 
 .navigation a {
-  color: white;
+  color: #8d8d8d;
+  font-weight: 300;
   margin: 0 15px;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .main-card {
@@ -228,7 +281,7 @@ export default {
 }
 
 .car-image {
-  margin-right: 40px; 
+  margin-right: 40px;
 }
 
 .car-image img {
@@ -251,55 +304,85 @@ export default {
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   font-size: 30px;
-  color: #E5B748;
+  color: #e5b748;
 }
 
 .divider {
   border: 0;
-  height: 1px;
+  height: 2px;
   background-color: grey;
-  margin: 20px 0;
+  margin: 35px 0;
 }
 
+/* Сетки и кнопки */
 .brand-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 20px;
   margin: 20px 0;
 }
 
 .brand-buttons button {
-  background-color: transparent;
-  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 80px;
+  background-color: #333;
   color: white;
-  padding: 10px;
+  border: 1px solid white;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
+  margin: 10px;
+  padding: 10px;
+}
+
+.brand-buttons img {
+  width: 40px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.brand-buttons span {
+  font-size: 14px;
+  text-align: center;
 }
 
 .small-cards {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  gap: 10px; 
 }
 
 .car-card {
   width: 30%;
-  text-align: center;
+  text-align: left; 
 }
 
 .car-card .car-image {
+  width: 350px;
+  height: 200px;
+}
+
+.car-card img {
   width: 100%;
-  height: 150px;
-  background-color: white;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0; 
 }
 
 .car-card h4 {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .car-card p {
-  color: #E5B748;
+  color: #e5b748;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5px;
 }
 
 .map-and-info {
@@ -311,16 +394,12 @@ export default {
 .map-container {
   width: 60%;
   height: 300px;
-  background-color: grey; 
+  background-color: grey;
 }
 
 .promo-text {
   width: 35%;
   text-align: right;
-}
-
-.promo-text img {
-  max-width: 100%;
 }
 
 .promo-text p {
