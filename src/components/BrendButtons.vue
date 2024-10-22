@@ -5,7 +5,7 @@
     <router-link to="/catalog">
     <button>
       <img :src="carLogo" alt="Mercedes Logo" />
-      <span>Майбах</span>
+      <span>Babidjon</span>
     </button>
   </router-link>
     <button>
