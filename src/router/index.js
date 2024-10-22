@@ -1,7 +1,7 @@
-/* vue Router for create new pages and link them */
 import * as VueRouter from "vue-router"
 import MainPage from "@/pages/mainPage.vue"
 import CarCardPage from "@/pages/CarCardPage.vue"
+import CarCatalogePage from "@/pages/CarCatalogePage.vue"
 
 export default VueRouter.createRouter({
     history:VueRouter.createWebHashHistory(),
@@ -16,11 +16,13 @@ export default VueRouter.createRouter({
         name:'CarCardpage',
         component:CarCardPage
         },
-        /*{
+        
+        {
             path:'/catalog',
             name:'CatalogPage',
-            component:CarCataloge
+            component:CarCatalogePage
         },
+        /*
         {
             path:'/contats',
             name:'ContactsPage',
