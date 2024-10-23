@@ -2,9 +2,11 @@
   <!-- Small Cards -->
   <section class="small-cards">
     <div v-for="(car, index) in cars" :key="index" class="car-card">
+      <router-link to="/card">
       <div class="car-image">
         <img :src="car.image" alt="Car Image" />
       </div>
+    </router-link>
       <h4>{{ car.name }}</h4>
       <p>{{ car.price }}</p>
     </div>

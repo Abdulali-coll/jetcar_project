@@ -68,6 +68,7 @@ export default {
 }
 /*Adaptive styles*/
 @media (max-width: 768px) {
+  
   .map-and-info {
     flex-direction: column;
     align-items: center;

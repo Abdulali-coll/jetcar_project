@@ -1,6 +1,7 @@
 <template>
   <!-- Navigation Btns -->
   <nav class="navigation">
+    <router-link to="/">Главная</router-link>
     <router-link to="/card">Купить Авто</router-link>
     <router-link to="/catalog">Каталог</router-link>
     <router-link to="/contacts">Контакты</router-link>
@@ -51,11 +52,11 @@ export default {
 /* Adaptive styles 768px */
 @media (max-width: 768px) {
   .navigation {
-    gap: 30px;
+    gap: 9px;
   }
   
   .navigation a {
-    font-size: 14px;
+    font-size: 13px;
     padding: 5px 8px;
   }
 }
