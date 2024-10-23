@@ -24,6 +24,8 @@ export default {
 
 <style>
 .header {
+  width: 100%;
+  height: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,6 +51,9 @@ export default {
 }
 
 .contact-text {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-weight: 500;
   font-size: 15px;
   color: #e5b748;
   padding-top: 5px;
@@ -66,15 +71,23 @@ export default {
 .number {
   color: white;
   margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-weight: 500;
 }
 
 .address {
+  font-family: 'Roboto', sans-serif;
+  color: white;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
 .schedule {
   font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  color: gray;
+  font-weight: 400;
 }
 
 /* Adaptive styles */
