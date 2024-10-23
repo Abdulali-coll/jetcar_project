@@ -37,5 +37,4 @@ export default {
   font-weight: 200;
   padding: 20px;
 }
-
 </style>

@@ -1,7 +1,9 @@
 <template>
+    <div class="main-about">
     <CarHeader></CarHeader>
     <NavigateButtons></NavigateButtons>
     <CarFooter></CarFooter>
+    </div>
 </template>
 
 <script>
@@ -21,7 +23,7 @@ components:{
 </script>
 
 <style>
-.main-contacts {
+.main-about {
   background-color: black;
   color: white;
   font-family: 'Roboto', sans-serif;
