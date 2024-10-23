@@ -1,14 +1,15 @@
 <template>
-  <!-- Map and Promo Image -->
   <section class="map-and-info">
-    <div class="map-container"></div>
-    <div class="promo-container">
-      <div class="car-promo">
-        <img :src="PromoCar" alt="Promo car" />
-      </div>
-      <div class="promo-text">
-        <p>Уфф, было это что за чёртолет такой... <br>
-          Тебя давно не было в уличных гонках! Садись за руль и приезжай к нам в Чайна таун...</p>
+    <div class="map-promo">
+      <div id="map" class="map-container"></div>
+      <div class="promo-container">
+        <div class="car-promo">
+          <img :src="PromoCar" alt="Promo car" />
+        </div>
+        <div class="promo-text">
+          <p>Уфф, было это что за чёртолет такой... <br>
+            Тебя давно не было в уличных гонках! Садись за руль и приезжай к нам в Чайна таун...</p>
+        </div>
       </div>
     </div>
   </section>
@@ -16,6 +17,7 @@
 
 <script>
 import PromoCar from '@/car-image.jpg';
+
 export default {
   name: 'MapPromo',
   data() {
@@ -23,42 +25,70 @@ export default {
       PromoCar,
     };
   },
+  mounted() {
+    this.loadMap();
+  },
+  methods: {
+    loadMap() {
+      const script = document.createElement('script');
+      script.src = "https://api-maps.yandex.ru/2.1/?apikey=78436aa4-9eaa-430e-84a3-60b947d3a445&lang=ru_RU";
+      script.type = "text/javascript";
+      script.onload = () => this.initMap();
+      document.head.appendChild(script);
+    },
+    initMap() {
+      ymaps.ready(() => {
+        var myMap = new ymaps.Map("map", {
+          center: [55.759681, 37.535023],
+          zoom: 10
+        });
+        var myPlacemark = new ymaps.Placemark([55.759681, 37.535023], {
+          hintContent: 'Богдан Джан IND!',
+          balloonContent: 'Это JET CAR!'
+        });
+        myMap.geoObjects.add(myPlacemark);
+      });
+    }
+  }
 }
 </script>
 
-<style>
-.map-and-info {
+<style scoped>
+.map-promo {
   border-top: 1px solid #ccc;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* A temporary map image has been added */
 .map-container {
-  margin-top: 45px;
-  width: 40%;
-  height: 300px;
-  background-image: url('@/assets/map.png');
-  background-size: cover;
-  background-position: center;
+  margin-top: 15px;
+  flex: 1 1 50%;
+  min-width: 300px;
+  height: 400px;
+}
+.map-container {
   border-radius: 15px;
 }
-
-/* Added new promo container and car promo image, edit text position */
 .promo-container {
-  background-position: center;
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .car-promo img {
-  margin-top: 50px;
-  width: 337px;
-  height: 195px;
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  margin-bottom: 20px;
 }
 
 .promo-text {
-  width: 90%;
-  text-align: left;
+  text-align: center;
 }
 
 .promo-text p {
@@ -66,38 +96,31 @@ export default {
   font-size: 16px;
   color: white;
 }
-/*Adaptive styles*/
+
 @media (max-width: 768px) {
-  
-  .map-and-info {
+  .map-promo {
     flex-direction: column;
-    align-items: center;
   }
 
   .map-container {
     width: 100%;
-    height: 200px;
-  }
-
-  .promo-container {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
+    height: 300px;
   }
 
   .car-promo img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
   }
 
   .promo-text p {
-    font-size: 14px; 
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .map-and-info {
-    margin-top: 15px;
+  .map-container {
+    width: 100%;
+    height: 250px;
   }
 
   .promo-text p {
