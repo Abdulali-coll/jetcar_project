@@ -3,6 +3,7 @@
     <CarHeader></CarHeader>
     <NavigateButtons></NavigateButtons>
     <ContactsForm></ContactsForm>
+    <Reviews></Reviews>
     <CarFooter></CarFooter>
 </div>
 </template>
@@ -12,7 +13,7 @@ import CarFooter from '@/components/CarFooter.vue';
 import CarHeader from '@/components/CarHeader.vue';
 import ContactsForm from '@/components/ContactsForm.vue';
 import NavigateButtons from '@/components/NavigateButtons.vue';
-
+import Reviews from '@/components/reviews.vue';
 export default {
 
 name: 'ContactsPage',
@@ -21,6 +22,7 @@ components:{
     CarFooter,
     NavigateButtons,
     ContactsForm,
+    Reviews
 },
 };
 

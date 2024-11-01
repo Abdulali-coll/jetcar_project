@@ -17,8 +17,14 @@
 </template>
 
 <script>
+import phone from '@/assets/icon-phone.png';
 export default {
-  name: 'CarHeader'
+  name: 'CarHeader',
+  data() {
+    return {
+      phone,
+    };
+  }
 }
 </script>
 
@@ -93,16 +99,18 @@ export default {
 /* Adaptive styles */
 @media (max-width: 600px) {
   .header {
-    flex-direction: column;
     align-items: center;
   }
   
   .logo {
     margin-bottom: 10px;
+    font-size: 25px;
   }
   
-  .contact-info, .company-info {
+  .contact-info, .company-info, .schedule, .contact-text {
     text-align: center;
+    font-size: 12.5px;
   }
 }
+
 </style>
