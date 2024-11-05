@@ -1,4 +1,4 @@
-<template><!-- Car buy page -->
+<template>
   <div class="CarCardMainContainer">
       <CarHeader></CarHeader>
       <NavigButton></NavigButton>

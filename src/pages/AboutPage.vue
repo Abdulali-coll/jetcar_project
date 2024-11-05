@@ -9,6 +9,7 @@
 <script>
 import CarFooter from '@/components/CarFooter.vue';
 import CarHeader from '@/components/CarHeader.vue';
+import MainComp from '@/components/MainComponent.vue';
 import NavigateButtons from '@/components/NavigateButtons.vue';
 
 export default {
@@ -16,6 +17,7 @@ export default {
 name: 'AboutUsPage',
 components:{
     CarHeader,
+    MainComp,
     CarFooter,
     NavigateButtons,
 },

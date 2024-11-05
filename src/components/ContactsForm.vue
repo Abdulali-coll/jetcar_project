@@ -111,13 +111,13 @@ export default {
 }
 
 #confirm-checkbox {
-    margin-left: -70px;
-    margin-right: -100px;
+    margin-right: 20px;
 }
 
 .text-confirm {
     color: #8D8D8D;
     font-size: 16px;
+    margin-left: -280px;
     font-family: 'Roboto' , sans-serif;
 }
 

@@ -13,7 +13,7 @@ import CarFooter from '@/components/CarFooter.vue';
 import CarHeader from '@/components/CarHeader.vue';
 import ContactsForm from '@/components/ContactsForm.vue';
 import NavigateButtons from '@/components/NavigateButtons.vue';
-import Reviews from '@/components/reviews.vue';
+import Reviews from '@/components/Reviews.vue';
 export default {
 
 name: 'ContactsPage',
