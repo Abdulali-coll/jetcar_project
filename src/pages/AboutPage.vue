@@ -2,6 +2,7 @@
     <div class="main-about">
     <CarHeader></CarHeader>
     <NavigateButtons></NavigateButtons>
+    <MainComp></MainComp>
     <CarFooter></CarFooter>
     </div>
 </template>
@@ -9,7 +10,7 @@
 <script>
 import CarFooter from '@/components/CarFooter.vue';
 import CarHeader from '@/components/CarHeader.vue';
-import MainComp from '@/components/MainComponent.vue';
+import MainComp from '@/components/ComponentAbPage.vue';
 import NavigateButtons from '@/components/NavigateButtons.vue';
 
 export default {
