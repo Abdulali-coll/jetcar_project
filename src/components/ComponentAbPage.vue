@@ -1,5 +1,8 @@
 <template>
   <!-- Main Card -->
+  <div class="head-words">
+            Мы худшие в своём деле!
+        </div>
   <section class="main-card">
     <div class="car-image">
       <img :src="mainCarImage" alt="Main Car" />
@@ -14,6 +17,9 @@
     
   </section>
   <hr class="divider">
+  <div class="text-marketing">
+            Лучшие цены во всём Триштатье! Будь ты проклят Перри Утконос
+        </div>
   <section class="main-card">
     <div class="car-info">
       <div class="descript-text">
@@ -24,6 +30,25 @@
     <div class="car-image">
       <img :src="mainCarImage" alt="Main Car" />
     </div>
+  </section>
+  
+  <div class="head-words">
+            Видео Обзор
+  </div>
+
+
+  <section class="main-card">
+    <div class="car-info">
+      <div class="descript-text">
+        Cемейный катамаран для обыденных поездок за картошкой в деревню.
+        Изящные черты заставят вас сожалеть даже о самом небрежном столновении. Если вам 40+ лет и вы одинокий скуф - эта машина для вас!
+      </div>
+    </div>
+    <div class="contact-button">
+                    <nav class="button-inside">
+                        <router-link to="/contacts">ПОДОЙДИ НЕ БОЙСЯ! Я РОТ ТВОЙ ...</router-link>
+                    </nav>
+                </div>
   </section>
 </template>
 
