@@ -1,14 +1,13 @@
 <template>
-  <!-- Small Cards -->
   <section class="small-cards">
     <div v-for="(car, index) in cars" :key="index" class="car-card">
-      <router-link to="/card">
-      <div class="car-image">
-        <img :src="car.image" alt="Car Image" />
-      </div>
-    </router-link>
-      <h4>{{ car.name }}</h4>
-      <p>{{ car.price }}</p>
+      <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }">
+        <div class="car-image">
+          <img :src="car.image" alt="Car Image" />
+        </div>
+        <h4>{{ car.name }}</h4>
+        <p>{{ car.price }}</p>
+      </router-link>
     </div>
   </section>
 </template>
@@ -29,15 +28,87 @@ export default {
   data() {
     return {
       cars: [
-        { image: benefactor, name: "Benefactor", price: "7 500 999 ₸" },
-        { image: bravadoClassic, name: "Bravado Classic", price: "6 900 999 ₸" },
-        { image: brawadoBunshee, name: "Brawado Bunshee", price: "8 200 999 ₸" },
-        { image: buccaneer, name: "Buccaneer", price: "7 300 999 ₸" },
-        { image: comet, name: "Comet", price: "6 500 999 ₸" },
-        { image: elegyRetroSport, name: "Elegy Retro Sport", price: "8 000 999 ₸" },
-        { image: elegyRH8, name: "Elegy RH8", price: "7 800 999 ₸" },
-        { image: obeyF8, name: "Obey F8", price: "9 000 999 ₸" },
-        { image: weevil, name: "Weevil", price: "5 500 999 ₸" }
+        { 
+          image: benefactor, 
+          name: "Benefactor", 
+          price: "7 500 999 ₸", 
+          mileage: 1137, 
+          power: 525, 
+          engineType: "Атомный, Уран 238U", 
+          year: 2018 
+        },
+        { 
+          image: bravadoClassic, 
+          name: "Bravado Classic", 
+          price: "6 900 999 ₸", 
+          mileage: 15000, 
+          power: 350, 
+          engineType: "V8, Бензин", 
+          year: 2017 
+        },
+        { 
+          image: brawadoBunshee, 
+          name: "Brawado Bunshee", 
+          price: "8 200 999 ₸", 
+          mileage: 2000, 
+          power: 600, 
+          engineType: "V10, Бензин", 
+          year: 2019 
+        },
+        { 
+          image: buccaneer, 
+          name: "Buccaneer", 
+          price: "7 300 999 ₸", 
+          mileage: 50000, 
+          power: 450, 
+          engineType: "V6, Бензин", 
+          year: 2015 
+        },
+        { 
+          image: comet, 
+          name: "Comet", 
+          price: "6 500 999 ₸", 
+          mileage: 7500, 
+          power: 380, 
+          engineType: "V6, Бензин", 
+          year: 2018 
+        },
+        { 
+          image: elegyRetroSport, 
+          name: "Elegy Retro Sport", 
+          price: "8 000 999 ₸", 
+          mileage: 10000, 
+          power: 400, 
+          engineType: "V6, Бензин", 
+          year: 2016 
+        },
+        { 
+          image: elegyRH8, 
+          name: "Elegy RH8", 
+          price: "7 800 999 ₸", 
+          mileage: 8000, 
+          power: 420, 
+          engineType: "V6, Бензин", 
+          year: 2020 
+        },
+        { 
+          image: obeyF8, 
+          name: "Obey F8", 
+          price: "9 000 999 ₸", 
+          mileage: 5000, 
+          power: 540, 
+          engineType: "V8, Бензин", 
+          year: 2021 
+        },
+        { 
+          image: weevil, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        }
       ]
     };
   }
@@ -45,83 +116,55 @@ export default {
 </script>
 
 <style scoped>
+.car-card a {
+    text-decoration: none;
+    color:white;
+}
 
-  .small-cards {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 100px;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .small-cards li :last-child{
-    border-bottom: 1px solid #ccc;
-  }
+.small-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  gap: 10px;
+  flex-wrap: wrap;
+  text-decoration: none;
+}
 
-  .car-card {
-    width: 30%;
-    text-align: left;
-  }
-  
-  .car-card .car-image {
-    width: 100%; 
-    height: 200px;
-  }
-  
-  .car-image img {
-    width: 100%;
-    height: 100%;
-  }
-  .car-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-  }
-  
-  .car-card h4 {
-    margin: 5px 0;
-  }
-  
-  .car-card p {
-    color: #e5b748;
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 5px;
-  }
-  /*Adaptive styles*/
-  @media (max-width: 768px) {
-    .car-card {
-      width: 45%;
-    }
-  
-    .car-card p {
-      font-size: 18px;
-    }
-  }
+.car-card {
+  width: 30%;
+  text-align: left;
+  text-decoration: none;
+}
 
-  @media (max-width: 480px) {
-    .small-cards {
-      justify-content: space-between;
-      gap: 10px;
-    }
-  
-    .car-card {
-      width: 48%;
-    }
-  
-    .car-card .car-image {
-      width: 100%;
-      height: 100%;
-    }
-  
-    .car-card h4 {
-      font-size: 16px;
-    }
-  
-    .car-card p {
-      font-size: 16px;
-    }
-  }
-  </style>
+.car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.car-card h4 {
+  margin: 5px 0;
+}
+
+.car-card p {
+  color: #e5b748;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+/* Новый стиль для информации о машине */
+.car-details {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.car-details li {
+  font-size: 16px;
+  color: white;
+  padding-bottom: 5px;
+}
+</style>
