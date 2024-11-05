@@ -30,15 +30,87 @@ export default {
   data() {
     return {
       cars: [
-        { image: benefactor, name: "Benefactor", price: "7 500 999 ₸" },
-        { image: bravadoClassic, name: "Bravado Classic", price: "6 900 999 ₸" },
-        { image: brawadoBunshee, name: "Brawado Bunshee", price: "8 200 999 ₸" },
-        { image: buccaneer, name: "Buccaneer", price: "7 300 999 ₸" },
-        { image: comet, name: "Comet", price: "6 500 999 ₸" },
-        { image: elegyRetroSport, name: "Elegy Retro Sport", price: "8 000 999 ₸" },
-        { image: elegyRH8, name: "Elegy RH8", price: "7 800 999 ₸" },
-        { image: obeyF8, name: "Obey F8", price: "9 000 999 ₸" },
-        { image: weevil, name: "Weevil", price: "5 500 999 ₸" }
+        { 
+          image: benefactor, 
+          name: "Benefactor", 
+          price: "7 500 999 ₸", 
+          mileage: 1137, 
+          power: 525, 
+          engineType: "Атомный, Уран 238U", 
+          year: 2018 
+        },
+        { 
+          image: bravadoClassic, 
+          name: "Bravado Classic", 
+          price: "6 900 999 ₸", 
+          mileage: 15000, 
+          power: 350, 
+          engineType: "V8, Бензин", 
+          year: 2017 
+        },
+        { 
+          image: brawadoBunshee, 
+          name: "Brawado Bunshee", 
+          price: "8 200 999 ₸", 
+          mileage: 2000, 
+          power: 600, 
+          engineType: "V10, Бензин", 
+          year: 2019 
+        },
+        { 
+          image: buccaneer, 
+          name: "Buccaneer", 
+          price: "7 300 999 ₸", 
+          mileage: 50000, 
+          power: 450, 
+          engineType: "V6, Бензин", 
+          year: 2015 
+        },
+        { 
+          image: comet, 
+          name: "Comet", 
+          price: "6 500 999 ₸", 
+          mileage: 7500, 
+          power: 380, 
+          engineType: "V6, Бензин", 
+          year: 2018 
+        },
+        { 
+          image: elegyRetroSport, 
+          name: "Elegy Retro Sport", 
+          price: "8 000 999 ₸", 
+          mileage: 10000, 
+          power: 400, 
+          engineType: "V6, Бензин", 
+          year: 2016 
+        },
+        { 
+          image: elegyRH8, 
+          name: "Elegy RH8", 
+          price: "7 800 999 ₸", 
+          mileage: 8000, 
+          power: 420, 
+          engineType: "V6, Бензин", 
+          year: 2020 
+        },
+        { 
+          image: obeyF8, 
+          name: "Obey F8", 
+          price: "9 000 999 ₸", 
+          mileage: 5000, 
+          power: 540, 
+          engineType: "V8, Бензин", 
+          year: 2021 
+        },
+        { 
+          image: weevil, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        }
       ]
     };
   }
