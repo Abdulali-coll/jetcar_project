@@ -1,5 +1,5 @@
 <template><!-- Main Page -->
-  <<div class="main-container">
+  <div class="main-container">
   <CarHeader></CarHeader>
   <NavigButton></NavigButton>
   <MainComp></MainComp>
@@ -7,7 +7,7 @@
   <CarsSmall></CarsSmall>
   <MapPromo></MapPromo>
   <CarFooter></CarFooter>
-  </div>>
+  </div>
 </template>
 
 <script>

@@ -8,34 +8,48 @@
       <span>Babidjon</span>
     </button>
   </router-link>
+  <router-link to="/catalog">
     <button>
       <img :src="carLogo" alt="Mercedes Logo" />
       <span>Ауби</span>
     </button>
+  </router-link>
+  <router-link to="/catalog">
     <button>
       <img :src="carLogo" alt="Mercedes Logo" />
       <span>Какделак</span>
     </button>
+  </router-link>
+  <router-link to="/catalog">
     <button>
       <img :src="carLogo" alt="Mercedes Logo" />
       <span>Чехословацкий Автопром</span>
     </button>
+  </router-link>
+  <router-link to="/catalog">
     <button>
       <img :src="carLogo" alt="Mercedes Logo" />
       <span>Мохентохен Моторспорт</span>
     </button>
+  </router-link>
+  <router-link to="/catalog">
     <button>
       <img :src="carLogo" alt="Mercedes Logo" />
       <span>Чингизхан Inc</span>
     </button>
+  </router-link>
+  <router-link to="/catalog">
     <button>
       <img :src="carLogo" alt="Mercedes Logo" />
       <span>ГАЗ</span>
     </button>
+  </router-link>
+  <router-link to="/catalog">
     <button>
       <img :src="carLogo" alt="Mercedes Logo" />
       <span>МММ</span>
     </button>
+  </router-link>
   </section>
   
   <hr class="divider">

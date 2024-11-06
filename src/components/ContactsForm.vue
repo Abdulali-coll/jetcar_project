@@ -13,21 +13,21 @@
                     Имя*
                 </div>
                 <div id="model-basic1" class="enter-name-area">
-                    <input v-model="message" placeholder="Введите ваше имя" />
+                    <input v-model="name" placeholder="Введите ваше имя" />
                     <p>{{ message }}</p>
                 </div>
                 <div class="email">
                     Email*
                 </div>
                 <div id="model-basic2" class="enter-email-area">
-                    <input v-model="message" placeholder="Введите вашу почту" />
+                    <input v-model="email" placeholder="Введите вашу почту" />
                     <p>{{ message }}</p>
                 </div>
                 <div class="number">
                     Телефон*
                 </div>
                 <div id="model-basic3" class="enter-number-area">
-                    <input v-model="message" placeholder="Введите ваш номер телефона" />
+                    <input v-model="number" placeholder="Введите ваш номер телефона" />
                     <p>{{ message }}</p>
                 </div>
             </div>
@@ -64,6 +64,9 @@ export default {
         return {
             CarImage,
             message: '',
+            name: '',
+            email: '',
+            number: '',
             consentGiven: false 
         };
     }
