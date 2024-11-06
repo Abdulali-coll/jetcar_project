@@ -31,14 +31,7 @@
                     <p>{{ message }}</p>
                 </div>
             </div>
-            <div class="confirm">
-                <div class="area-confirm">
-                    <input type="checkbox" id="confirm-checkbox" v-model="consentGiven" />
-                    <label for="confirm-checkbox" class="text-confirm">
-                        Даю согласие на обработку личных данных
-                    </label>
-                </div>
-            </div>
+           
             <div class="contact-button">
                     <nav class="button-inside">
                         <router-link to="/contacts">ПОЗВОНИТЬ БОГДАН ДЖАНУ!</router-link>
@@ -113,14 +106,14 @@ export default {
     margin-top: 30px;
 }
 
-#confirm-checkbox {
-    margin-right: 20px;
+.confirm-checkbox {
+    margin-right: 0px;
 }
 
 .text-confirm {
     color: #8D8D8D;
     font-size: 16px;
-    margin-left: -280px;
+    margin-left: 0px;
     font-family: 'Roboto' , sans-serif;
 }
 
@@ -175,7 +168,8 @@ input {
     margin-left: 41px;
     font-family: Oswald,sans-serif;
     font-weight: 700;
-    gap: 4px
+    width: 800px;
+    gap: 44px
 }   
 
 .main-word {
