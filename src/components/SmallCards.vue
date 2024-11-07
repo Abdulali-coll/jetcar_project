@@ -33,6 +33,7 @@ import primo from '@/assets/source-image/Primo.png';
 import sentimentalClassic from '@/assets/source-image/SentimentalClassic.png';
 import specter from '@/assets/source-image/Specter-GTAO.png';
 import yosemite from '@/assets/source-image/YosemiteRancher.png';
+import yoga from '@/assets/source-image/YougaClassic-GTAO-front.png';
 
 export default {
   name: "CarsSmall",
@@ -113,6 +114,113 @@ export default {
         },
         { 
           image: weevil, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: buccaneerCustom, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },{ 
+          image: cometRetro, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: factionCustom, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: GauntlelClassic, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: italiGTB, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: nero, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: neroCustom, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: primo, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: sentimentalClassic, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: specter, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: yosemite, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: yoga, 
           name: "Weevil", 
           price: "5 500 999 ₸", 
           mileage: 30000, 
