@@ -22,6 +22,17 @@ import elegyRetroSport from '@/assets/source-image/elegyRetroSport.png';
 import elegyRH8 from '@/assets/source-image/elegyRH8.png';
 import obeyF8 from '@/assets/source-image/obeyF8.png';
 import weevil from '@/assets/source-image/weevil.png';
+import buccaneerCustom from '@/assets/source-image/BuccaneerCustom.png';
+import cometRetro from '@/assets/source-image/cometRetro.png';
+import factionCustom from '@/assets/source-image/BuccaneerCustom.png';
+import GauntlelClassic from '@/assets/source-image/GauntletClassic.png';
+import italiGTB from '@/assets/source-image/ItaliGTB.png';
+import nero from '@/assets/source-image/Nero.png';
+import neroCustom from '@/assets/source-image/NeroCustom.png';
+import primo from '@/assets/source-image/Primo.png';
+import sentimentalClassic from '@/assets/source-image/SentimentalClassic.png';
+import specter from '@/assets/source-image/Specter-GTAO.png';
+import yosemite from '@/assets/source-image/YosemiteRancher.png';
 
 export default {
   name: "CarsSmall",
