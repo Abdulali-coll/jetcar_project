@@ -36,6 +36,17 @@
             Видео Обзор
   </div>
 
+  <div class="video-player">
+    <video
+      ref="video"
+      :src="videoSrc"
+      @timeupdate="updateProgress"
+      @loadedmetadata="setDuration"
+      @play="playing = true"
+      @pause="playing = false"
+      controls
+    ></video>
+  </div>
 
   <section class="main-card">
     <div class="car-info">
@@ -46,7 +57,7 @@
     </div>
     <div class="contact-button">
                     <nav class="button-inside">
-                        <router-link to="/contacts">ПОДОЙДИ НЕ БОЙСЯ! Я РОТ ТВОЙ ...</router-link>
+                        <router-link to="/contacts">БУ! ПОДОЙДИ НЕ БОЙСЯ! Я РОТ ТВОЙ ...</router-link>
                     </nav>
                 </div>
   </section>
@@ -59,12 +70,41 @@ export default {
   data() {
     return {
       mainCarImage,
+      videoSrc: '@assets/Bently.mp4',
+      playing: false,
+      currentTime: 0,
+      duration: 0,
+      progress: 0,
+      volume: 1
     };
   }
 }
+
+
 </script>
 
 <style scoped>
+.video-player {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+video{
+  width: 1000px;
+  height: 700px;
+}
+
+.controls {
+  
+  gap: 8px;
+  margin-top: 8px;
+}
+button {
+  padding: 4px 8px;
+}
+
 .number {
   font-size: 22px;
 }
