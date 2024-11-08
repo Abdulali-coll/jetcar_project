@@ -64,12 +64,12 @@ export default {
 /* Adaptive styles 480px */
 @media (max-width: 480px) {
   .navigation {
-    gap: 10px;
+    gap: 5px;
     padding: 0 10px;
   }
   
   .navigation a {
-    font-size: 12px;
+    font-size: 10px;
     padding: 4px 6px;
   }
 }

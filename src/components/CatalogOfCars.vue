@@ -24,6 +24,18 @@ import elegyRetroSport from '@/assets/source-image/elegyRetroSport.png';
 import elegyRH8 from '@/assets/source-image/elegyRH8.png';
 import obeyF8 from '@/assets/source-image/obeyF8.png';
 import weevil from '@/assets/source-image/weevil.png';
+import buccaneerCustom from '@/assets/source-image/BuccaneerCustom.png';
+import cometRetro from '@/assets/source-image/cometRetro.png';
+import factionCustom from '@/assets/source-image/BuccaneerCustom.png';
+import GauntlelClassic from '@/assets/source-image/GauntletClassic.png';
+import italiGTB from '@/assets/source-image/ItaliGTB.png';
+import nero from '@/assets/source-image/Nero.png';
+import neroCustom from '@/assets/source-image/NeroCustom.png';
+import primo from '@/assets/source-image/Primo.png';
+import sentimentalClassic from '@/assets/source-image/SentimentalClassic.png';
+import specter from '@/assets/source-image/Specter-GTAO.png';
+import yosemite from '@/assets/source-image/YosemiteRancher.png';
+import yoga from '@/assets/source-image/YougaClassic-GTAO-front.png';
 
 export default {
   name: "CarsSmall",
@@ -110,6 +122,113 @@ export default {
           power: 150, 
           engineType: "I4, Бензин", 
           year: 2014 
+        },
+        { 
+          image: buccaneerCustom, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },{ 
+          image: cometRetro, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: factionCustom, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: GauntlelClassic, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: italiGTB, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: nero, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: neroCustom, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: primo, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: sentimentalClassic, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: specter, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: yosemite, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
+        },
+        { 
+          image: yoga, 
+          name: "Weevil", 
+          price: "5 500 999 ₸", 
+          mileage: 30000, 
+          power: 150, 
+          engineType: "I4, Бензин", 
+          year: 2014 
         }
       ]
     };
@@ -141,16 +260,17 @@ export default {
     height: 200px;
   }
   
+  .car-image {
+  width: 100%; 
+  height: 200px;
+  overflow: hidden; 
+}
   .car-image img {
-    width: 100%;
-    height: 100%;
-  }
-  .car-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
   
   .car-card h4 {
     margin: 5px 0;
@@ -163,7 +283,7 @@ export default {
     font-size: 20px;
     margin-top: 5px;
   }
-  /*Adaptive styles*/
+  /*Adaptive styles 768px*/
   @media (max-width: 768px) {
     .car-card {
       width: 45%;
@@ -172,31 +292,36 @@ export default {
     .car-card p {
       font-size: 18px;
     }
+
+    .car-image {
+    height: 180px;
   }
 
-  @media (max-width: 480px) {
-    .small-cards {
-      justify-content: space-between;
-      gap: 10px;
-    }
-  
-    .car-card {
-      width: 48%;
-    }
-  
-    .car-card .car-image {
-      width: 100%;
-      height: 100%;
-    }
-  
-    .car-card h4 {
-      font-size: 16px;
-    }
-  
-    .car-card p {
-      font-size: 16px;
-    }
   }
+  /*Adaptive styles 480px*/
+  @media (max-width: 480px) {
+  .small-cards {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .car-card {
+    width: 100%; 
+    margin-bottom: 15px;
+  }
+
+  .car-image {
+    height: 150px; 
+  }
+
+  .car-card h4 {
+    font-size: 16px;
+  }
+
+  .car-card p {
+    font-size: 16px;
+  }
+}
   </style>
 
   

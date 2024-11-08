@@ -68,4 +68,39 @@ export default {
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
+
+/* Adaptive styles  768px */
+@media (max-width: 768px) {
+    .head-words {
+        font-size: 32px; 
+    }
+
+    .reviews-essay {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-left: 0;
+    }
+
+    .essay {
+        font-size: 18px;
+        max-width: 90%;
+    }
+}
+
+/* Adaptive styles 480px */
+@media (max-width: 480px) {
+    .head-words {
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    .image-reviews img {
+        max-width: 280px; 
+    }
+
+    .essay {
+        font-size: 16px; 
+    }
+}
 </style>

@@ -73,6 +73,7 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin: 20px 0;
+  
 }
 
 .brand-buttons button {

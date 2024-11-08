@@ -61,6 +61,7 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 20px 0;
 }
 
 .map-container {
@@ -68,10 +69,9 @@ export default {
   flex: 1 1 50%;
   min-width: 300px;
   height: 400px;
-}
-.map-container {
   border-radius: 15px;
 }
+
 .promo-container {
   flex: 1 1 40%;
   display: flex;
@@ -97,9 +97,12 @@ export default {
   color: white;
 }
 
+/* Adaptive styles for tablets and smaller screens */
 @media (max-width: 768px) {
   .map-promo {
     flex-direction: column;
+    align-items: center;
+    padding: 15px;
   }
 
   .map-container {
@@ -107,9 +110,9 @@ export default {
     height: 300px;
   }
 
-  .car-promo img {
-    max-width: 100%;
-    height: auto;
+  .promo-container {
+    width: 100%;
+    padding: 0 20px;
   }
 
   .promo-text p {
@@ -117,10 +120,15 @@ export default {
   }
 }
 
+/* Adaptive styles for small mobile screens */
 @media (max-width: 480px) {
   .map-container {
     width: 100%;
     height: 250px;
+  }
+
+  .car-promo img {
+    max-width: 90%; 
   }
 
   .promo-text p {

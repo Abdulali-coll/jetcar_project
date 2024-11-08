@@ -274,7 +274,6 @@ export default {
   margin-top: 5px;
 }
 
-/* Новый стиль для информации о машине */
 .car-details {
   list-style: none;
   padding: 0;

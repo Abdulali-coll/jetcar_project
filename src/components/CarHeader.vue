@@ -31,7 +31,7 @@ export default {
 <style>
 .header {
   width: 100%;
-  height: 150px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,10 +58,9 @@ export default {
 
 .contact-text {
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: #e5b748;
   font-weight: 500;
   font-size: 15px;
-  color: #e5b748;
   padding-top: 5px;
 }
 
@@ -73,12 +72,10 @@ export default {
   color: #fff;
 }
 
-
 .number {
   color: white;
   margin-bottom: 5px;
   font-family: 'Roboto', sans-serif;
-  color: white;
   font-weight: 500;
 }
 
@@ -99,18 +96,35 @@ export default {
 /* Adaptive styles */
 @media (max-width: 600px) {
   .header {
+    flex-direction: column;
     align-items: center;
-  }
-  
-  .logo {
-    margin-bottom: 10px;
-    font-size: 25px;
-  }
-  
-  .contact-info, .company-info, .schedule, .contact-text {
     text-align: center;
-    font-size: 12.5px;
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .contact-info, .company-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .number, .contact-text, .address, .schedule {
+    font-size: 13px;
+  }
+  
+  .contact-text {
+    font-size: 13px;
+  }
+
+  .schedule {
+    font-size: 12px;
+    color: lightgray;
   }
 }
-
 </style>

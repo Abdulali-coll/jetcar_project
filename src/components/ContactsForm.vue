@@ -71,15 +71,17 @@ export default {
 .main {
     display: flex;
 }
+
 .contact-button {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 25px;
-    height: 75px;
-    width: 400px;
+    height: 60px;
+    width: 100%; /* Сделаем кнопку широкой на маленьких экранах */
+    max-width: 400px;
     background-color: #E5B748;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .button-inside {
@@ -192,5 +194,76 @@ input {
 
 .form-image {
     border-bottom: 1px solid #8D8D8D;
+}
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-button {
+        width: 90%; 
+        height: 50px;
+    }
+
+    .button-inside {
+        font-size: 16px;
+    }
+
+    .text-marketing {
+        font-size: 24px;
+        margin-top: 40px;
+    }
+
+    .main-word {
+        font-size: 32px;
+    }
+
+    .info-words {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    input {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+/* Adaptive styles 480px */
+@media (max-width: 480px) {
+    .contact-button {
+        width: 100%;
+        height: 45px;
+    }
+
+    .text-marketing {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    .main-word {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .info-words {
+        margin: 0;
+        text-align: center;
+    }
+
+    .enter-info {
+        font-size: 18px;
+    }
+
+    input {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .avto-image img {
+        max-width: 250px;
+        margin: 20px auto;
+    }
 }
 </style>
