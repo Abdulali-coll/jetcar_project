@@ -65,12 +65,13 @@
 
 <script>
 import mainCarImage from '@/assets/car_card_0.jpg';
+ import BentlyVideo from '@/assets/Bently.mp4'
 export default {
   name: 'MainComp',
   data() {
     return {
       mainCarImage,
-      videoSrc: '@assets/Bently.mp4',
+      videoSrc: BentlyVideo,
       playing: false,
       currentTime: 0,
       duration: 0,
