@@ -32,6 +32,7 @@
     </div>
 
     <!-- Кнопка "КУПИТЬ" -->
+    
     <div class="big-button">
       <nav class="buy-button">
         <router-link to="/contacts">КУПИТЬ ЭТУ КОЛЯСКУ!</router-link>
@@ -157,7 +158,7 @@ export default {
 
 .car-info {
   font-family: 'Oswald', sans-serif;
-  max-width: 600px;
+  width: 400px;
   text-align: left;
 }
 
@@ -174,10 +175,12 @@ export default {
 }
 
 .car-text {
-  color: gray;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 200;
+ color: gray;
+ font-family: 'Roboto', sans-serif;
+ font-weight: 200;
+ word-wrap: break-word;
 }
+
 
 .car-details {
   list-style: none;
