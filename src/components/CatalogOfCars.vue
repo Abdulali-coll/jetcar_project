@@ -3,7 +3,7 @@
   <section class="small-cards">
     <div v-for="(car, index) in cars" :key="index" class="car-card">
       <!-- Передаем объект автомобиля через query-параметр -->
-      <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }">
+      <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }" @click.native="scrollToHeader">
         <div class="car-image">
           <img :src="car.image" alt="Car Image" />
         </div>
@@ -336,8 +336,12 @@ export default {
           year: 2012 
         }
       ]
-      
     };
+  },
+  methods: {
+    scrollToHeader() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }
 };
 </script>
