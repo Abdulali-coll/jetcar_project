@@ -48,8 +48,6 @@ export default {
     margin-top: 40px;
     margin-left: 150px;
     display: flex;
-    gap: 120px;
-    margin-bottom: 90px;
     text-align: left;
 }
 
@@ -58,36 +56,36 @@ export default {
     justify-content: center;
     align-items: center;
     width: 600px;
-    height: 400px;
+    height: 200px;
     font-size: 24px; 
     font-family: 'Roboto', sans-serif;
 }
 
-.final-essay {
-    display: flex;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-}
 
 @media (max-width: 1050px) {
     .reviews-essay {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-        margin-left: 0;
+        align-content: center;
+        margin-left: 40px;
     }
-    
+
     .essay {
         font-size: 20px;
-        max-width: 90%;
+        max-width: 100%;
     }
 }
+
 /* Adaptive styles  768px */
 @media (max-width: 768px) {
     .head-words {
         font-size: 32px; 
     }
 
+    .image-reviews {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 /* Adaptive styles 480px */

@@ -78,8 +78,7 @@ export default {
     align-items: center;
     border-radius: 25px;
     height: 60px;
-    width: 100%;
-    max-width: 400px;
+    width: 300px;
     background-color: #E5B748;
     margin-top: 20px;
 }
@@ -177,13 +176,14 @@ input {
 }
 
 @media (max-width: 768px) {
+
     .main {
         flex-direction: column;
         align-items: center;
+        align-content: center;
     }
 
     .contact-button {
-        width: 90%; 
         height: 50px;
     }
 
@@ -214,7 +214,8 @@ input {
 /* Adaptive styles 480px */
 @media (max-width: 480px) {
     .contact-button {
-        width: 100%;
+        margin-left: 13px;
+        width: 300px;
         height: 45px;
     }
 
