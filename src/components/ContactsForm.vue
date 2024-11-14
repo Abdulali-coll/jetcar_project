@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import CarImage from '@/car-image.jpg';
+import CarImage from '@/assets/matiz-img-0.png';
 
 export default {
     name: 'FormContacts',
@@ -167,7 +167,7 @@ input {
 }
 
 .info-words {
-    margin-left: 41px;
+    margin-left: 120px;
     font-family: Oswald,sans-serif;
     font-weight: 700;
     width: 800px;
@@ -189,7 +189,7 @@ input {
   width: 100%;
   height: auto;
   max-width: 400px;
-  margin-left: 150px;
+  margin-left: 80px;
 }
 
 .form-image {

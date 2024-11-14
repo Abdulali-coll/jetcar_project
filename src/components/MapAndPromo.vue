@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import PromoCar from '@/car-image.jpg';
+import PromoCar from '@/assets/priora_img-0.png';
 
 export default {
   name: 'MapPromo',

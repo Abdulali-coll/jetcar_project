@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import mainCarImage from '@/assets/car_card_0.jpg';
+import mainCarImage from '@/assets/bmw-image_0.jpg';
  import BentlyVideo from '@/assets/Bently.mp4'
 export default {
   name: 'MainComp',
