@@ -10,8 +10,8 @@
 
         <!-- Миниатюрные изображения -->
         <div class="mini-images">
-          <img :src="car.image" alt="Mini Car 1" @click="openModal(car.image)" />
-          <img :src="car.image" alt="Mini Car 2" @click="openModal(car.image)" />
+          <img :src="car.imageAny" alt="Mini Car 1" @click="openModal(car.imageAny)" />
+          <img :src="car.imageBack" alt="Mini Car 2" @click="openModal(car.imageBack)" />
         </div>
       </div>
 

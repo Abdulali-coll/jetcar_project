@@ -78,7 +78,7 @@ export default {
     align-items: center;
     border-radius: 25px;
     height: 60px;
-    width: 100%; /* Сделаем кнопку широкой на маленьких экранах */
+    width: 100%;
     max-width: 400px;
     background-color: #E5B748;
     margin-top: 20px;
@@ -100,23 +100,6 @@ export default {
 .button-inside a {
     color: inherit; 
     text-decoration: none; 
-}
-
-
-.area-confirm {
-    display: flex;
-    margin-top: 30px;
-}
-
-.confirm-checkbox {
-    margin-right: 0px;
-}
-
-.text-confirm {
-    color: #8D8D8D;
-    font-size: 16px;
-    margin-left: 0px;
-    font-family: 'Roboto' , sans-serif;
 }
 
 .name {
@@ -155,7 +138,6 @@ input {
     font-family: 'Oswald',sans-serif;
 }
 
-
 .text-marketing {
     bottom: 10px;
     text-align: center; 
@@ -170,8 +152,7 @@ input {
     margin-left: 120px;
     font-family: Oswald,sans-serif;
     font-weight: 700;
-    width: 800px;
-    gap: 44px
+    width: 600px;
 }   
 
 .main-word {
@@ -189,12 +170,12 @@ input {
   width: 100%;
   height: auto;
   max-width: 400px;
-  margin-left: 80px;
 }
 
 .form-image {
     border-bottom: 1px solid #8D8D8D;
 }
+
 @media (max-width: 768px) {
     .main {
         flex-direction: column;

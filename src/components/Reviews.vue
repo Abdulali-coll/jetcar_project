@@ -8,7 +8,7 @@
                 <img :src="ReviewImage" alt="Main reviews" />
             </div>
             <div class="essay">
-                Нам есть чем гордится! Список постоянных клиентов: Абдурозик и Хасбик, Цой и Мистер Бист, Уинстон черчилль и Хайзенберг, Гамбол и Дарвин, а так же Крош из смешариков и лысый из Иванушки Интернешнл (Хз кто это)! Нам есть чем гордится! Список постоянных клиентов: Абдурозик и Хасбик, Цой и Мистер Бист, Уинстон черчилль и Хайзенберг, Гамбол и Дарвин, а так же Крош из смешариков и лысый из Иванушки Интернешнл (Хз кто это)!
+                Нам есть чем гордится! Список постоянных клиентов: Абдурозик и Хасбик, Цой и Мистер Бист, Уинстон черчилль и Хайзенберг, Гамбол и Дарвин, а так же Крош из смешариков и лысый из Иванушки Интернешнл (Хз кто это)!
             </div>
         </div>
         
@@ -69,23 +69,25 @@ export default {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Adaptive styles  768px */
-@media (max-width: 768px) {
-    .head-words {
-        font-size: 32px; 
-    }
-
+@media (max-width: 1050px) {
     .reviews-essay {
         flex-direction: column;
         align-items: center;
         gap: 20px;
         margin-left: 0;
     }
-
+    
     .essay {
-        font-size: 18px;
+        font-size: 20px;
         max-width: 90%;
     }
+}
+/* Adaptive styles  768px */
+@media (max-width: 768px) {
+    .head-words {
+        font-size: 32px; 
+    }
+
 }
 
 /* Adaptive styles 480px */
