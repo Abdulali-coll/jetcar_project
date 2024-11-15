@@ -48,6 +48,7 @@ export default {
     margin-top: 40px;
     margin-left: 150px;
     display: flex;
+    gap: 50px;
     text-align: left;
 }
 

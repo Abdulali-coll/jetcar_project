@@ -4,10 +4,10 @@
     <NavigButton></NavigButton>
     <router-view></router-view>
 
-    <!-- Передача пропсов компоненту Card -->
+    <!-- Share components of Card -->
     <Card v-if="carData" :car="carData" />
 
-    <CarsSmall></CarsSmall>
+    <CarsSmallSlider></CarsSmallSlider>
     <CarFooter></CarFooter>
   </div>
 </template>
@@ -16,7 +16,7 @@
 import CarHeader from '@/components/CarHeader.vue';
 import CarFooter from '@/components/CarFooter.vue';
 import NavigButton from '@/components/NavigateButtons.vue';
-import CarsSmall from '@/components/SmallCards.vue';
+import CarsSmallSlider from '@/components/SmallCardsSlider.vue';
 import Card from '@/components/Card.vue';
 
 export default {
@@ -25,7 +25,7 @@ export default {
     CarHeader,
     CarFooter,
     NavigButton,
-    CarsSmall,
+    CarsSmallSlider,
     Card,
   },
   data() {
@@ -37,7 +37,7 @@ export default {
     this.loadCarData();
   },
   watch: {
-    // Наблюдаем за изменением query параметров в маршруте
+    // Check query
     '$route.query.car': 'loadCarData',
   },
   methods: {
@@ -45,7 +45,7 @@ export default {
       const carQuery = this.$route.query.car;
       if (carQuery) {
         try {
-          this.carData = JSON.parse(carQuery); // Парсим строку JSON
+          this.carData = JSON.parse(carQuery);
         } catch (error) {
           console.error('Ошибка при разборе данных о машине:', error);
         }

@@ -1,21 +1,20 @@
 <template>
-  <!-- Components for buy page -->
   <section class="Buy-car">
     <div class="content-wrapper">
       <div class="car-image-wrapper">
-        <!-- Большое изображение -->
+        <!-- Big picture -->
         <div class="car-image" @click="openModal(car.image)">
           <img :src="car.image" alt="Main Car" />
         </div>
 
-        <!-- Миниатюрные изображения -->
+        <!-- Small pictures -->
         <div class="mini-images">
           <img :src="car.imageAny" alt="Mini Car 1" @click="openModal(car.imageAny)" />
           <img :src="car.imageBack" alt="Mini Car 2" @click="openModal(car.imageBack)" />
         </div>
       </div>
 
-      <!-- Информация о машине -->
+      <!-- Info about car -->
       <div class="car-info" v-if="car">
         <h2>{{ car.name }}</h2>
         <h1>{{ car.price }}</h1>
@@ -31,18 +30,22 @@
       </div>
     </div>
 
-    <!-- Кнопка "КУПИТЬ" -->
-    
+    <!-- button buy -->
     <div class="big-button">
       <nav class="buy-button">
         <router-link to="/contacts">КУПИТЬ ЭТУ КОЛЯСКУ!</router-link>
       </nav>
     </div>
 
-    <!-- Модальное окно для увеличенного изображения -->
+    <!-- Modal picture -->
     <div v-if="isModalOpen" class="modal" @click="closeModal">
       <span class="close">&times;</span>
       <img class="modal-content" :src="currentImage" alt="Zoomed Car Image" />
+      <!-- navigate arrows -->
+      <div class="navigation">
+        <button @click.stop="prevImage" class="prev">&lt;</button>
+        <button @click.stop="nextImage" class="next">&gt;</button>
+      </div>
     </div>
   </section>
 </template>
@@ -60,21 +63,62 @@ export default {
     return {
       isModalOpen: false,
       currentImage: '',
+      images: [], 
+      currentIndex: 0, 
     };
+  },
+  watch: {
+    car: {
+      immediate: true, 
+      handler(newCar) {
+        this.images = [newCar.image, newCar.imageAny, newCar.imageBack];
+        this.currentIndex = 0; 
+        this.currentImage = this.images[0];
+      },
+    },
   },
   methods: {
     openModal(image) {
+      this.currentIndex = this.images.indexOf(image);
       this.currentImage = image;
       this.isModalOpen = true;
     },
     closeModal() {
       this.isModalOpen = false;
     },
+    nextImage() {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+      this.currentImage = this.images[this.currentIndex];
+    },
+    prevImage() {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.images.length) % this.images.length;
+      this.currentImage = this.images[this.currentIndex];
+    },
   },
 };
 </script>
 
+
 <style scoped>
+/* styles to navigate arrows */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.prev,
+.next {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+}
 .Buy-car {
   display: flex;
   flex-direction: column;

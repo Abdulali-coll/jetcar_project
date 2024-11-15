@@ -102,8 +102,9 @@ video{
   gap: 8px;
   margin-top: 8px;
 }
-button {
-  padding: 4px 8px;
+.contact-button {
+  width: 400px;
+
 }
 
 .number {

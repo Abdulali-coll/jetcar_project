@@ -1,8 +1,7 @@
-<!-- В компоненте SmallCards.vue -->
 <template>
   <section class="small-cards">
     <div v-for="(car, index) in cars" :key="index" class="car-card">
-      <!-- Передаем объект автомобиля через query-параметр -->
+      <!-- Share query -->
       <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }" @click.native="scrollToHeader">
         <div class="car-image">
           <img :src="car.image" alt="Car Image" />
