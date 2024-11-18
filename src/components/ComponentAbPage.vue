@@ -1,7 +1,7 @@
 <template>
   <!-- Main Card -->
   <div class="head-words">
-            Мы  в своём деле!
+            Мы лучшие в своём деле!
         </div>
   <section class="main-card">
     <div class="car-image">
@@ -89,21 +89,20 @@ export default {
   align-items: center;
   width: 100%;
 }
+
 video{
-  margin-left: 35px;
   width: 1000px;
   height: 700px;
 }
 
 .controls {
-  
   gap: 8px;
   margin-top: 8px;
 }
+
 .contact-button {
   margin-top: 80px;
-  width: 400px;
-
+  width: 500px;
 }
 
 .text-marketing{
@@ -145,10 +144,6 @@ video{
   gap: 40px;
 }
 
-.car-image {
-  margin-right: 40px;
-}
-
 .car-image img {
   width: 500px;
   height: 300px;
@@ -186,7 +181,7 @@ video{
   }
 
   video {
-    max-width: 90%; 
+    max-width: 100%; 
     height: auto;
   }
 
@@ -220,7 +215,10 @@ video{
 /* Adaptive styles 480px */
 @media (max-width: 480px) {
   .video-player {
-    padding: 0 5px;
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Горизонтальное выравнивание */
+    align-items: center; /* Вертикальное выравнивание (если нужно) */
+    padding: 0 5px; /* Сохранение бокового отступа */
   }
 
   video {
@@ -254,4 +252,5 @@ video{
     margin: 20px 0;
   }
 }
+
 </style>

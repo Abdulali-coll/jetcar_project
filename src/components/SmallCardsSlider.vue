@@ -5,7 +5,6 @@
       class="swiper-container"
       :slides-per-view="3"
       space-between="20"
-      navigation
       pagination>
 
       <swiper-slide

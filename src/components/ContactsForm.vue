@@ -160,9 +160,6 @@ input {
 
 .main-word {
     margin-top: 46px;
-    align-items: center;
-    width: 355px;
-    height: 59px;
     color: #E5B748;
     font-size: 48px;
     font-family: 'Oswald',sans-serif;
@@ -180,7 +177,6 @@ input {
 }
 
 @media (max-width: 768px) {
-
     .main {
         flex-direction: column;
         align-items: center;
@@ -230,7 +226,6 @@ input {
 
     .main-word {
         font-size: 28px;
-        text-align: center;
     }
 
     .info-words {

@@ -64,7 +64,7 @@ export default {
 }
 
 
-@media (max-width: 1050px) {
+@media (max-width: 1200px) {
     .reviews-essay {
         flex-direction: column;
         align-items: center;
@@ -73,7 +73,7 @@ export default {
     }
 
     .essay {
-        font-size: 20px;
+        font-size: 16px;
         max-width: 100%;
     }
 }
@@ -99,10 +99,6 @@ export default {
 
     .image-reviews img {
         max-width: 280px; 
-    }
-
-    .essay {
-        font-size: 16px; 
     }
 }
 </style>

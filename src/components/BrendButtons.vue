@@ -71,7 +71,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin: 20px 0;
 }
 
 .brand-buttons a {
@@ -105,6 +104,13 @@ export default {
   text-align: center;
 }
 
+@media (max-width: 1100px) {
+  .brand-buttons{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+
 /* Adaptive 768px */
 @media (max-width: 768px) {
   .brand-buttons {
@@ -132,7 +138,7 @@ export default {
   }
 
   .brand-buttons button {
-    width: 100%;
+    width: 95%;
     height: 60px;
   }
 
