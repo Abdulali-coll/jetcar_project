@@ -6,7 +6,7 @@
                 Контакты:
             </div>
             <div class="enter-info">
-                Запиши свой номер зайка!
+                Запиши Номер!
             </div>
             <div class="info-area">
                 <div class="name">
@@ -17,13 +17,13 @@
                     <p>{{ message }}</p>
                 </div>
                 <div class="email">
-                    Email*
+                    main@gmail.com*
                 </div>
                 <div id="model-basic2" class="enter-email-area">
                     <input v-model="email" placeholder="Введите вашу почту" />
                     <p>{{ message }}</p>
                 </div>
-                <div class="number">
+                <div class="email">
                     Телефон*
                 </div>
                 <div id="model-basic3" class="enter-number-area">
@@ -34,7 +34,7 @@
            
             <div class="contact-button">
                     <nav class="button-inside">
-                        <router-link to="/contacts">ПОЗВОНИТЬ БОГДАН ДЖАНУ!</router-link>
+                        <router-link to="/contacts">Отправить Заявку!</router-link>
                     </nav>
                 </div>
         </div>
@@ -43,7 +43,7 @@
         </div>
     </div>
         <div class="text-marketing">
-            Лучшие цены во всём Триштатье! Будь ты проклят Перри Утконос
+            Лучшие цены во всём Лос-Сантос!
         </div>
     </div>
 </template>
@@ -104,17 +104,20 @@ export default {
 .name {
     font-family: 'Roboto' , sans-serif;
     color:#8D8D8D;
-    margin-top: 47px;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
 .email {
     font-family: 'Roboto' , sans-serif;
     color:#8D8D8D;
+    margin-bottom: 10px;
 }
 
 .number {
     font-family: 'Roboto' , sans-serif;
     color:#8D8D8D;
+    margin-bottom: 10px;
 }
 
 input {
@@ -129,7 +132,7 @@ input {
 .enter-number-area input {
     height: 40px;
     padding: 8px;
-    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .enter-info {
@@ -143,6 +146,7 @@ input {
     font-weight: bold;
     font-size: 36px;
     margin-top: 73px;
+    margin-bottom: 30px;
     font-weight: 700;
     font-family: 'Oswald',sans-serif;
 }
@@ -168,7 +172,7 @@ input {
   margin-top: 100px;
   width: 100%;
   height: auto;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .form-image {
