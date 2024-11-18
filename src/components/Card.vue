@@ -33,7 +33,7 @@
     <!-- button buy -->
     <div class="big-button">
       <nav class="buy-button">
-        <router-link to="/contacts">КУПИТЬ ЭТУ КОЛЯСКУ!</router-link>
+        <router-link to="/contacts">Купить Машину!</router-link>
       </nav>
     </div>
 

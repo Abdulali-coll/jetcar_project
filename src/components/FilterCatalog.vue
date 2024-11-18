@@ -3,37 +3,37 @@
 
       <!-- Filter by mark -->
       <div class="filter-group">
-        <label for="brand-filter">Brand:</label>
+        <label for="brand-filter">Бренд:</label>
         <select id="brand-filter" @change="handleFilterChange('brand', $event.target.value)">
-          <option value="">Select</option>
-          <option value="maibax">Майбах(бенбен)</option>
-          <option value="aubi">Ауби</option>
-          <option value="kadilak">Какделак</option>
-          <option value="сzhech">Чехословацкий автопром</option>
-          <option value="mohentohen">Мохентохен моторспорт</option>
-          <option value="chingizhan">Чингизхан INC</option>
-          <option value="gaz">ГАЗ</option>
-          <option value="mmm">МММ</option>
+          <option value="">Выбрать</option>
+          <option value="Obey">Obey</option>
+          <option value="Bravado">Bravado</option>
+          <option value="Pegassi">Pegassi</option>
+          <option value="Cavalcade">Cavalcade</option>
+          <option value="Elegy">Elegy</option>
+          <option value="Dominator">Dominator</option>
+          <option value="Itali">Itali</option>
+          <option value="Comet">Comet</option>
         </select>
       </div>
   
       <!-- filter by price -->
       <div class="filter-group">
-        <label for="price-filter">Price:</label>
+        <label for="price-filter">Стоимость:</label>
         <select id="price-filter" @change="handleFilterChange('price', $event.target.value)">
-          <option value="">Select</option>
-          <option value="asc">Low to High</option>
-          <option value="desc">High to Low</option>
+          <option value="">Выбрать</option>
+          <option value="asc">По Возрастанию + </option>
+          <option value="desc">По Убыванию - </option>
         </select>
       </div>
   
       <!-- filter by year -->
       <div class="filter-group">
-        <label for="year-filter">Year:</label>
+        <label for="year-filter">Год Выпуска:</label>
         <select id="year-filter" @change="handleFilterChange('year', $event.target.value)">
-          <option value="">Select</option>
-          <option value="asc">Old to New</option>
-          <option value="desc">New to Old</option>
+          <option value="">Выбрать</option>
+          <option value="asc">Б\У</option>
+          <option value="desc">Новые</option>
         </select>
       </div>
     </nav>

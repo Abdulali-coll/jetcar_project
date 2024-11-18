@@ -7,8 +7,8 @@
           <img :src="PromoCar" alt="Promo car" />
         </div>
         <div class="promo-text">
-          <p>Уфф, было это что за чёртолет такой... <br>
-            Тебя давно не было в уличных гонках! Садись за руль и приезжай к нам в Чайна таун...</p>
+          <p>Все автомобили из нашего каталога имеют идеальное техническое состояние и готовы к эксплуатации. 
+            <br>При постановке автомобиля на комиссию наши специалисты возьмут на себя все юридические и технические нюансы, связанные с продажей вашей машины.</p>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@ export default {
           zoom: 10
         });
         var myPlacemark = new ymaps.Placemark([55.759681, 37.535023], {
-          hintContent: 'Богдан Джан IND!',
+          hintContent: 'Jet Car!',
           balloonContent: 'Это JET CAR!'
         });
         myMap.geoObjects.add(myPlacemark);
@@ -83,7 +83,7 @@ export default {
 .car-promo img {
   width: 100%;
   height: auto;
-  max-width: 400px;
+  max-width: 500px;
   margin-bottom: 20px;
 }
 

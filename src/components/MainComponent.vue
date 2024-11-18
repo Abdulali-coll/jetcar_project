@@ -5,7 +5,7 @@
       <img :src="mainCarImage" alt="Main Car" />
     </div>
     <div class="car-info">
-      <h2>Черноморский катамаран с забугорья IV Рестайлинг</h2>
+      <h2> Pegassi Tempesta V12</h2>
       <h3>12 500 999 ₸</h3>
       <div class="car-spec">
         <div class="spec-name">Пробег:</div>
@@ -18,15 +18,15 @@
       </div>
       <hr class="divider">
       <div class="descript-text">
-        Cемейный катамаран для обыденных поездок за картошкой в деревню.
-        Изящные черты заставят вас сожалеть даже о самом небрежном столновении. Если вам 40+ лет и вы одинокий скуф - эта машина для вас!
+        В какой-то момент, спрашивая: «Так как быстро это?» Это как спросить парня, который только что просунил кулаком через твои ребра: «Так насколько ты силен?» 
+        Дело больше не в скорости. Дело тоже не в стиле, потому что одно прикосновение газа, и это немного больше, чем размыто. Вы просто знаете, что в глубине души есть зуд, который может поцарапать только этот автомобиль, и вам не хватает каких-либо личных качеств, которым вам придется сопротивляться.
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import mainCarImage from '@/assets/car_card_0.jpg';
+import mainCarImage from '@/assets/source-image/Tempesta.webp';
 export default {
   name: 'MainComp',
   data() {
@@ -70,6 +70,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  margin-bottom: 150px;
 }
 
 .car-image {
@@ -77,10 +78,10 @@ export default {
 }
 
 .car-image img {
-  width: 460px;
-  height: 300px;
+  width: 560px;
+  height: 320px;
   object-fit: cover;
-  border-radius: 35px;
+  border-radius: 20px;
 }
 
 .car-info {
@@ -89,7 +90,7 @@ export default {
 
 .car-info h2 {
   font-family: 'Oswald', sans-serif;
-  font-size: 24px;
+  font-size: 38px;
 }
 
 .car-info h3 {

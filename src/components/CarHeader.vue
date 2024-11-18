@@ -2,15 +2,15 @@
   <!-- Header -->
   <header class="header">
     <div class="contact-info">
-      <div class="number">7 988 152-65-67</div>
+      <div class="number">+7 (988) 152-65-67</div>
       <router-link to="/contacts"><div class="contact-text">Связаться!</div></router-link>
     </div>
     <!-- Added link in logo to main page--> 
     <router-link to="/">
-      <h1 class="logo">JET CAR</h1>
+      <h1 class="logo">- JET CAR -</h1>
     </router-link>
     <div class="company-info">
-      <div class="address">Сыктывкар, ул. Андерграунд</div>
+      <div class="address">Москва, улица Подвойского, 5/19</div>
       <div class="schedule">График: с 10:00 до 20:00</div>
     </div>
   </header>
@@ -40,9 +40,16 @@ export default {
   flex-wrap: wrap;
 }
 
+.contact-info{
+width: 30%;
+}
+
+.company-info{
+  width: 30%;
+}
 .logo {
   font-family: 'Oswald', sans-serif;
-  font-size: 38px;
+  font-size: 48px;
   color: #e5b748;
   text-decoration: none;
 }
@@ -60,7 +67,8 @@ export default {
   font-family: 'Roboto', sans-serif;
   color: #e5b748;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 24px;
+  margin-left: 10px;
   padding-top: 5px;
 }
 
@@ -73,10 +81,13 @@ export default {
 }
 
 .number {
-  color: white;
-  margin-bottom: 5px;
+  font-size: 22px;
+  margin-left: 10px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+}
+.number a{
+  color: white;
 }
 
 .address {
@@ -84,6 +95,8 @@ export default {
   color: white;
   font-weight: 500;
   margin-bottom: 5px;
+  font-size: 22px;
+  padding-left: 100px;
 }
 
 .schedule {
@@ -91,6 +104,7 @@ export default {
   font-family: 'Roboto', sans-serif;
   color: gray;
   font-weight: 400;
+  padding-left: 100px;
 }
 
 /* Adaptive styles */
@@ -124,7 +138,7 @@ export default {
 
   .schedule {
     font-size: 12px;
-    color: lightgray;
+    color: rgb(255, 255, 255);
   }
 }
 </style>

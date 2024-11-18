@@ -1,7 +1,7 @@
 <template>
   <!-- Main Card -->
   <div class="head-words">
-            Мы худшие в своём деле!
+            Мы  в своём деле!
         </div>
   <section class="main-card">
     <div class="car-image">
@@ -10,25 +10,24 @@
     
     <div class="car-info">
       <div class="descript-text">
-        Cемейный катамаран для обыденных поездок за картошкой в деревню.
-        Изящные черты заставят вас сожалеть даже о самом небрежном столновении. Если вам 40+ лет и вы одинокий скуф - эта машина для вас!
+        Когда вы думаете о легком редизайне, вы, вероятно, думаете о кузове из углеродного волокна и удаленных интерьерах.<br> Но это только для начинающих.
       </div>
     </div>
     
   </section>
   <hr class="divider">
   <div class="text-marketing">
-            Лучшие цены во всём Триштатье! Будь ты проклят Перри Утконос
+            Самые эксклюзивные автомобили со всего мира! 
         </div>
   <section class="main-card">
     <div class="car-info">
       <div class="descript-text">
-        Cемейный катамаран для обыденных поездок за картошкой в деревню.
-        Изящные черты заставят вас сожалеть даже о самом небрежном столновении. Если вам 40+ лет и вы одинокий скуф - эта машина для вас!
+        Как только вы сядете в дорогую машину, вы не захотите управлять чем-либо ещё. 
+        
       </div>
     </div>
     <div class="car-image">
-      <img :src="mainCarImage" alt="Main Car" />
+      <img :src="mainCarImage2" alt="Main Car" />
     </div>
   </section>
   
@@ -50,27 +49,25 @@
 
   <section class="main-card">
     <div class="car-info">
-      <div class="descript-text">
-        Cемейный катамаран для обыденных поездок за картошкой в деревню.
-        Изящные черты заставят вас сожалеть даже о самом небрежном столновении. Если вам 40+ лет и вы одинокий скуф - эта машина для вас!
-      </div>
     </div>
     <div class="contact-button">
                     <nav class="button-inside">
-                        <router-link to="/contacts">БУ! ПОДОЙДИ НЕ БОЙСЯ! Я РОТ ТВОЙ ...</router-link>
+                        <router-link to="/contacts">Заказать Авто!</router-link>
                     </nav>
                 </div>
   </section>
 </template>
 
 <script>
-import mainCarImage from '@/assets/bmw-image_0.jpg';
+import mainCarImage from '@/assets/source-image/10F.webp';
+import mainCarImage2 from '@/assets/source-image/ItaliGTO.webp';
  import BentlyVideo from '@/assets/Bently.mp4'
 export default {
   name: 'MainComp',
   data() {
     return {
       mainCarImage,
+      mainCarImage2,
       videoSrc: BentlyVideo,
       playing: false,
       currentTime: 0,
@@ -93,6 +90,7 @@ export default {
   width: 100%;
 }
 video{
+  margin-left: 35px;
   width: 1000px;
   height: 700px;
 }
@@ -103,8 +101,13 @@ video{
   margin-top: 8px;
 }
 .contact-button {
+  margin-top: 80px;
   width: 400px;
 
+}
+
+.text-marketing{
+  margin-bottom: 60px;
 }
 
 .number {
@@ -148,7 +151,7 @@ video{
 
 .car-image img {
   width: 500px;
-  height: 350px;
+  height: 300px;
   object-fit: cover;
   border-radius: 5px;
 }
