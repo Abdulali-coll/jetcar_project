@@ -10,44 +10,44 @@
   </router-link>
   <router-link to="/catalog">
     <button>
-      <img :src="carLogo" alt="Mercedes Logo" />
-      <span>Ауби</span>
+      <img :src="CarBenefactor" alt="Mercedes Logo" />
+      <span>Benefactor</span>
     </button>
   </router-link>
   <router-link to="/catalog">
     <button>
-      <img :src="carLogo" alt="Mercedes Logo" />
-      <span>Какделак</span>
+      <img :src="CarGrotti" alt="Mercedes Logo" />
+      <span>Grotti</span>
     </button>
   </router-link>
   <router-link to="/catalog">
     <button>
-      <img :src="carLogo" alt="Mercedes Logo" />
-      <span>Чехословацкий Автопром</span>
+      <img :src="CarCommet" alt="Mercedes Logo" />
+      <span>Commet</span>
     </button>
   </router-link>
   <router-link to="/catalog">
     <button>
-      <img :src="carLogo" alt="Mercedes Logo" />
-      <span>Мохентохен Моторспорт</span>
+      <img :src="CarObey" alt="Mercedes Logo" />
+      <span>Obey</span>
     </button>
   </router-link>
   <router-link to="/catalog">
     <button>
-      <img :src="carLogo" alt="Mercedes Logo" />
-      <span>Чингизхан Inc</span>
+      <img :src="CarRevolter" alt="Mercedes Logo" />
+      <span>Revolter</span>
     </button>
   </router-link>
   <router-link to="/catalog">
     <button>
-      <img :src="carLogo" alt="Mercedes Logo" />
-      <span>ГАЗ</span>
+      <img :src="CarVapid" alt="Mercedes Logo" />
+      <span>Vapid</span>
     </button>
   </router-link>
   <router-link to="/catalog">
     <button>
-      <img :src="carLogo" alt="Mercedes Logo" />
-      <span>МММ</span>
+      <img :src="CarPeggasi" alt="Mercedes Logo" />
+      <span>Pegasso</span>
     </button>
   </router-link>
   </section>
@@ -57,12 +57,27 @@
 <script>
 import carLogo from '@/assets/mercedes_logo.png';
 import CarBravado from '@/assets/car_logos/Banshee_Bravadoo.webp';
+import CarBenefactor from '@/assets/car_logos/Benefactor.webp'
+import CarGrotti from '@/assets/car_logos/Grotti.webp'
+import CarCommet from '@/assets/car_logos/Pfister_Comet.webp'
+import CarObey from '@/assets/car_logos/Obey.webp'
+import CarRevolter from '@/assets/car_logos/Revolter.webp'
+import CarVapid from '@/assets/car_logos/Vapid.webp'
+import CarPeggasi from '@/assets/car_logos/Pegassi.webp'
+
 export default {
   name: 'BrendButs',
   data() {
     return {
       carLogo,
       CarBravado,
+      CarBenefactor,
+      CarGrotti,
+      CarCommet,
+      CarObey,
+      CarRevolter,
+      CarVapid,
+      CarPeggasi,
     };
   }
 };

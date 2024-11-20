@@ -383,7 +383,7 @@ export default {
   color: #e5b748;
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 5px;
 }
 
