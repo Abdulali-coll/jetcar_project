@@ -36,7 +36,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #e5b748;
-  padding: 8px 20px;
   flex-wrap: wrap;
 }
 
@@ -96,7 +95,6 @@ width: 30%;
   font-weight: 500;
   margin-bottom: 5px;
   font-size: 22px;
-  padding-left: 100px;
 }
 
 .schedule {
@@ -104,21 +102,20 @@ width: 30%;
   font-family: 'Roboto', sans-serif;
   color: gray;
   font-weight: 400;
-  padding-left: 100px;
 }
 
 /* Adaptive styles */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .header {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 10px 15px;
   }
 
   .logo {
     font-size: 28px;
     margin-bottom: 8px;
+    width: 100%;
   }
 
   .contact-info, .company-info {
@@ -126,6 +123,7 @@ width: 30%;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    width: 100%;
   }
 
   .number, .contact-text, .address, .schedule {

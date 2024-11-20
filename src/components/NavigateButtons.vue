@@ -48,6 +48,17 @@ export default {
 .navigation a.router-link-exact-active {
   color: #fff;
 }
+/* Adaptive styles 1000px */
+@media (max-width: 1000px) {
+  .navigation {
+    gap: 40px;
+  }
+
+  .navigation a {
+    font-size: 15px;
+    padding: 5px 8px;
+  }
+}
 
 /* Adaptive styles 768px */
 @media (max-width: 768px) {
