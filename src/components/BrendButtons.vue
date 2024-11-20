@@ -4,8 +4,8 @@
   <section class="brand-buttons">
     <router-link to="/catalog">
     <button>
-      <img :src="carLogo" alt="Mercedes Logo" />
-      <span>Babidjon</span>
+      <img :src="CarBravado" alt="Mercedes Logo" />
+      <span>Bravado</span>
     </button>
   </router-link>
   <router-link to="/catalog">
@@ -56,11 +56,13 @@
 
 <script>
 import carLogo from '@/assets/mercedes_logo.png';
+import CarBravado from '@/assets/car_logos/Banshee_Bravadoo.webp';
 export default {
   name: 'BrendButs',
   data() {
     return {
       carLogo,
+      CarBravado,
     };
   }
 };
