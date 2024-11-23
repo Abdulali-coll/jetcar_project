@@ -1,19 +1,21 @@
 <template>
   <section class="small-cards">
-  <!-- Add slider-->
+    <!-- Add slider-->
     <swiper
       class="swiper-container"
       :slides-per-view="3"
       space-between="20"
-      pagination>
-
+      pagination
+    >
       <swiper-slide
         v-for="(car, index) in cars"
         :key="index"
-        class="car-card">
+        class="car-card"
+      >
         <router-link
           :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }"
-          @click.native="scrollToHeader">
+          @click.native="scrollToHeader"
+        >
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
@@ -22,8 +24,55 @@
         </router-link>
       </swiper-slide>
     </swiper>
+
+    <!-- Credit Section -->
+    <div class="credit-container">
+      <div class="image-container">
+        <img :src="creditCar" alt="Credit image" />
+      </div>
+      <div class="text-container">
+        <h2>Расчёт и оформление автокредита</h2>
+        <p>
+          Мы предлагаем выгодные условия автокредита. Заполните форму ниже, чтобы рассчитать предварительные выплаты и подать заявку.
+        </p>
+
+        <!-- Credit Calculation Form -->
+        <form @submit.prevent="calculateCredit">
+          <label for="price">Стоимость автомобиля (₸):</label>
+          <input type="number" id="price" v-model="carPrice" placeholder="Введите стоимость" required />
+
+          <label for="initialPayment">Первоначальный взнос (₸):</label>
+          <input type="number" id="initialPayment" v-model="initialPayment" placeholder="Введите сумму" required />
+
+          <label for="term">Срок кредита (лет):</label>
+          <input type="number" id="term" v-model="creditTerm" placeholder="Введите срок" min="1" max="7" required />
+
+          <button type="submit">Рассчитать</button>
+        </form>
+
+        <div v-if="monthlyPayment" class="result">
+          <h3>Результат расчёта:</h3>
+          <p>Ежемесячный платёж: {{ monthlyPayment.toLocaleString() }} ₸</p>
+        </div>
+
+        <!-- Credit Application Form -->
+        <form @submit.prevent="submitCreditApplication">
+          <label for="fullName">ФИО:</label>
+          <input type="text" id="fullName" v-model="fullName" placeholder="Введите ваше имя" required />
+
+          <label for="phone">Телефон:</label>
+          <input type="tel" id="phone" v-model="phone" placeholder="Введите телефон" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" v-model="email" placeholder="Введите email" required />
+
+          <button type="submit">Оформить заявку</button>
+        </form>
+      </div>
+    </div>
   </section>
 </template>
+
 
 
 <script>
@@ -90,6 +139,7 @@ import yosemiteTop from '@/assets/source-image/YosemiteRancherTop.webp';
 import yoga from '@/assets/source-image/YougaClassic.webp';
 import yogaBack from '@/assets/source-image/YougaClassicBack.webp';
 import yogaTop from '@/assets/source-image/YougaClassicTop.webp';
+import creditCar from '@/assets/credit-car.jpg';
 //Import sliders components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/swiper-bundle.css';
@@ -102,6 +152,7 @@ export default {
   },
   data() {
     return {
+      creditCar,
       cars: [
         { 
           image: glendale,
@@ -354,18 +405,140 @@ export default {
           description: "Боковые части фургона выделяются небольшими выступами на колесных арках и оснащены функциональными раздвижными дверями для доступа сзади, а также горизонтальными хромированными ручками. Передние двери украшены надписями 'Youga Classic' и прямоугольными зеркалами заднего вида, отделанными хромом. Над дверными стеклами можно увидеть набор солнцезащитных козырьков/ветроотражателей.",
           year: 2012 
         }
-      ]
+      ],
+      creditCar,
+      carPrice: '',
+      initialPayment: '',
+      creditTerm: '',
+      monthlyPayment: null,
+      fullName: '',
+      phone: '',
+      email: '',
     };
   },
   methods: {
     scrollToHeader() {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    },
+    calculateCredit() {
+      const price = parseFloat(this.carPrice);
+      const initial = parseFloat(this.initialPayment);
+      const term = parseInt(this.creditTerm);
+      const annualRate = 0.12; // annual interest rate
+
+      if (price && initial && term) {
+        const loanAmount = price - initial;
+        const monthlyRate = annualRate / 12;
+        const months = term * 12;
+
+        //The formula for calculating the annuity payment
+        this.monthlyPayment = Math.round(
+          (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months))
+        );
+      } else {
+        alert('Пожалуйста, заполните все поля для расчёта.');
+      }
+    },
+    submitCreditApplication() {
+      if (this.fullName && this.phone && this.email) {
+        alert(
+          `Спасибо, ${this.fullName}! Ваша заявка на кредит отправлена. Мы свяжемся с вами по телефону: ${this.phone}.`
+        );
+        // Очистка формы
+        this.fullName = '';
+        this.phone = '';
+        this.email = '';
+        this.carPrice = '';
+        this.initialPayment = '';
+        this.creditTerm = '';
+        this.monthlyPayment = null;
+      } else {
+        alert('Пожалуйста, заполните все поля для оформления заявки.');
+      }
+    },
   }
 };
 </script>
 
 <style scoped>
+/*credit form styles*/
+.credit-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.image-container img {
+  max-width: 1500px;
+  border-radius: 10px;
+}
+
+.text-container {
+  max-width: 600px;
+  margin-left: 20px;
+}
+
+.text-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.text-container p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.text-container form {
+  margin-bottom: 20px;
+}
+
+.text-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.text-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.text-container button {
+  background-color: #E5B748;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.text-container button:hover {
+  background-color: #d4a039;
+}
+
+.result {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.result h3 {
+  margin: 0;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.result p {
+  color:black
+}
+
 .car-card a {
     text-decoration: none;
     color:white;

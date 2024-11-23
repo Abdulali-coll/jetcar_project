@@ -86,8 +86,10 @@ export default {
 <style scoped>
 .brand-buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+  justify-items: center;
+  align-items: center; 
 }
 
 .brand-buttons a {
@@ -130,10 +132,6 @@ export default {
 
 /* Adaptive 768px */
 @media (max-width: 768px) {
-  .brand-buttons {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .brand-buttons button {
     width: 180px;
     height: 70px;
@@ -151,20 +149,23 @@ export default {
 /* Adaptive 480px */
 @media (max-width: 480px) {
   .brand-buttons {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr; 
   }
 
   .brand-buttons button {
-    width: 95%;
-    height: 60px;
+    width: 200px; 
+    max-width: none;
+    height: 60px; 
+    margin: 0; 
   }
 
   .brand-buttons img {
-    width: 30px;
+    width: 30px; 
   }
 
   .brand-buttons span {
-    font-size: 12px;
+    font-size: 12px; 
   }
 }
+
 </style>
