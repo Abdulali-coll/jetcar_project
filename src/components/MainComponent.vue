@@ -103,7 +103,8 @@ export default {
   border-radius: 25px;
   height: 60px;
   width: 300px;
-  margin-top: 20px;
+  margin: 40px;
+
 }
 
 .button-inside {

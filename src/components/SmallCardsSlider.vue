@@ -444,7 +444,6 @@ export default {
         alert(
           `Спасибо, ${this.fullName}! Ваша заявка на кредит отправлена. Мы свяжемся с вами по телефону: ${this.phone}.`
         );
-        // Очистка формы
         this.fullName = '';
         this.phone = '';
         this.email = '';
@@ -470,7 +469,7 @@ export default {
 }
 
 .image-container img {
-  max-width: 1500px;
+  max-width: 100%;
   border-radius: 10px;
 }
 
@@ -588,5 +587,9 @@ export default {
   font-size: 16px;
   color: white;
   padding-bottom: 5px;
+}
+
+.swiper-container {
+  border-bottom: 1px solid #ccc;
 }
 </style>
