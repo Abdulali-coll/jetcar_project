@@ -10,12 +10,13 @@
         <p>{{ car.price }}</p>
       </router-link>
       <!--Modal window for favorite cars-->
+    
       <button @click="toggleFavorite(car)" class="favorite-button">
-        {{ isFavorite(car) ? 'Убрать из избранного' : 'Добавить в избранное' }}
       </button>
-      <button @click="openFavorites" class="favorite-button">Показать избранное</button>
-      <button @click="addToCompare(car)" class="compare-button">Сравнить</button>
-    </div>
+      <button @click="addToCompare(car)" class="compare-button">
+      </button>
+      </div>
+
   </section>
   <section class="favorites-modal" v-if="showFavoritesModal">
     <div class="modal-content">
@@ -474,9 +475,10 @@ export default {
 }
 
 .compare-button {
+  height: 35px;
+  width: 35px;
   background-color: #4CAF50;
   color: white;
-  padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -485,6 +487,8 @@ export default {
 .compare-button:hover {
   background-color: #45a049;
 }
+
+
 
 .remove-button {
   background-color: #ff4d4d;
@@ -555,9 +559,10 @@ export default {
 
 
 .favorite-button {
+  height: 35px;
+  width: 35px;
   background-color: #f0c14b;
   border: 1px solid #a88734;
-  padding: 5px 10px;
   cursor: pointer;
   border-radius: 3px;
   margin: 10px;
