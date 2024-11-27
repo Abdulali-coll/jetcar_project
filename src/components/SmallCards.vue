@@ -1,23 +1,32 @@
 <template>
+  <!-- Favorite button -->
+  <button 
+    v-if="favorites.length > 0" 
+    @click="openFavorites" 
+    class="global-favorite-button">
+    <img :src = "ListIcon" alt="List button">
+  </button>
+
   <section class="small-cards">
     <div v-for="(car, index) in cars" :key="index" class="car-card">
       <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }" @click.native="scrollToHeader">
         <div class="car-image">
           <img :src="car.image" alt="Car Image" />
         </div>
-        <div class="mini-images"></div>
         <h4>{{ car.name }}</h4>
         <p>{{ car.price }}</p>
       </router-link>
       <!--Modal window for favorite cars-->
-    
-      <button @click="toggleFavorite(car)" class="favorite-button">
+      <button @click="toggleFavorite(car)" :class="{'favorite-active' : isFavorite(car)}" class="favorite-button heart-button">
+        <img v-if="isFavorite(car)" :src="FavoriteIconActive" />
+        <img v-else :src="FavoriteIcon" />
       </button>
-      <button @click="addToCompare(car)" class="compare-button">
+      <button @click="addToCompare(car)" class="favorite-button">
+        <img :src="CompareIcon" />
       </button>
       </div>
-
   </section>
+
   <section class="favorites-modal" v-if="showFavoritesModal">
     <div class="modal-content">
       <h3>Избранные машины</h3>
@@ -38,6 +47,7 @@
       </div>
     </div>
   </section>
+
 <!-- Modal window for comparing cars -->
 <section class="compare-modal" v-if="showCompareModal">
   <div class="modal-content">
@@ -131,6 +141,10 @@ import yosemiteTop from '@/assets/source-image/YosemiteRancherTop.webp';
 import yoga from '@/assets/source-image/YougaClassic.webp';
 import yogaBack from '@/assets/source-image/YougaClassicBack.webp';
 import yogaTop from '@/assets/source-image/YougaClassicTop.webp';
+import FavoriteIcon from '@/assets/Heart.svg';
+import CompareIcon from '@/assets/Search.svg';
+import FavoriteIconActive from '@/assets/Heart_active.svg';
+import ListIcon from '@/assets/List.svg';
 
 export default {
   name: "CarsSmall",
@@ -393,6 +407,10 @@ export default {
       compareCars: [],
       showFavoritesModal: false,
       showCompareModal: false,
+      FavoriteIcon,
+      CompareIcon,
+      FavoriteIconActive,
+      ListIcon
     };
   },
   methods: {
@@ -442,6 +460,51 @@ export default {
 </script>
 
 <style scoped>
+/* Global button styles */
+.global-favorite-button {
+  width:30px;
+  height: 30px;
+  position: fixed;
+  top: 300px;
+  right: 20px; 
+  z-index: 1000; 
+  box-shadow: none; 
+  background-color: black;
+  border: none; 
+  outline: none; 
+  padding: 0;
+  border-radius: 5px;
+}
+.global-favorite-button img{
+  width:30px;
+  height: 30px;
+
+}
+
+.favorites-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 1050;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
 /* Compare styles */
 .compare-modal {
   position: fixed;
@@ -488,8 +551,6 @@ export default {
   background-color: #45a049;
 }
 
-
-
 .remove-button {
   background-color: #ff4d4d;
   color: white;
@@ -499,14 +560,14 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .remove-button:hover {
   background-color: #ff3333;
 }
+
 /*Styles for modal window*/
 .favorites-modal {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -557,18 +618,20 @@ export default {
   text-align: center;
 }
 
-
 .favorite-button {
-  height: 35px;
-  width: 35px;
-  background-color: #f0c14b;
-  border: 1px solid #a88734;
-  cursor: pointer;
-  border-radius: 3px;
-  margin: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  box-shadow: none; 
+  border: none; 
+  outline: none; 
+  padding: 0; 
+  margin-right: 5px;
 }
-.favorite-button:hover {
-  background-color: #ddb347;
+
+.favorite-button img{
+  width: 30px;
+  height: 30px;
 }
 
 .car-card a {
@@ -589,6 +652,7 @@ export default {
   width: 30%;
   text-align: left;
   text-decoration: none;
+  margin-bottom: 15px;
 }
 
 .car-image img {
@@ -608,6 +672,7 @@ export default {
   font-weight: bold;
   font-size: 18px;
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .car-details {

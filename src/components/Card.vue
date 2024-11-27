@@ -12,6 +12,14 @@
           <img :src="car.imageAny" alt="Mini Car 1" @click="openModal(car.imageAny)" />
           <img :src="car.imageBack" alt="Mini Car 2" @click="openModal(car.imageBack)" />
         </div>
+        <div class="Buttons">
+        <!--Modal window for favorite cars-->
+      <button @click="toggleFavorite(car)" class="favorite-button">
+        {{ isFavorite(car) ? 'Убрать из избранного' : 'Добавить в избранное' }}
+      </button>
+      <button @click="openFavorites" class="favorite-button">Показать избранное</button>
+      <button @click="addToCompare(car)" class="favorite-button">Сравнить</button>
+    </div>
       </div>
 
       <!-- Info about car -->
@@ -48,6 +56,53 @@
       </div>
     </div>
   </section>
+  <section class="favorites-modal" v-if="showFavoritesModal">
+    <div class="modal-content">
+      <h3>Избранные машины</h3>
+      <button @click="closeFavorites" class="close-button">Закрыть</button>
+      <div v-if="favorites.length > 0">
+        <div v-for="(car, index) in favorites" :key="index" class="car-card">
+          <div class="car-image">
+            <img :src="car.image" alt="Car Image" />
+          </div>
+          <h4>{{ car.name }}</h4>
+          <p>{{ car.price }}</p>
+          <!-- Remove favorite car button -->
+          <button @click="removeFromFavorites(car)" class="remove-button">Удалить</button>
+        </div>
+      </div>
+      <div v-else>
+        <p>Нет избранных машин.</p>
+      </div>
+    </div>
+  </section>
+<!-- Modal window for comparing cars -->
+<section class="compare-modal" v-if="showCompareModal">
+  <div class="modal-content">
+    <h3>Сравнение машин</h3>
+    <button @click="closeCompare" class="close-button">Закрыть</button>
+    <div v-if="compareCars.length > 0">
+      <div class="compare-cars">
+        <!-- car specifications-->
+        <div v-for="(car, index) in compareCars" :key="car.id" class="car-card">
+          <div class="car-image">
+            <img :src="car.image" alt="Car Image" />
+          </div>
+          <h4>{{ car.name }}</h4>
+          <p><strong>Цена:</strong> {{ car.price }}</p>
+          <p><strong>пробег:</strong> {{ car.mileage }}</p>
+          <p><strong>Год:</strong> {{ car.year }}</p>
+          <p><strong>Двигатель:</strong> {{ car.engineType }}</p>
+          <p><strong>Мощность:</strong> {{ car.power }}</p>
+          <button @click="removeFromCompares(car)" class="remove-button">Удалить</button>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <p>Добавьте машины для сравнения.</p>
+    </div>
+  </div>
+</section>
 </template>
 
 <script>
@@ -65,6 +120,10 @@ export default {
       currentImage: '',
       images: [], 
       currentIndex: 0, 
+      favorites: [],
+      compareCars: [],
+      showFavoritesModal: false,
+      showCompareModal: false,
     };
   },
   watch: {
@@ -95,12 +154,180 @@ export default {
         (this.currentIndex - 1 + this.images.length) % this.images.length;
       this.currentImage = this.images[this.currentIndex];
     },
+     /*Add to favorite method */
+     toggleFavorite(car) {
+    const index = this.favorites.findIndex(favorite => favorite.name === car.name);
+    if (index !== -1) {
+      this.favorites.splice(index, 1); 
+    } else {
+      this.favorites.push(car); 
+    }
+  },
+  isFavorite(car) {
+    return this.favorites.some(favorite => favorite.name === car.name);
+  },
+  scrollToHeader() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  },
+  openFavorites() {
+    this.showFavoritesModal = true;
+  },
+  closeFavorites() {
+    this.showFavoritesModal = false;
+  },
+  removeFromFavorites(car) {
+      this.favorites = this.favorites.filter(fav => fav.name !== car.name);
+  },
+  /*Compare method*/
+  addToCompare(car) {
+      if (!this.compareCars.includes(car)) {
+        this.compareCars.push(car);
+      }
+      this.showCompareModal = true;
+  },
+  closeCompare() {
+      this.showCompareModal = false;
+  },
+  compare() {
+    console.log("Сравнение машин", this.compareCars);
+    this.showCompareModal = true;
+  },
+  removeFromCompares(car) {
+    this.compareCars = this.compareCars.filter(com => com.name !== car.name);
+  }
   },
 };
 </script>
 
 
 <style scoped>
+.Buttons {
+  display:flex;
+}
+/* Compare styles */
+.compare-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.compare-modal .modal-content {
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  overflow-y: auto;
+  max-height: 80%;
+}
+
+.compare-cars {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.compare-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.compare-button:hover {
+  background-color: #45a049;
+}
+
+.remove-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.remove-button:hover {
+  background-color: #ff3333;
+}
+/*Styles for modal window*/
+.favorites-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  overflow-y: auto;
+  max-height: 80%; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.close-button {
+  background: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* cars list */
+.modal-car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+  gap: 15px; 
+  margin-top: 20px;
+  justify-content: center; 
+}
+
+.modal-car-item {
+  background-color: #222; 
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+.favorite-button {
+  background-color: #f0c14b;
+  border: 1px solid #a88734;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 10px;
+}
+.favorite-button:hover {
+  background-color: #ddb347;
+}
 /* styles to navigate arrows */
 .navigation {
   display: flex;
