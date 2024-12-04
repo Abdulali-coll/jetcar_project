@@ -16,30 +16,32 @@
         <h4>{{ car.name }}</h4>
         <p>{{ car.price }}</p>
       </router-link>
-      <!--Modal window for favorite cars-->
+
       <button @click="toggleFavorite(car)" :class="{'favorite-active' : isFavorite(car)}" class="favorite-button heart-button">
         <img v-if="isFavorite(car)" :src="FavoriteIconActive" />
         <img v-else :src="FavoriteIcon" />
       </button>
-      <button @click="addToCompare(car)" class="favorite-button">
-        <img :src="CompareIcon" />
+      <button @click="addToCompare(car)" :class= "{'compare-active' : isCompare(car)}" class="favorite-button">
+        <img v-if= "isCompare(car)" :src="CompareIconActive" />
+        <img v-else :src="CompareIcon" />
       </button>
       </div>
   </section>
 
+  <!--Modal window for favorite cars-->
   <section class="favorites-modal" v-if="showFavoritesModal">
     <div class="modal-content">
       <h3>Избранные машины</h3>
       <button @click="closeFavorites" class="close-button">Закрыть</button>
       <div v-if="favorites.length > 0">
         <div v-for="(car, index) in favorites" :key="index" class="car-card">
+          <!-- Remove favorite car button -->
+          <button @click="removeFromFavorites(car)" class="remove-button">Удалить</button>
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
           <h4>{{ car.name }}</h4>
           <p>{{ car.price }}</p>
-          <!-- Remove favorite car button -->
-          <button @click="removeFromFavorites(car)" class="remove-button">Удалить</button>
         </div>
       </div>
       <div v-else>
@@ -57,6 +59,7 @@
       <div class="compare-cars">
         <!-- car specifications-->
         <div v-for="(car, index) in compareCars" :key="car.id" class="car-card">
+          <button @click="removeFromCompares(car)" class="remove-button">Удалить</button>
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
@@ -66,7 +69,6 @@
           <p><strong>Год:</strong> {{ car.year }}</p>
           <p><strong>Двигатель:</strong> {{ car.engineType }}</p>
           <p><strong>Мощность:</strong> {{ car.power }}</p>
-          <button @click="removeFromCompares(car)" class="remove-button">Удалить</button>
         </div>
       </div>
     </div>
@@ -141,10 +143,12 @@ import yosemiteTop from '@/assets/source-image/YosemiteRancherTop.webp';
 import yoga from '@/assets/source-image/YougaClassic.webp';
 import yogaBack from '@/assets/source-image/YougaClassicBack.webp';
 import yogaTop from '@/assets/source-image/YougaClassicTop.webp';
+
 import FavoriteIcon from '@/assets/Heart.svg';
 import CompareIcon from '@/assets/Search.svg';
 import FavoriteIconActive from '@/assets/Heart_active.svg';
 import ListIcon from '@/assets/List.svg';
+import CompareIconActive from '@/assets/cancel.svg';
 
 export default {
   name: "CarsSmall",
@@ -410,17 +414,18 @@ export default {
       FavoriteIcon,
       CompareIcon,
       FavoriteIconActive,
-      ListIcon
+      ListIcon,
+      CompareIconActive
     };
   },
   methods: {
-    /*Add to favorite method */
+    /*Add to favorite method*/
     toggleFavorite(car) {
     const index = this.favorites.findIndex(favorite => favorite.name === car.name);
     if (index !== -1) {
       this.favorites.splice(index, 1); 
     } else {
-      this.favorites.push(car); 
+      this.favorites.push(car);
     }
   },
   isFavorite(car) {
@@ -438,12 +443,23 @@ export default {
   removeFromFavorites(car) {
       this.favorites = this.favorites.filter(fav => fav.name !== car.name);
   },
+
   /*Compare method*/
   addToCompare(car) {
-      if (!this.compareCars.includes(car)) {
-        this.compareCars.push(car);
-      }
-      this.showCompareModal = true;
+    if (this.isCompare(car)) {
+        this.removeFromCompares(car);
+        return;
+    }
+    if (this.compareCars.length >= 3) {
+        alert("Можно сравнить не более 3 машин.");
+        return;
+    }
+    this.compareCars.push(car);
+    this.showCompareModal = true;
+},
+
+  isCompare(car) {
+    return this.compareCars.some(compares => compares.name ===car.name)
   },
   closeCompare() {
       this.showCompareModal = false;
@@ -478,7 +494,6 @@ export default {
 .global-favorite-button img{
   width:30px;
   height: 30px;
-
 }
 
 .favorites-modal {
@@ -554,7 +569,7 @@ export default {
 .remove-button {
   background-color: #ff4d4d;
   color: white;
-  border: none;
+  border-radius: 7px;
   padding: 8px 12px;
   cursor: pointer;
   margin-top: 10px;

@@ -4,9 +4,10 @@ import CarCatalogePage from "@/pages/CarCatalogePage.vue";
 import ContactsPage from "@/pages/ContactsPage.vue";
 import AboutPage from "@/pages/AboutPage.vue";
 import CarCardPage from "@/pages/CarCardPage.vue";
+import NotFoundPage from '@/pages/NotFoundPage.vue';
 
 export default VueRouter.createRouter({
-  history: VueRouter.createWebHashHistory(),
+  history: VueRouter.createWebHistory(),
   routes: [
     {
       path: '/',
@@ -33,6 +34,11 @@ export default VueRouter.createRouter({
       path: '/about',
       name: 'AboutUsPage',
       component: AboutPage
-    }
+    },
+    {
+      path: '/:pathMatch(.*)*', 
+      name: 'NotFound',
+      component: NotFoundPage,
+    },
   ]
 });

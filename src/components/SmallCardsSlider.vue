@@ -36,19 +36,44 @@
           Мы предлагаем выгодные условия автокредита. Заполните форму ниже, чтобы рассчитать предварительные выплаты и подать заявку.
         </p>
 
-        <!-- Credit Calculation Form -->
-        <form @submit.prevent="calculateCredit">
-          <label for="price">Стоимость автомобиля (₸):</label>
-          <input type="number" id="price" v-model="carPrice" placeholder="Введите стоимость" required />
+        <!-- Credit Calculation Form with Sliders -->
+<form @submit.prevent="calculateCredit">
+  <label for="price">Стоимость автомобиля (₸):</label>
+  <input
+    type="range"
+    id="price"
+    v-model="carPrice"
+    :min="minCarPrice"
+    :max="maxCarPrice"
+    :step="5000"
+  />
+  <span>{{ carPrice.toLocaleString() }} ₸</span>
 
-          <label for="initialPayment">Первоначальный взнос (₸):</label>
-          <input type="number" id="initialPayment" v-model="initialPayment" placeholder="Введите сумму" required />
+  <label for="initialPayment">Первоначальный взнос (₸):</label>
+  <input
+    type="range"
+    id="initialPayment"
+    v-model="initialPayment"
+    :min="minInitialPayment"
+    :max="carPrice"
+    :step="500"
+  />
+  <span>{{ initialPayment.toLocaleString() }} ₸</span>
 
-          <label for="term">Срок кредита (лет):</label>
-          <input type="number" id="term" v-model="creditTerm" placeholder="Введите срок" min="1" max="7" required />
+  <label for="term">Срок кредита (лет):</label>
+  <input
+    type="range"
+    id="term"
+    v-model="creditTerm"
+    :min="1"
+    :max="7"
+    :step="1"
+  />
+  <span>{{ creditTerm }} лет</span>
 
-          <button type="submit">Рассчитать</button>
-        </form>
+  <button type="submit">Рассчитать</button>
+</form>
+
 
         <div v-if="monthlyPayment" class="result">
           <h3>Результат расчёта:</h3>
@@ -414,6 +439,12 @@ export default {
       fullName: '',
       phone: '',
       email: '',
+      carPrice: 5000000, // начальная стоимость
+      minCarPrice: 1000000,
+      maxCarPrice: 10000000,
+      initialPayment: 1000000, // начальный взнос
+      minInitialPayment: 0,
+      creditTerm: 3, // начальный срок
     };
   },
   methods: {
@@ -460,6 +491,121 @@ export default {
 </script>
 
 <style scoped>
+/* credit slider */
+input[type="range"] {
+  width: 100%;
+  appearance: none;
+  background: white;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #E5B748;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #E5B748; 
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.credit-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.image-container img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.text-container {
+  max-width: 600px;
+  margin-left: 20px;
+}
+
+.text-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.text-container p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.text-container form {
+  margin-bottom: 20px;
+}
+
+.text-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.text-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.text-container button {
+  background-color: #E5B748;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.text-container button:hover {
+  background-color: #d4a039;
+}
+
+.result {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.result h3 {
+  margin: 0;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.result p {
+  color: black;
+}
+
+.text-container span {
+  display: block;
+  color: #E5B748; 
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
 /*credit form styles*/
 .credit-container {
   display: flex;
