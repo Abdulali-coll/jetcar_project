@@ -11,11 +11,11 @@
         <option value="">Выбрать</option>
         <option value="Obey">Obey</option>
         <option value="Bravado">Bravado</option>
-        <option value="Pegassi">Pegassi</option>
-        <option value="Cavalcade">Cavalcade</option>
-        <option value="Elegy">Elegy</option>
+        <option value="Peggasi">Peggasi</option>
+        <option value="Grotti">Grotti</option>
+        <option value="Revolter">Revolter</option>
         <option value="Dominator">Dominator</option>
-        <option value="Itali">Itali</option>
+        <option value="Vapid">Vapid</option>
         <option value="Comet">Comet</option>
       </select>
     </div>
@@ -43,8 +43,8 @@
         :value="filters.year"
       >
         <option value="">Выбрать</option>
-        <option value="asc">Б\У</option>
-        <option value="desc">Новые</option>
+        <option value="asc">От старых</option>
+        <option value="desc">От новых</option>
       </select>
     </div>
   </nav>

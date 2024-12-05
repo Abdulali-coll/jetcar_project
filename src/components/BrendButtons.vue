@@ -20,10 +20,10 @@
         <span>Grotti</span>
       </button>
     </router-link>
-    <router-link :to="{ path: '/catalog', query: { brand: 'Commet' } }">
+    <router-link :to="{ path: '/catalog', query: { brand: 'Comet' } }">
       <button>
-        <img :src="CarCommet" alt="Commet Logo" />
-        <span>Commet</span>
+        <img :src="CarCommet" alt="Comet Logo" />
+        <span>Comet</span>
       </button>
     </router-link>
     <router-link :to="{ path: '/catalog', query: { brand: 'Obey' } }">
@@ -47,7 +47,7 @@
     <router-link :to="{ path: '/catalog', query: { brand: 'Peggasi' } }">
       <button>
         <img :src="CarPeggasi" alt="Peggasi Logo" />
-        <span>Pegassi</span>
+        <span>Peggasi</span>
       </button>
     </router-link>
   </section>

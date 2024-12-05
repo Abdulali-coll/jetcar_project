@@ -154,47 +154,84 @@ export default {
         (this.currentIndex - 1 + this.images.length) % this.images.length;
       this.currentImage = this.images[this.currentIndex];
     },
-     /*Add to favorite method */
-     toggleFavorite(car) {
-    const index = this.favorites.findIndex(favorite => favorite.name === car.name);
-    if (index !== -1) {
-      this.favorites.splice(index, 1); 
-    } else {
-      this.favorites.push(car); 
-    }
-  },
-  isFavorite(car) {
-    return this.favorites.some(favorite => favorite.name === car.name);
-  },
-  scrollToHeader() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  },
-  openFavorites() {
-    this.showFavoritesModal = true;
-  },
-  closeFavorites() {
-    this.showFavoritesModal = false;
-  },
-  removeFromFavorites(car) {
-      this.favorites = this.favorites.filter(fav => fav.name !== car.name);
-  },
-  /*Compare method*/
-  addToCompare(car) {
-      if (!this.compareCars.includes(car)) {
-        this.compareCars.push(car);
+    toggleFavorite(car) {
+      const index = this.favorites.findIndex((favorite) => favorite.name === car.name);
+      if (index !== -1) {
+        this.favorites.splice(index, 1); 
+      } else {
+        this.favorites.push(car);
       }
+      this.saveFavorites();
+    },
+    isFavorite(car) {
+      return this.favorites.some((favorite) => favorite.name === car.name);
+    },
+    scrollToHeader() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+    openFavorites() {
+      this.showFavoritesModal = true;
+    },
+    closeFavorites() {
+      this.showFavoritesModal = false;
+    },
+    removeFromFavorites(car) {
+      this.favorites = this.favorites.filter((fav) => fav.name !== car.name);
+      this.saveFavorites(); 
+    },
+
+    /* Compare methods */
+    addToCompare(car) {
+      if (this.isCompare(car)) {
+        this.removeFromCompares(car);
+        return;
+      }
+      if (this.compareCars.length >= 3) {
+        alert("Можно сравнить не более 3 машин.");
+        return;
+      }
+      this.compareCars.push(car);
       this.showCompareModal = true;
-  },
-  closeCompare() {
+      this.saveCompareCars();
+    },
+    isCompare(car) {
+      return this.compareCars.some((compares) => compares.name === car.name);
+    },
+    closeCompare() {
       this.showCompareModal = false;
+    },
+    compare() {
+      console.log("Сравнение машин", this.compareCars);
+      this.showCompareModal = true;
+    },
+    removeFromCompares(car) {
+      this.compareCars = this.compareCars.filter((com) => com.name !== car.name);
+      this.saveCompareCars(); 
+    },
+
+    /* LocalStorage Methods */
+    saveFavorites() {
+      localStorage.setItem("favorites", JSON.stringify(this.favorites));
+    },
+    loadFavorites() {
+      const storedFavorites = localStorage.getItem("favorites");
+      if (storedFavorites) {
+        this.favorites = JSON.parse(storedFavorites);
+      }
+    },
+    saveCompareCars() {
+      localStorage.setItem("compareCars", JSON.stringify(this.compareCars));
+    },
+    loadCompareCars() {
+      const storedCompareCars = localStorage.getItem("compareCars");
+      if (storedCompareCars) {
+        this.compareCars = JSON.parse(storedCompareCars);
+      }
+    },
   },
-  compare() {
-    console.log("Сравнение машин", this.compareCars);
-    this.showCompareModal = true;
-  },
-  removeFromCompares(car) {
-    this.compareCars = this.compareCars.filter(com => com.name !== car.name);
-  }
+  mounted() {
+    this.loadFavorites();
+    this.loadCompareCars();
   },
 };
 </script>
