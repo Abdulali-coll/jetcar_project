@@ -2,74 +2,72 @@
   <!-- Brends Btns -->
   <hr class="divider">
   <section class="brand-buttons">
-    <router-link to="/catalog">
-    <button>
-      <img :src="CarBravado" alt="Mercedes Logo" />
-      <span>Bravado</span>
-    </button>
-  </router-link>
-  <router-link to="/catalog">
-    <button>
-      <img :src="CarBenefactor" alt="Mercedes Logo" />
-      <span>Benefactor</span>
-    </button>
-  </router-link>
-  <router-link to="/catalog">
-    <button>
-      <img :src="CarGrotti" alt="Mercedes Logo" />
-      <span>Grotti</span>
-    </button>
-  </router-link>
-  <router-link to="/catalog">
-    <button>
-      <img :src="CarCommet" alt="Mercedes Logo" />
-      <span>Commet</span>
-    </button>
-  </router-link>
-  <router-link to="/catalog">
-    <button>
-      <img :src="CarObey" alt="Mercedes Logo" />
-      <span>Obey</span>
-    </button>
-  </router-link>
-  <router-link to="/catalog">
-    <button>
-      <img :src="CarRevolter" alt="Mercedes Logo" />
-      <span>Revolter</span>
-    </button>
-  </router-link>
-  <router-link to="/catalog">
-    <button>
-      <img :src="CarVapid" alt="Mercedes Logo" />
-      <span>Vapid</span>
-    </button>
-  </router-link>
-  <router-link to="/catalog">
-    <button>
-      <img :src="CarPeggasi" alt="Mercedes Logo" />
-      <span>Pegasso</span>
-    </button>
-  </router-link>
+    <router-link :to="{ path: '/catalog', query: { brand: 'Bravado' } }">
+      <button>
+        <img :src="CarBravado" alt="Bravado Logo" />
+        <span>Bravado</span>
+      </button>
+    </router-link>
+    <router-link :to="{ path: '/catalog', query: { brand: 'Benefactor' } }">
+      <button>
+        <img :src="CarBenefactor" alt="Benefactor Logo" />
+        <span>Benefactor</span>
+      </button>
+    </router-link>
+    <router-link :to="{ path: '/catalog', query: { brand: 'Grotti' } }">
+      <button>
+        <img :src="CarGrotti" alt="Grotti Logo" />
+        <span>Grotti</span>
+      </button>
+    </router-link>
+    <router-link :to="{ path: '/catalog', query: { brand: 'Commet' } }">
+      <button>
+        <img :src="CarCommet" alt="Commet Logo" />
+        <span>Commet</span>
+      </button>
+    </router-link>
+    <router-link :to="{ path: '/catalog', query: { brand: 'Obey' } }">
+      <button>
+        <img :src="CarObey" alt="Obey Logo" />
+        <span>Obey</span>
+      </button>
+    </router-link>
+    <router-link :to="{ path: '/catalog', query: { brand: 'Revolter' } }">
+      <button>
+        <img :src="CarRevolter" alt="Revolter Logo" />
+        <span>Revolter</span>
+      </button>
+    </router-link>
+    <router-link :to="{ path: '/catalog', query: { brand: 'Vapid' } }">
+      <button>
+        <img :src="CarVapid" alt="Vapid Logo" />
+        <span>Vapid</span>
+      </button>
+    </router-link>
+    <router-link :to="{ path: '/catalog', query: { brand: 'Peggasi' } }">
+      <button>
+        <img :src="CarPeggasi" alt="Peggasi Logo" />
+        <span>Pegassi</span>
+      </button>
+    </router-link>
   </section>
   <hr class="divider">
 </template>
 
 <script>
-import carLogo from '@/assets/mercedes_logo.png';
 import CarBravado from '@/assets/car_logos/Banshee_Bravadoo.webp';
-import CarBenefactor from '@/assets/car_logos/Benefactor.webp'
-import CarGrotti from '@/assets/car_logos/Grotti.webp'
-import CarCommet from '@/assets/car_logos/Pfister_Comet.webp'
-import CarObey from '@/assets/car_logos/Obey.webp'
-import CarRevolter from '@/assets/car_logos/Revolter.webp'
-import CarVapid from '@/assets/car_logos/Vapid.webp'
-import CarPeggasi from '@/assets/car_logos/Pegassi.webp'
+import CarBenefactor from '@/assets/car_logos/Benefactor.webp';
+import CarGrotti from '@/assets/car_logos/Grotti.webp';
+import CarCommet from '@/assets/car_logos/Pfister_Comet.webp';
+import CarObey from '@/assets/car_logos/Obey.webp';
+import CarRevolter from '@/assets/car_logos/Revolter.webp';
+import CarVapid from '@/assets/car_logos/Vapid.webp';
+import CarPeggasi from '@/assets/car_logos/Pegassi.webp';
 
 export default {
-  name: 'BrendButs',
+  name: 'BrendButtons',
   data() {
     return {
-      carLogo,
       CarBravado,
       CarBenefactor,
       CarGrotti,
@@ -79,9 +77,10 @@ export default {
       CarVapid,
       CarPeggasi,
     };
-  }
+  },
 };
 </script>
+
 
 <style scoped>
 .brand-buttons {
