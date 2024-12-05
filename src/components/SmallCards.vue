@@ -456,13 +456,12 @@ export default {
     }
     this.compareCars.push(car);
     this.showCompareModal = true;
-},
-
+  },
   isCompare(car) {
     return this.compareCars.some(compares => compares.name ===car.name)
   },
   closeCompare() {
-      this.showCompareModal = false;
+    this.showCompareModal = false;
   },
   compare() {
     console.log("Сравнение машин", this.compareCars);

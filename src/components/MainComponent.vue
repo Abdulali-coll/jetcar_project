@@ -97,14 +97,14 @@ export default {
 
 <style scoped>
 .contact-button {
+  background-color: #E5B748;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 50px;
   height: 60px;
   width: 300px;
   margin: 40px;
-
 }
 
 .button-inside {
@@ -128,14 +128,16 @@ export default {
 .descript-text {
   color: gray;
   font-family: 'Roboto', sans-serif;
-  font-weight: 200;
+  font-weight: 700;
 }
 
 .car-spec {
+  font-size: 20px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: gray;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 .spec-value {
@@ -252,7 +254,6 @@ export default {
   border-radius: 5px;
   font-size: 16px;
 }
-
 
 .close-button {
   margin-top: 10px;

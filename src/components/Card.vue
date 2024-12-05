@@ -316,7 +316,6 @@ export default {
   text-align: center;
 }
 
-
 .favorite-button {
   background-color: #f0c14b;
   border: 1px solid #a88734;
@@ -325,6 +324,7 @@ export default {
   border-radius: 3px;
   margin: 10px;
 }
+
 .favorite-button:hover {
   background-color: #ddb347;
 }
@@ -337,6 +337,7 @@ export default {
   width: 100%;
   transform: translateY(-50%);
 }
+
 .prev,
 .next {
   background-color: rgba(0, 0, 0, 0.5);
@@ -346,6 +347,7 @@ export default {
   cursor: pointer;
   padding: 10px;
 }
+
 .Buy-car {
   display: flex;
   flex-direction: column;
@@ -452,10 +454,12 @@ export default {
  word-wrap: break-word;
 }
 
-
 .car-details {
   list-style: none;
+  justify-content: space-between;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
