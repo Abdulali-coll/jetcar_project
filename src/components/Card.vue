@@ -287,11 +287,13 @@ export default {
 }
 
 .remove-button {
-  background-color: #ff4d4d;
+  background-color: #ff0000;
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 14px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -329,11 +331,20 @@ export default {
 
 .close-button {
   background: red;
+  width: 120px;
+  height: 40px;
   color: white;
+  font-size: 18px;
   padding: 10px;
   border: none;
   border-radius: 5px;
+  margin-bottom: 30px;
   cursor: pointer;
+}
+
+.modal-content h3{
+  font-size: 25px;
+  color: #e5b748;
 }
 
 /* cars list */
@@ -356,7 +367,11 @@ export default {
 .favorite-button {
   background-color: #f0c14b;
   border: 1px solid #a88734;
-  padding: 5px 10px;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 19px;
+  padding: 8px 12px;
   cursor: pointer;
   border-radius: 3px;
   margin: 10px;
