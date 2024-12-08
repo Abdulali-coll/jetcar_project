@@ -76,6 +76,7 @@
       </div>
     </div>
   </section>
+  
 <!-- Modal window for comparing cars -->
 <section class="compare-modal" v-if="showCompareModal">
   <div class="modal-content">
@@ -238,9 +239,16 @@ export default {
 
 
 <style scoped>
+.car-card p {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  color: #e5b748;
+}
+
 .Buttons {
   display:flex;
 }
+
 /* Compare styles */
 .compare-modal {
   position: fixed;
@@ -259,31 +267,26 @@ export default {
   background: black;
   padding: 20px;
   border-radius: 10px;
-  width: 80%;
-  max-width: 800px;
+  width: 100%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   overflow-y: auto;
   max-height: 80%;
 }
 
+/* Стили для модальных окон */
+.compare-modal .car-image img{
+  max-width: 300px; /* Увеличить размер для сравнения машин */
+}
+
+.favorites-modal .car-image img{
+  max-width: 300px; /* Размер для избранных машин */
+}
+
 .compare-cars {
   display: flex;
   justify-content: space-around;
   gap: 20px;
-}
-
-.compare-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.compare-button:hover {
-  background-color: #45a049;
 }
 
 .remove-button {
@@ -297,9 +300,11 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .remove-button:hover {
   background-color: #ff3333;
 }
+
 /*Styles for modal window*/
 .favorites-modal {
   position: fixed;
@@ -321,7 +326,6 @@ export default {
   width: 80%;
   max-width: 600px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
   overflow-y: auto;
   max-height: 80%; 
   display: flex;

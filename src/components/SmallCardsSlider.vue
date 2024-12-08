@@ -29,7 +29,10 @@
     <div class="credit-container">
       <div class="image-container">
         <img :src="creditCar" alt="Credit image" />
+       
+        <img :src="creditCar2" alt="Credit image" />
       </div>
+
       <div class="text-container">
         <h2>Расчёт и оформление автокредита</h2>
         <p>
@@ -38,7 +41,7 @@
 
         <!-- Credit Calculation Form with Sliders -->
 <form @submit.prevent="calculateCredit">
-  <label for="price">Стоимость автомобиля (₸):</label>
+  <label for="price">Стоимость автомобиля (руб):</label>
   <input
     type="range"
     id="price"
@@ -47,9 +50,9 @@
     :max="maxCarPrice"
     :step="5000"
   />
-  <span>{{ carPrice.toLocaleString() }} ₸</span>
+  <span>{{ carPrice.toLocaleString() }} руб</span>
 
-  <label for="initialPayment">Первоначальный взнос (₸):</label>
+  <label for="initialPayment">Первоначальный взнос (руб):</label>
   <input
     type="range"
     id="initialPayment"
@@ -58,7 +61,7 @@
     :max="carPrice"
     :step="500"
   />
-  <span>{{ initialPayment.toLocaleString() }} ₸</span>
+  <span>{{ initialPayment.toLocaleString() }} руб</span>
 
   <label for="term">Срок кредита (лет):</label>
   <input
@@ -77,7 +80,7 @@
 
         <div v-if="monthlyPayment" class="result">
           <h3>Результат расчёта:</h3>
-          <p>Ежемесячный платёж: {{ monthlyPayment.toLocaleString() }} ₸</p>
+          <p>Ежемесячный платёж: {{ monthlyPayment.toLocaleString() }} руб</p>
         </div>
 
         <!-- Credit Application Form -->
@@ -164,7 +167,9 @@ import yosemiteTop from '@/assets/source-image/YosemiteRancherTop.webp';
 import yoga from '@/assets/source-image/YougaClassic.webp';
 import yogaBack from '@/assets/source-image/YougaClassicBack.webp';
 import yogaTop from '@/assets/source-image/YougaClassicTop.webp';
-import creditCar from '@/assets/credit-car.jpg';
+
+import creditCar from '@/assets/creditCar.webp';
+import creditCar2 from '@/assets/creditCar2.webp';
 //Import sliders components
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/swiper-bundle.css';
@@ -178,16 +183,17 @@ export default {
   data() {
     return {
       creditCar,
+      creditCar2,
       cars: [
         { 
           image: glendale,
           imageAny: glendaleTop,
           imageBack: glendaleBack,
           name: "Glendale", 
-          price: "7 500 999 ₸", 
+          price: "7 500 999 руб", 
           mileage: 1137, 
           power: 525, 
-          engineType: "Атомный, Уран 238U",
+          engineType: "Водородный",
           description: "Передняя часть автомобиля выполнена в классическом стиле и отличается хромированным бампером и решеткой радиатора, на последней нанесен значок производителя. По краям автомобиля расположены хромированные панели, на которых расположены две желтые фары и поворотники меньшего размера.", 
           year: 2018 
         },
@@ -196,7 +202,7 @@ export default {
           imageAny: gauntletClassicCustomTop,
           imageBack: gauntletClassicCustomBack, 
           name: "Gauntlet Classic", 
-          price: "6 900 999 ₸", 
+          price: "6 900 999 руб", 
           mileage: 15000, 
           power: 350, 
           engineType: "V8, Бензин", 
@@ -208,7 +214,7 @@ export default {
           imageAny: bansheeTop,
           imageBack: bansheeBack, 
           name: "Banshee", 
-          price: "8 200 999 ₸", 
+          price: "5 200 999 руб", 
           mileage: 2000, 
           power: 600, 
           engineType: "V10, Бензин", 
@@ -220,7 +226,7 @@ export default {
           imageBack: buccaneerBack,
           imageAny: buccaneerAny,
           name: "Buccaneer", 
-          price: "7 300 999 ₸", 
+          price: "7 300 999 руб", 
           mileage: 50000, 
           power: 450, 
           engineType: "V6, Бензин", 
@@ -232,7 +238,7 @@ export default {
           imageBack: cometBack, 
           imageAny: cometTop,
           name: "Comet", 
-          price: "6 500 999 ₸", 
+          price: "6 500 999 руб", 
           mileage: 7500, 
           power: 380, 
           engineType: "V6, Бензин",
@@ -244,7 +250,7 @@ export default {
           imageAny: elegyRetroSportAny,
           imageBack: elegyRetroSportBack,
           name: "Elegy Retro Sport", 
-          price: "8 000 999 ₸", 
+          price: "3 000 999 руб", 
           mileage: 10000, 
           power: 400, 
           engineType: "V6, Бензин", 
@@ -256,7 +262,7 @@ export default {
           imageAny: elegyRH8Front,
           imageBack: elegyRH8Back,
           name: "Elegy RH8", 
-          price: "7 800 999 ₸", 
+          price: "7 800 999 руб", 
           mileage: 8000, 
           power: 420, 
           engineType: "V6, Бензин", 
@@ -268,7 +274,7 @@ export default {
           imageAny: F10Top,
           imageBack: F10Back,  
           name: "10F", 
-          price: "9 000 999 ₸", 
+          price: "9 000 999 руб", 
           mileage: 5000, 
           power: 540, 
           engineType: "V8, Бензин", 
@@ -280,7 +286,7 @@ export default {
           imageAny: weevilTop,
           imageBack: weevilBack,
           name: "Weevil", 
-          price: "5 500 999 ₸", 
+          price: "5 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин",
@@ -292,7 +298,7 @@ export default {
           imageAny: buccaneerCustomEngine,
           imageBack: buccaneerCustomBack,
           name: "Buccaneer Custom", 
-          price: "3 500 999 ₸", 
+          price: "3 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -303,10 +309,10 @@ export default {
           imageAny: cometRetroTop,
           imageBack: cometRetroBack,
           name: "Comet Retro", 
-          price: "1 500 999 ₸", 
+          price: "1 500 999 руб", 
           mileage: 30000, 
           power: 350, 
-          engineType: "I4, Бензин", 
+          engineType: "V6, Бензин", 
           description: "Ретро-кастом Comet во многом основан на Porsche 964, оснащенном широкофюзеляжным комплектом RAUH-Welt Begriff (RWB). Некоторые элементы, такие как фары и боковые борты, позаимствованы у Porsche 993. Передний бампер, похоже, позаимствован непосредственно у Porsche 930 серии Yoshida Special. Спойлер в виде 'утиного хвоста', возможно, создан на основе Porsche Carrera RSR 1973 года выпуска, хотя и в уменьшенном виде. Задние фонари также могут быть созданы на основе более поздних модификаций Porsche 928.",
           year: 2004 
         },
@@ -315,7 +321,7 @@ export default {
           imageAny: factionCustomTop,
           imageBack: factionCustomBack,
           name: "Faction Custom", 
-          price: "9 500 999 ₸", 
+          price: "9 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -327,7 +333,7 @@ export default {
           imageAny: GauntlelClassicTop,
           imageBack: GauntlelClassicBack,
           name: "Gauntlet", 
-          price: "7 500 999 ₸", 
+          price: "7 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -339,7 +345,7 @@ export default {
           imageAny: italiGTOTop,
           imageBack: italiGTOBack,
           name: "Itali GTO", 
-          price: "1 500 999 ₸", 
+          price: "1 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -351,7 +357,7 @@ export default {
           imageAny: neroTop,
           imageBack: neroBack,
           name: "Nero", 
-          price: "13 500 999 ₸", 
+          price: "13 500 999 руб", 
           mileage: 39000, 
           power: 750, 
           engineType: "I4, Бензин", 
@@ -363,10 +369,10 @@ export default {
           imageAny: neroCustomTop,
           imageBack: neroCustomBack, 
           name: "Nero Custom", 
-          price: "5 500 999 ₸", 
+          price: "5 500 999 руб", 
           mileage: 30000, 
           power: 150, 
-          engineType: "I4, Бензин", 
+          engineType: "V12, Бензин", 
           description: "Передняя часть оснащена разделителем из углепластика по всей ширине автомобиля, который поддерживается двумя небольшими стойками, а также небольшими выступами по внешним краям и оранжевым гоночным буксирным крюком под решеткой радиатора. В области капота были внесены значительные изменения: появились защитные планки, более крупная панель из углеродного волокна и решетчатые воздухозаборники на крыльях. Детали, связанные с болтами и заклепками, также можно увидеть на ветровом стекле.",
           year: 2014 
         },
@@ -375,7 +381,7 @@ export default {
           imageAny: primoTop,
           imageBack: primoBack,
           name: "Primo", 
-          price: "150 999 ₸", 
+          price: "150 999 руб", 
           mileage: 30000, 
           power: 90, 
           engineType: "I4, Бензин", 
@@ -387,7 +393,7 @@ export default {
           imageAny: sentinelClassicTop,
           imageBack: sentinelClassicBack,
           name: "Sentinel Classic", 
-          price: "16 500 999 ₸", 
+          price: "16 500 999 руб", 
           mileage: 30000, 
           power: 650, 
           engineType: "I4, Бензин", 
@@ -399,7 +405,7 @@ export default {
           imageAny: specterTop,
           imageBack: specterBack,
           name: "Specter", 
-          price: "8 500 999 ₸", 
+          price: "8 500 999 руб", 
           mileage: 30000, 
           power: 190, 
           engineType: "I4, Бензин", 
@@ -411,7 +417,7 @@ export default {
           imageAny: yosemiteTop,
           imageBack: yosemiteBack,
           name: "Yosemite", 
-          price: "2 500 999 ₸", 
+          price: "2 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -423,7 +429,7 @@ export default {
           imageAny: yogaTop,
           imageBack: yogaBack,
           name: "Youga", 
-          price: "2 500 999 ₸", 
+          price: "2 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -439,12 +445,12 @@ export default {
       fullName: '',
       phone: '',
       email: '',
-      carPrice: 5000000, // начальная стоимость
+      carPrice: 5000000,
       minCarPrice: 1000000,
       maxCarPrice: 10000000,
-      initialPayment: 1000000, // начальный взнос
+      initialPayment: 1000000,
       minInitialPayment: 0,
-      creditTerm: 3, // начальный срок
+      creditTerm: 3, 
     };
   },
   methods: {
@@ -539,6 +545,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .text-container h2 {
+  color: #E5B748;
   font-size: 24px;
   margin-bottom: 10px;
 }

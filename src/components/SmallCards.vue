@@ -1,11 +1,13 @@
 <template>
   <!-- Favorite button -->
+  <transition name="scale-pulse">
   <button 
     v-if="favorites.length > 0" 
     @click="openFavorites" 
     class="global-favorite-button">
-    <img :src = "ListIcon" alt="List button">
+    <img :src="ListIcon" alt="List button">
   </button>
+</transition>
 
   <section class="small-cards">
     <div v-for="(car, index) in cars" :key="index" class="car-card">
@@ -35,13 +37,12 @@
       <button @click="closeFavorites" class="close-button">Закрыть</button>
       <div v-if="favorites.length > 0">
         <div v-for="(car, index) in favorites" :key="index" class="car-card">
-          <!-- Remove favorite car button -->
-          <button @click="removeFromFavorites(car)" class="remove-button">Удалить</button>
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
           <h4>{{ car.name }}</h4>
           <p>{{ car.price }}</p>
+          <button @click="removeFromCompares(car)" class="remove-button">Удалить</button>
         </div>
       </div>
       <div v-else>
@@ -59,7 +60,6 @@
       <div class="compare-cars">
         <!-- car specifications-->
         <div v-for="(car, index) in compareCars" :key="car.id" class="car-card">
-          <button @click="removeFromCompares(car)" class="remove-button">Удалить</button>
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
@@ -69,6 +69,7 @@
           <p><strong>Год:</strong> {{ car.year }}</p>
           <p><strong>Двигатель:</strong> {{ car.engineType }}</p>
           <p><strong>Мощность:</strong> {{ car.power }}</p>
+          <button @click="removeFromCompares(car)" class="remove-button">Удалить</button>
         </div>
       </div>
     </div>
@@ -160,7 +161,7 @@ export default {
           imageAny: glendaleTop,
           imageBack: glendaleBack,
           name: "Glendale", 
-          price: "7 500 999", 
+          price: "7 500 999 руб", 
           mileage: 1137, 
           power: 525, 
           engineType: "Водородный",
@@ -172,7 +173,7 @@ export default {
           imageAny: gauntletClassicCustomTop,
           imageBack: gauntletClassicCustomBack, 
           name: "Gauntlet Classic", 
-          price: "6 900 999", 
+          price: "6 900 999 руб", 
           mileage: 15000, 
           power: 350, 
           engineType: "V8, Бензин", 
@@ -184,7 +185,7 @@ export default {
           imageAny: bansheeTop,
           imageBack: bansheeBack, 
           name: "Banshee", 
-          price: "5 200 999", 
+          price: "5 200 999 руб", 
           mileage: 2000, 
           power: 600, 
           engineType: "V10, Бензин", 
@@ -196,7 +197,7 @@ export default {
           imageBack: buccaneerBack,
           imageAny: buccaneerAny,
           name: "Buccaneer", 
-          price: "7 300 999", 
+          price: "7 300 999 руб", 
           mileage: 50000, 
           power: 450, 
           engineType: "V6, Бензин", 
@@ -208,7 +209,7 @@ export default {
           imageBack: cometBack, 
           imageAny: cometTop,
           name: "Comet", 
-          price: "6 500 999", 
+          price: "6 500 999 руб", 
           mileage: 7500, 
           power: 380, 
           engineType: "V6, Бензин",
@@ -220,7 +221,7 @@ export default {
           imageAny: elegyRetroSportAny,
           imageBack: elegyRetroSportBack,
           name: "Elegy Retro Sport", 
-          price: "3 000 999", 
+          price: "3 000 999 руб", 
           mileage: 10000, 
           power: 400, 
           engineType: "V6, Бензин", 
@@ -232,7 +233,7 @@ export default {
           imageAny: elegyRH8Front,
           imageBack: elegyRH8Back,
           name: "Elegy RH8", 
-          price: "7 800 999", 
+          price: "7 800 999 руб", 
           mileage: 8000, 
           power: 420, 
           engineType: "V6, Бензин", 
@@ -244,7 +245,7 @@ export default {
           imageAny: F10Top,
           imageBack: F10Back,  
           name: "10F", 
-          price: "9 000 999", 
+          price: "9 000 999 руб", 
           mileage: 5000, 
           power: 540, 
           engineType: "V8, Бензин", 
@@ -256,7 +257,7 @@ export default {
           imageAny: weevilTop,
           imageBack: weevilBack,
           name: "Weevil", 
-          price: "5 500 999", 
+          price: "5 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин",
@@ -268,7 +269,7 @@ export default {
           imageAny: buccaneerCustomEngine,
           imageBack: buccaneerCustomBack,
           name: "Buccaneer Custom", 
-          price: "3 500 999", 
+          price: "3 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -279,7 +280,7 @@ export default {
           imageAny: cometRetroTop,
           imageBack: cometRetroBack,
           name: "Comet Retro", 
-          price: "1 500 999", 
+          price: "1 500 999 руб", 
           mileage: 30000, 
           power: 350, 
           engineType: "V6, Бензин", 
@@ -291,7 +292,7 @@ export default {
           imageAny: factionCustomTop,
           imageBack: factionCustomBack,
           name: "Faction Custom", 
-          price: "9 500 999", 
+          price: "9 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -303,7 +304,7 @@ export default {
           imageAny: GauntlelClassicTop,
           imageBack: GauntlelClassicBack,
           name: "Gauntlet", 
-          price: "7 500 999", 
+          price: "7 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -315,7 +316,7 @@ export default {
           imageAny: italiGTOTop,
           imageBack: italiGTOBack,
           name: "Itali GTO", 
-          price: "1 500 999", 
+          price: "1 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -327,7 +328,7 @@ export default {
           imageAny: neroTop,
           imageBack: neroBack,
           name: "Nero", 
-          price: "13 500 999", 
+          price: "13 500 999 руб", 
           mileage: 39000, 
           power: 750, 
           engineType: "I4, Бензин", 
@@ -339,7 +340,7 @@ export default {
           imageAny: neroCustomTop,
           imageBack: neroCustomBack, 
           name: "Nero Custom", 
-          price: "5 500 999", 
+          price: "5 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "V12, Бензин", 
@@ -351,7 +352,7 @@ export default {
           imageAny: primoTop,
           imageBack: primoBack,
           name: "Primo", 
-          price: "150 999", 
+          price: "150 999 руб", 
           mileage: 30000, 
           power: 90, 
           engineType: "I4, Бензин", 
@@ -363,7 +364,7 @@ export default {
           imageAny: sentinelClassicTop,
           imageBack: sentinelClassicBack,
           name: "Sentinel Classic", 
-          price: "16 500 999", 
+          price: "16 500 999 руб", 
           mileage: 30000, 
           power: 650, 
           engineType: "I4, Бензин", 
@@ -375,7 +376,7 @@ export default {
           imageAny: specterTop,
           imageBack: specterBack,
           name: "Specter", 
-          price: "8 500 999", 
+          price: "8 500 999 руб", 
           mileage: 30000, 
           power: 190, 
           engineType: "I4, Бензин", 
@@ -387,7 +388,7 @@ export default {
           imageAny: yosemiteTop,
           imageBack: yosemiteBack,
           name: "Yosemite", 
-          price: "2 500 999", 
+          price: "2 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -399,7 +400,7 @@ export default {
           imageAny: yogaTop,
           imageBack: yogaBack,
           name: "Youga", 
-          price: "2 500 999", 
+          price: "2 500 999 руб", 
           mileage: 30000, 
           power: 150, 
           engineType: "I4, Бензин", 
@@ -419,16 +420,28 @@ export default {
     };
   },
   methods: {
-    /* Add to favorite method */
-    toggleFavorite(car) {
-      const index = this.favorites.findIndex((favorite) => favorite.name === car.name);
-      if (index !== -1) {
-        this.favorites.splice(index, 1); 
-      } else {
-        this.favorites.push(car);
-      }
-      this.saveFavorites(); 
-    },
+  /* Add to favorite method */
+  toggleFavorite(car) {
+    const index = this.favorites.findIndex((favorite) => favorite.name === car.name);
+    if (index !== -1) {
+      this.favorites.splice(index, 1); 
+    } else {
+      this.favorites.push(car);
+      this.animatePulse();  // Запускаем анимацию пульсации при добавлении элемента
+    }
+    this.saveFavorites(); 
+  },
+
+  animatePulse() {
+    const button = document.querySelector('.global-favorite-button');
+    if (button) {
+      button.classList.add('scale-pulse-pulse');  // Добавляем класс для пульсации
+      // Убираем класс после завершения анимации
+      setTimeout(() => {
+        button.classList.remove('scale-pulse-pulse');
+      }, 1000); // Длительность анимации (1 секунда)
+    }
+  },
     isFavorite(car) {
       return this.favorites.some((favorite) => favorite.name === car.name);
     },
@@ -447,7 +460,7 @@ export default {
     },
 
     /* Compare methods */
-    addToCompare(car) {
+      addToCompare(car) {
       if (this.isCompare(car)) {
         this.removeFromCompares(car);
         return;
@@ -503,10 +516,56 @@ export default {
 </script>
 
 <style scoped>
+
+/* Стили для модальных окон */
+.compare-modal .car-image {
+  width: 300px; /* Увеличить размер для сравнения машин */
+}
+
+.favorites-modal .car-image {
+  width: 400px; /* Размер для избранных машин */
+}
+
+/* Анимация пульсации для кнопки */
+.scale-pulse-enter-active, .scale-pulse-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.scale-pulse-enter, .scale-pulse-leave-to {
+  transform: scale(1);
+}
+
+.scale-pulse-pulse {
+  animation: pulse 1s ease-out infinite;
+}
+
+/* Определяем саму анимацию пульсации */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);  /* Увеличиваем кнопку */
+  }
+  100% {
+    transform: scale(1);  /* Возвращаем кнопку в исходное состояние */
+  }
+}
+
+/* Анимация для появления и увеличения кнопки */
+.scale-fade-enter-active, .scale-fade-leave-active {
+  transition: opacity 0.5s ease, transform 0.3s ease;
+}
+
+.scale-fade-enter, .scale-fade-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
 /* Global button styles */
 .global-favorite-button {
-  width:30px;
-  height: 30px;
+  width:60px;
+  height: 60px;
   position: fixed;
   top: 300px;
   right: 20px; 
@@ -518,9 +577,10 @@ export default {
   padding: 0;
   border-radius: 5px;
 }
+
 .global-favorite-button img{
-  width:30px;
-  height: 30px;
+  width:60px;
+  height: 60px;
 }
 
 .favorites-modal {
@@ -533,18 +593,6 @@ export default {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.close-button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: #999;
-  font-size: 1.2rem;
-}
-
-.close-button:hover {
-  color: #333;
 }
 
 /* Compare styles */
@@ -566,7 +614,6 @@ export default {
   padding: 20px;
   border-radius: 10px;
   width: 80%;
-  max-width: 800px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   overflow-y: auto;
@@ -594,13 +641,14 @@ export default {
 }
 
 .remove-button {
-  background-color: #ff4d4d;
+  background: red;
   color: white;
-  border-radius: 7px;
-  padding: 8px 12px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  margin-top: 20px ;
   cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .remove-button:hover {
@@ -624,7 +672,6 @@ export default {
   padding: 20px;
   border-radius: 10px;
   width: 80%;
-  max-width: 600px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   overflow-y: auto;
@@ -635,12 +682,17 @@ export default {
 }
 
 .close-button {
+  width: 120px;
   background: red;
   color: white;
   padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.close-button:hover {
+  color: #333;
 }
 
 /* cars list */
@@ -695,6 +747,7 @@ export default {
   text-align: left;
   text-decoration: none;
   margin-bottom: 15px;
+  margin-top: 10px
 }
 
 .car-image img {

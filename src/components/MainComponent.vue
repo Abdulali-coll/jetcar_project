@@ -6,7 +6,7 @@
     </div>
     <div class="car-info">
       <h2>Pegassi Tempesta V12</h2>
-      <h3>12 500 999 ₸</h3>
+      <h3>12 500 999 руб</h3>
       <div class="car-spec">
         <div class="spec-name">Пробег:</div>
         <div class="spec-value">1137 км</div>
