@@ -7,7 +7,7 @@
     class="global-favorite-button">
     <img :src="ListIcon" alt="List button">
   </button>
-</transition>
+  </transition>
 
   <section class="small-cards">
     <div v-for="(car, index) in cars" :key="index" class="car-card">
@@ -23,8 +23,8 @@
         <img v-if="isFavorite(car)" :src="FavoriteIconActive" />
         <img v-else :src="FavoriteIcon" />
       </button>
-      <button @click="addToCompare(car)" :class= "{'compare-active' : isCompare(car)}" class="favorite-button">
-        <img v-if= "isCompare(car)" :src="CompareIconActive" />
+      <button @click="addToCompare(car)" :class="{'compare-active': isCompare(car)}" class="favorite-button"> 
+        <img v-if="isCompare(car)" :src="CompareIconActive" />
         <img v-else :src="CompareIcon" />
       </button>
       </div>
@@ -37,12 +37,14 @@
       <button @click="closeFavorites" class="close-button">Закрыть</button>
       <div v-if="favorites.length > 0">
         <div v-for="(car, index) in favorites" :key="index" class="car-card">
+          <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }" @click.native="scrollToHeader">
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
+        </router-link>
           <h4>{{ car.name }}</h4>
           <p>{{ car.price }}</p>
-          <button @click="removeFromCompares(car)" class="remove-button">Удалить</button>
+          <button @click="removeFromFavorites(car)" class="remove-button">Удалить</button>
         </div>
       </div>
       <div v-else>
@@ -60,9 +62,11 @@
       <div class="compare-cars">
         <!-- car specifications-->
         <div v-for="(car, index) in compareCars" :key="car.id" class="car-card">
+          <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }" @click.native="scrollToHeader">
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
+        </router-link>
           <h4>{{ car.name }}</h4>
           <p><strong>Цена:</strong> {{ car.price }}</p>
           <p><strong>пробег:</strong> {{ car.mileage }}</p>
@@ -163,10 +167,10 @@ export default {
           name: "Glendale", 
           price: "7 500 999 руб", 
           mileage: 1137, 
-          power: 525, 
-          engineType: "Водородный",
+          power: 305, 
+          engineType: "V6, дизельный",
           description: "Передняя часть автомобиля выполнена в классическом стиле и отличается хромированным бампером и решеткой радиатора, на последней нанесен значок производителя. По краям автомобиля расположены хромированные панели, на которых расположены две желтые фары и поворотники меньшего размера.", 
-          year: 2018 
+          year: 1990
         },
         { 
           image: gauntletClassicCustom,
@@ -175,10 +179,10 @@ export default {
           name: "Gauntlet Classic", 
           price: "6 900 999 руб", 
           mileage: 15000, 
-          power: 350, 
+          power: 450, 
           engineType: "V8, Бензин", 
           description: "Gauntlet Classic Custom сильно напоминает Dodge Charger Daytona 1969 года выпуска, хотя плавная форма носовой части делает его похожим на Plymouth Superbird 1970 года выпуска. Таким образом, автомобиль вдохновлен недолговечным поколением NASCAR 'aero-warrior' начала 1970-х годов, когда производители Dodge и, впоследствии, его суббренд Plymouth экспериментировали с аэродинамически наклонными версиями своих моделей Charger и Road Runner соответственно.",
-          year: 2017 
+          year: 1971
         },
         { 
           image: banshee,
@@ -190,7 +194,7 @@ export default {
           power: 600, 
           engineType: "V10, Бензин", 
           description: "Bravado Banshee напоминает Dodge Viper SR второго поколения (хотя у Banshee двигатель V8 вместо V10), но имеет выхлопную трубу с боковыми патрубками и более короткую линию крыши, напоминающую Dodge Viper ZB третьего или четвертого поколения. Передняя панель напоминает модифицированную Mazda RX-7 третьего поколения с измененными фарами. Передний бампер, похоже, вдохновлен Honda S2000, а задние фонари напоминают Aston Martin DB9.",
-          year: 2019 
+          year: 2001
         },
         { 
           image: buccaneer, 
@@ -200,9 +204,9 @@ export default {
           price: "7 300 999 руб", 
           mileage: 50000, 
           power: 450, 
-          engineType: "V6, Бензин", 
+          engineType: "V8, Бензин", 
           description: "Дизайн Buccaneer полностью изменился по сравнению с GTA IV, он имеет более старый внешний вид и приподнятую заднюю подвеску, что придает ему стиль драгстера. В передней части автомобиля преобладает разделенная по центру решетка радиатора с расположенными по краям круглыми фарами, окруженными хромированными деталями и размещенными в черных корпусах. Хромированный бампер занимает всю ширину автомобиля и повторяет изгиб внешних краев.",
-          year: 2015 
+          year: 1940
         },
         { 
           image: comet, 
@@ -214,7 +218,7 @@ export default {
           power: 380, 
           engineType: "V6, Бензин",
           description: "Прохождение поворотов на высокой скорости приводит к существенной потере поворачиваемости Comet, но у автомобиля есть потенциальная избыточная поворачиваемость при отрыве от земли или на более низких скоростях. Comet также страдает из-за слабой конструкции подвески. Колеса могут врезаться в шасси после бокового удара о бордюр с меньшей силой, чем ожидалось, что делает Comet одним из самых хрупких спортивных автомобилей.", 
-          year: 2018 
+          year: 1962
         },
         { 
           image: elegyRetroSport, 
@@ -226,7 +230,7 @@ export default {
           power: 400, 
           engineType: "V6, Бензин", 
           description: "Модель Elegy Retro Custom создана на основе нескольких поколений Nissan Skyline GT-R. На его боковой профиль, дизайн задней части и общий силуэт повлияло третье поколение Nissan Skyline GT-R (R32), в то время как передняя часть выполнена по образцу четвертого поколения Nissan Skyline GT-R (R33). Фары, по-видимому, представляют собой комбинацию R33 и R32 (N1).",
-          year: 2016 
+          year: 1990
         },
         { 
           image: elegyRH8, 
@@ -238,7 +242,7 @@ export default {
           power: 420, 
           engineType: "V6, Бензин", 
           description: "Автомобиль относительно хорошо разгоняется с места и развивает хорошую максимальную скорость. Благодаря системе полного привода колеса практически не пробуксовывают. Автомобиль обладает хорошей развесовкой, а также хорошим балансом при прохождении поворотов, в том числе на высокой скорости. Большую часть времени машина легко проходит повороты, обеспечивая водителю хорошую устойчивость даже на высоких скоростях, в дождь или снег.",
-          year: 2020 
+          year: 2011
         },
         { 
           image: F10,
@@ -247,10 +251,10 @@ export default {
           name: "10F", 
           price: "9 000 999 руб", 
           mileage: 5000, 
-          power: 540, 
+          power: 450, 
           engineType: "V8, Бензин", 
           description: "10F имеет изящный аэродинамический кузов, похожий на свою старую версию, но с модернизированными элементами, такими как светодиодная подсветка и угловатые, подчеркнутые акценты и дополнительные панели. Передняя часть состоит из изящного капота со значком Obey, крупной решетки радиатора, светодиодных фар и вентиляционных отверстий. Боковой профиль имеет пластиковые боковые юбки и воздухозаборники, ведущие к задним колесам и моторному отсеку.",
-          year: 2021 
+          year: 2013
         },
         { 
           image: weevil, 
@@ -260,9 +264,9 @@ export default {
           price: "5 500 999 руб", 
           mileage: 30000, 
           power: 150, 
-          engineType: "I4, Бензин",
+          engineType: "flat-4, Бензин",
           description: "Weevil в значительной степени создан на основе Volkswagen Type 1 'Beetle', сочетая в себе элементы, использовавшиеся на протяжении всего периода производства Beetle, с минимальными отклонениями от оригинального дизайна и унаследовав влияние оригинального инжектора. Передняя панель автомобиля основана на моделях Beetle, выпущенных до 1954 года, в то время как вентилируемый капот и интерьер основаны на моделях 1950-60-х годов[1]. Его фары и заднее раздельное стекло, похоже, позаимствованы у DKW F9/IFA F9, расположение и форма указателей поворота - у Subaru 360, а задние фонари, возможно, были позаимствованы у Tatra 87.", 
-          year: 2014 
+          year: 1970 
         },
         { 
           image: buccaneerCustom, 
@@ -271,11 +275,12 @@ export default {
           name: "Buccaneer Custom", 
           price: "3 500 999 руб", 
           mileage: 30000, 
-          power: 150, 
-          engineType: "I4, Бензин", 
+          power: 200, 
+          engineType: "V6, Бензин", 
           description: "Buccaneer Custom - это вариант Buccaneer для лоурайдеров, в который по умолчанию вносятся лишь незначительные изменения. Автомобиль сохранил оригинальный дизайн стандартной модели, сохранив переднюю и заднюю панели. Однако автомобиль претерпел лишь незначительные изменения, в частности, хромированные детали, присутствующие вокруг автомобиля, были заменены на цветную отделку.",
-          year: 2014 
-        },{ 
+          year: 1972 
+        },
+        { 
           image: cometRetro, 
           imageAny: cometRetroTop,
           imageBack: cometRetroBack,
@@ -294,10 +299,10 @@ export default {
           name: "Faction Custom", 
           price: "9 500 999 руб", 
           mileage: 30000, 
-          power: 150, 
-          engineType: "I4, Бензин", 
+          power: 400, 
+          engineType: "I8, Бензин", 
           description: "faction custom - это вариант фракции для хай-райдеров, который имеет гораздо большую высоту подъема, чем у стандартной faction (или ее пользовательского варианта). Основной корпус сохранил свой оригинальный дизайн стандартной модели и нестандартного варианта, хотя были внесены незначительные изменения в текстуру и маркировку, в частности, на передней решетке радиатора больше нет значка 'Turbo', а по бокам также отсутствуют некоторые косметические детали.",
-          year: 2017 
+          year: 1980
         },
         { 
           image: GauntlelClassic, 
@@ -306,10 +311,10 @@ export default {
           name: "Gauntlet", 
           price: "7 500 999 руб", 
           mileage: 30000, 
-          power: 150, 
-          engineType: "I4, Бензин", 
+          power: 350, 
+          engineType: "V8, Бензин", 
           description: "Gauntlet Classic создан на базе Dodge Challenger первого поколения, с горизонтально разделенной решеткой радиатора, позаимствованной у Dodge Charger 1970 года выпуска, а боковой профиль позаимствован у Plymouth Barracuda 1970-1972 годов выпуска. Квадратные задние фонари, похоже, навеяны теми, что были на Ford Torino 1970-1971 годов выпуска.",
-          year: 2001 
+          year: 1971
         },
         { 
           image: italiGTO, 
@@ -318,10 +323,10 @@ export default {
           name: "Itali GTO", 
           price: "1 500 999 руб", 
           mileage: 30000, 
-          power: 150, 
-          engineType: "I4, Бензин", 
+          power: 520, 
+          engineType: "V12, Бензин", 
           description: "Передняя часть автомобиля отличается сплиттером из углеродного волокна, двумя большими воздухозаборниками в центре и двумя меньшими по краям, а также значком с названием компании в левом нижнем углу. Передние фары автомобиля состоят из двух круглых ламп и расширяющихся кверху светодиодных световых полос, на пластиковых корпусах которых расположены элементы, напоминающие указатели поворота. На капоте имеются два воздухозаборника, а на передней части - значок производителя.",
-          year: 2014 
+          year: 1980
         },
         { 
           image: nero, 
@@ -331,9 +336,9 @@ export default {
           price: "13 500 999 руб", 
           mileage: 39000, 
           power: 750, 
-          engineType: "I4, Бензин", 
+          engineType: "V12, Бензин", 
           description: "Nero, являющийся модернизированной версией Adder, в чем-то схож с вышеупомянутым автомобилем, имеет схожий объемный профиль и характерные черты. Передняя часть имеет ту же решетку радиатора и расположение воздухозаборников, что и Adder, но над воздухозаборниками видны двойные перегородки. Расположение и форма корпусов фар аналогичны расположению и форме фар Adder, но в них используется набор квадратных ламп с небольшими световыми полосками внизу.",
-          year: 2017 
+          year: 2016
         },
         { 
           image: neroCustom,
@@ -342,10 +347,10 @@ export default {
           name: "Nero Custom", 
           price: "5 500 999 руб", 
           mileage: 30000, 
-          power: 150, 
+          power: 850, 
           engineType: "V12, Бензин", 
           description: "Передняя часть оснащена разделителем из углепластика по всей ширине автомобиля, который поддерживается двумя небольшими стойками, а также небольшими выступами по внешним краям и оранжевым гоночным буксирным крюком под решеткой радиатора. В области капота были внесены значительные изменения: появились защитные планки, более крупная панель из углеродного волокна и решетчатые воздухозаборники на крыльях. Детали, связанные с болтами и заклепками, также можно увидеть на ветровом стекле.",
-          year: 2014 
+          year: 2018
         },
         { 
           image: primo, 
@@ -354,10 +359,10 @@ export default {
           name: "Primo", 
           price: "150 999 руб", 
           mileage: 30000, 
-          power: 90, 
-          engineType: "I4, Бензин", 
+          power: 300, 
+          engineType: "V8, Бензин", 
           description: "Primo - один из лучших седанов, доступных в игре, хотя его дизайн менее примечателен и, следовательно, в дорожном движении он выглядит более обыденно. У него квадратные фары, небольшая решетка радиатора, бамперы среднего размера и черные внутренние стойки. Primo будут выпускаться в одноцветном исполнении.",
-          year: 2001 
+          year: 1970
         },
         { 
           image: sentinelClassic, 
@@ -366,10 +371,10 @@ export default {
           name: "Sentinel Classic", 
           price: "16 500 999 руб", 
           mileage: 30000, 
-          power: 650, 
-          engineType: "I4, Бензин", 
+          power: 450, 
+          engineType: "V4, Бензин", 
           description: "Как и в обычной версии, основной цвет автомобиля нанесен на кузов, в то время как второстепенный цвет нанесен на решетку радиатора, выступы на бампере и по бокам, разделительные полосы на небольших отверстиях крыльев и часть моторного отсека. Также доступен цвет отделки приборной панели, дверей и сидений, а также цвет циферблата. Автомобиль также получил специальные 10-спицевые колесные диски с заклепками на внешней кромке и низкопрофильными шинами.",
-          year: 2025 
+          year: 2001
         },
         { 
           image: specter, 
@@ -378,10 +383,10 @@ export default {
           name: "Specter", 
           price: "8 500 999 руб", 
           mileage: 30000, 
-          power: 190, 
-          engineType: "I4, Бензин", 
+          power: 430, 
+          engineType: "V8, Бензин", 
           description: "Модель Spectre в основном основана на Aston Martin DB10, что заметно по общей форме, площади теплицы и форме задней части. Передний бампер, похоже, создан по образцу Porsche 918, а вентиляционные отверстия капота, похоже, позаимствованы у Mercedes-McLaren SLR. Форма задних фонарей, по-видимому, представляет собой комбинацию огней Aston Martin One-77 и вышеупомянутого Aston Martin DB10.",
-          year: 2019 
+          year: 2014
         },
         { 
           image: yosemite, 
@@ -390,10 +395,10 @@ export default {
           name: "Yosemite", 
           price: "2 500 999 руб", 
           mileage: 30000, 
-          power: 150, 
-          engineType: "I4, Бензин", 
+          power: 300, 
+          engineType: "V6, Бензин", 
           description: "Грузовик отличается упрощенным дизайном, хромированными бамперами, зеркалами заднего вида и накладками по бокам и вокруг окон, а также надписью на лобовом стекле. Его передняя часть очень похожа на переднюю часть тягача, но с указателями поворота. Задняя часть автомобиля украшена прямоугольными задними фонарями и дверью багажника с тиснением 'DECLASSE', выполненным из хрома и окруженным прямоугольником.",
-          year: 2010 
+          year: 1994
         },
         { 
           image: yoga, 
@@ -402,10 +407,10 @@ export default {
           name: "Youga", 
           price: "2 500 999 руб", 
           mileage: 30000, 
-          power: 150, 
-          engineType: "I4, Бензин", 
+          power: 250, 
+          engineType: "V8, Бензин", 
           description: "Боковые части фургона выделяются небольшими выступами на колесных арках и оснащены функциональными раздвижными дверями для доступа сзади, а также горизонтальными хромированными ручками. Передние двери украшены надписями 'Youga Classic' и прямоугольными зеркалами заднего вида, отделанными хромом. Над дверными стеклами можно увидеть набор солнцезащитных козырьков/ветроотражателей.",
-          year: 2012 
+          year: 2000 
         }
       ],
       favorites: [],
@@ -427,7 +432,7 @@ export default {
       this.favorites.splice(index, 1); 
     } else {
       this.favorites.push(car);
-      this.animatePulse();  // Запускаем анимацию пульсации при добавлении элемента
+      this.animatePulse(); 
     }
     this.saveFavorites(); 
   },
@@ -435,13 +440,12 @@ export default {
   animatePulse() {
     const button = document.querySelector('.global-favorite-button');
     if (button) {
-      button.classList.add('scale-pulse-pulse');  // Добавляем класс для пульсации
-      // Убираем класс после завершения анимации
+      button.classList.add('scale-pulse-pulse');
       setTimeout(() => {
         button.classList.remove('scale-pulse-pulse');
-      }, 1000); // Длительность анимации (1 секунда)
+      }, 1000); 
     }
-  },
+    },
     isFavorite(car) {
       return this.favorites.some((favorite) => favorite.name === car.name);
     },
@@ -459,34 +463,32 @@ export default {
       this.saveFavorites(); 
     },
 
-    /* Compare methods */
-      addToCompare(car) {
-      if (this.isCompare(car)) {
-        this.removeFromCompares(car);
-        return;
-      }
-      if (this.compareCars.length >= 3) {
-        alert("Можно сравнить не более 3 машин.");
-        return;
-      }
-      this.compareCars.push(car);
-      this.showCompareModal = true;
-      this.saveCompareCars(); 
-    },
-    isCompare(car) {
-      return this.compareCars.some((compares) => compares.name === car.name);
-    },
-    closeCompare() {
-      this.showCompareModal = false;
-    },
-    compare() {
-      console.log("Сравнение машин", this.compareCars);
-      this.showCompareModal = true;
-    },
-    removeFromCompares(car) {
-      this.compareCars = this.compareCars.filter((com) => com.name !== car.name);
-      this.saveCompareCars();
-    },
+  /* Compare methods */
+  addToCompare(car) {
+  if (!this.isCompare(car)) {
+    if (this.compareCars.length >= 3) {
+      alert("Можно сравнить не более 3 машин.");
+      return;
+    }
+    this.compareCars.push(car);
+    this.saveCompareCars(); 
+  }
+  this.showCompareModal = true;
+  },
+  isCompare(car) {
+    return this.compareCars.some((compares) => compares.name === car.name);
+  },
+  closeCompare() {
+    this.showCompareModal = false;
+  },
+  compare() {
+    console.log("Сравнение машин", this.compareCars);
+    this.showCompareModal = true;
+  },
+  removeFromCompares(car) {
+    this.compareCars = this.compareCars.filter((com) => com.name !== car.name);
+    this.saveCompareCars();
+  },
 
     /* LocalStorage Methods */
     saveFavorites() {
@@ -516,17 +518,14 @@ export default {
 </script>
 
 <style scoped>
-
-/* Стили для модальных окон */
 .compare-modal .car-image {
-  width: 300px; /* Увеличить размер для сравнения машин */
+  width: 300px;
 }
 
 .favorites-modal .car-image {
-  width: 400px; /* Размер для избранных машин */
+  width: 300px;
 }
 
-/* Анимация пульсации для кнопки */
 .scale-pulse-enter-active, .scale-pulse-leave-active {
   transition: transform 0.3s ease;
 }
@@ -539,20 +538,18 @@ export default {
   animation: pulse 1s ease-out infinite;
 }
 
-/* Определяем саму анимацию пульсации */
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(2);  /* Увеличиваем кнопку */
+    transform: scale(2);
   }
   100% {
-    transform: scale(1);  /* Возвращаем кнопку в исходное состояние */
+    transform: scale(1); 
   }
 }
 
-/* Анимация для появления и увеличения кнопки */
 .scale-fade-enter-active, .scale-fade-leave-active {
   transition: opacity 0.5s ease, transform 0.3s ease;
 }
@@ -583,6 +580,10 @@ export default {
   height: 60px;
 }
 
+.favorites-modal .modal-content .car-card{
+  width: 300px
+}
+
 .favorites-modal {
   position: fixed;
   top: 50%;
@@ -609,6 +610,10 @@ export default {
   z-index: 1000;
 }
 
+.compare-modal .modal-content .car-card {
+  width: 300px;
+}
+
 .compare-modal .modal-content {
   background: black;
   padding: 20px;
@@ -624,20 +629,6 @@ export default {
   display: flex;
   justify-content: space-around;
   gap: 20px;
-}
-
-.compare-button {
-  height: 35px;
-  width: 35px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.compare-button:hover {
-  background-color: #45a049;
 }
 
 .remove-button {
@@ -780,5 +771,74 @@ export default {
   font-size: 16px;
   color: white;
   padding-bottom: 5px;
+}
+
+@media (max-width: 1108px) {
+.compare-modal .car-image {
+width: 200px;
+}
+
+.favorites-modal .car-image {
+  width: 200px;
+}
+
+.compare-cars {
+  gap: 5px;
+}
+
+.favorites-modal .modal-content .car-card{
+  width: 200px
+}
+
+.compare-modal .modal-content .car-card {
+  width: 200px;
+}
+}
+
+@media (max-width: 768px) {
+.compare-modal .car-image {
+width: 100px;
+}
+
+.favorites-modal .car-image {
+  width: 100px;
+}
+
+.compare-cars {
+  gap: 5px;
+}
+
+.favorites-modal .modal-content .car-card{
+  width: 100px
+}
+
+.compare-modal .modal-content .car-card {
+  width: 100px;
+}
+}
+
+@media (max-width: 468px) {
+.modal-content {
+  width: 100%;
+}
+
+.car-card p {
+  color: #e5b748;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.global-favorite-button img{
+  width:30px;
+  height: 30px;
+}
+
+.global-favorite-button {
+  width:30px;
+  height: 30px;
+}
 }
 </style>

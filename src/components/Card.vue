@@ -6,7 +6,6 @@
         <div class="car-image" @click="openModal(car.image)">
           <img :src="car.image" alt="Main Car" />
         </div>
-
         <!-- Small pictures -->
         <div class="mini-images">
           <img :src="car.imageAny" alt="Mini Car 1" @click="openModal(car.imageAny)" />
@@ -21,7 +20,6 @@
       <button @click="addToCompare(car)" class="favorite-button">Сравнить</button>
     </div>
       </div>
-
       <!-- Info about car -->
       <div class="car-info" v-if="car">
         <h2>{{ car.name }}</h2>
@@ -56,15 +54,18 @@
       </div>
     </div>
   </section>
+
   <section class="favorites-modal" v-if="showFavoritesModal">
     <div class="modal-content">
       <h3>Избранные машины</h3>
       <button @click="closeFavorites" class="close-button">Закрыть</button>
       <div v-if="favorites.length > 0">
         <div v-for="(car, index) in favorites" :key="index" class="car-card">
+          <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }" @click.native="scrollToHeader">
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
+        </router-link>
           <h4>{{ car.name }}</h4>
           <p>{{ car.price }}</p>
           <!-- Remove favorite car button -->
@@ -86,9 +87,11 @@
       <div class="compare-cars">
         <!-- car specifications-->
         <div v-for="(car, index) in compareCars" :key="car.id" class="car-card">
+          <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }" @click.native="scrollToHeader">
           <div class="car-image">
             <img :src="car.image" alt="Car Image" />
           </div>
+        </router-link>
           <h4>{{ car.name }}</h4>
           <p><strong>Цена:</strong> {{ car.price }}</p>
           <p><strong>пробег:</strong> {{ car.mileage }}</p>
@@ -183,32 +186,30 @@ export default {
 
     /* Compare methods */
     addToCompare(car) {
-      if (this.isCompare(car)) {
-        this.removeFromCompares(car);
-        return;
-      }
-      if (this.compareCars.length >= 3) {
-        alert("Можно сравнить не более 3 машин.");
-        return;
-      }
-      this.compareCars.push(car);
-      this.showCompareModal = true;
-      this.saveCompareCars();
-    },
-    isCompare(car) {
-      return this.compareCars.some((compares) => compares.name === car.name);
-    },
-    closeCompare() {
-      this.showCompareModal = false;
-    },
-    compare() {
-      console.log("Сравнение машин", this.compareCars);
-      this.showCompareModal = true;
-    },
-    removeFromCompares(car) {
-      this.compareCars = this.compareCars.filter((com) => com.name !== car.name);
-      this.saveCompareCars(); 
-    },
+  if (!this.isCompare(car)) {
+    if (this.compareCars.length >= 3) {
+      alert("Можно сравнить не более 3 машин.");
+      return;
+    }
+    this.compareCars.push(car);
+    this.saveCompareCars(); 
+  }
+  this.showCompareModal = true;
+  },
+  isCompare(car) {
+    return this.compareCars.some((compares) => compares.name === car.name);
+  },
+  closeCompare() {
+    this.showCompareModal = false;
+  },
+  compare() {
+    console.log("Сравнение машин", this.compareCars);
+    this.showCompareModal = true;
+  },
+  removeFromCompares(car) {
+    this.compareCars = this.compareCars.filter((com) => com.name !== car.name);
+    this.saveCompareCars();
+  },
 
     /* LocalStorage Methods */
     saveFavorites() {
@@ -272,6 +273,14 @@ export default {
   text-align: center;
   overflow-y: auto;
   max-height: 80%;
+}
+
+.favorites-modal .modal-content .car-card{
+  width: 300px
+}
+
+.compare-modal .modal-content .car-card {
+  width: 300px;
 }
 
 /* Стили для модальных окон */
@@ -553,8 +562,49 @@ export default {
   display: inline-block;
 }
 
+@media (max-width: 1108px) {
+.compare-modal .car-image {
+width: 200px;
+}
+
+.favorites-modal .car-image {
+  width: 200px;
+}
+
+.compare-cars {
+  gap: 5px;
+}
+
+.favorites-modal .modal-content .car-card{
+  width: 200px
+}
+
+.compare-modal .modal-content .car-card {
+  width: 200px;
+}
+}
+
 /* Adaptive styles 768px */
 @media (max-width: 768px) {
+  .compare-modal .car-image {
+width: 100px;
+}
+
+.favorites-modal .car-image {
+  width: 100px;
+}
+
+.compare-cars {
+  gap: 5px;
+}
+
+.favorites-modal .modal-content .car-card{
+  width: 100px
+}
+
+.compare-modal .modal-content .car-card {
+  width: 100px;
+}
   .content-wrapper {
     flex-direction: column;
     align-items: center;
@@ -581,18 +631,41 @@ export default {
 
 /* Adaptive styles 480px */
 @media (max-width: 480px) {
-  .car-image img {
-    width: 250px; 
-  }
+  .modal-content {
+  width: 100%;
+}
 
-  .mini-images img {
-    width: 120px; 
-    height: auto;
-  }
+.car-card p {
+  color: #e5b748;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
-  .buy-button a {
-    font-size: 24px; 
-    padding: 10px 25px;
-  }
+.global-favorite-button img{
+  width:30px;
+  height: 30px;
+}
+
+.global-favorite-button {
+  width:30px;
+  height: 30px;
+}
+
+.car-image img {
+  width: 250px; 
+}
+
+.mini-images img {
+  width: 120px; 
+  height: auto;
+}
+
+.buy-button a {
+  font-size: 24px; 
+  padding: 10px 25px;
+}
 }
 </style>
