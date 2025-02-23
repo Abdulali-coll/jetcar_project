@@ -113,6 +113,7 @@ export default {
   width: 100%;
   height: 100%;
   font-weight: bold;
+  border-radius: 10px;
   font-size: 18px;
   color: black;
   text-decoration: none;
@@ -165,7 +166,7 @@ export default {
   width: 560px;
   height: 320px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .car-info {

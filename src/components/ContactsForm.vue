@@ -76,7 +76,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 25px;
+    border-radius: 10px;
     height: 60px;
     width: 300px;
     background-color: #E5B748;

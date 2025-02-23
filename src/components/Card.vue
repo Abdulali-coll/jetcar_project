@@ -39,7 +39,7 @@
     <!-- button buy -->
     <div class="big-button">
       <nav class="buy-button">
-        <router-link to="/contacts">Купить Машину!</router-link>
+        <router-link to="/contacts">Купить!</router-link>
       </nav>
     </div>
 
@@ -553,9 +553,9 @@ export default {
 .buy-button a {
   background-color: #e5b748;
   color: white;
-  padding: 15px 40px;
+  padding: 15px 50px;
   text-align: center;
-  border-radius: 50px;
+  border-radius: 10px;
   text-decoration: none;
   font-size: 35px;
   font-weight: bold;
