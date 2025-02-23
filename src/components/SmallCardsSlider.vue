@@ -41,7 +41,10 @@
 
         <!-- Credit Calculation Form with Sliders -->
 <form @submit.prevent="calculateCredit">
+  
   <label for="price">Стоимость автомобиля (руб):</label>
+  <span>{{ carPrice.toLocaleString() }} руб</span>
+  <br>
   <input
     type="range"
     id="price"
@@ -50,9 +53,11 @@
     :max="maxCarPrice"
     :step="5000"
   />
-  <span>{{ carPrice.toLocaleString() }} руб</span>
+  
 
   <label for="initialPayment">Первоначальный взнос (руб):</label>
+  <span>{{ initialPayment.toLocaleString() }} руб</span>
+  <br>
   <input
     type="range"
     id="initialPayment"
@@ -61,9 +66,11 @@
     :max="carPrice"
     :step="500"
   />
-  <span>{{ initialPayment.toLocaleString() }} руб</span>
+  
 
   <label for="term">Срок кредита (лет):</label>
+  <span>{{ creditTerm }} лет</span>
+  <br>
   <input
     type="range"
     id="term"
@@ -72,7 +79,7 @@
     :max="7"
     :step="1"
   />
-  <span>{{ creditTerm }} лет</span>
+ 
 
   <button type="submit">Рассчитать</button>
 </form>
@@ -85,6 +92,8 @@
 
         <!-- Credit Application Form -->
         <form @submit.prevent="submitCreditApplication">
+          <br>
+          <br>
           <label for="fullName">ФИО:</label>
           <input type="text" id="fullName" v-model="fullName" placeholder="Введите ваше имя" required />
 
@@ -506,6 +515,7 @@ input[type="range"] {
   border-radius: 3px;
   outline: none;
   cursor: pointer;
+  padding-bottom: 25px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -633,7 +643,7 @@ input[type="range"]::-moz-range-thumb {
 
 .text-container h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .text-container p {
