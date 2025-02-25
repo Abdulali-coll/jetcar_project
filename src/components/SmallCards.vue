@@ -69,7 +69,7 @@
         </router-link>
           <h4>{{ car.name }}</h4>
           <p><strong>Цена:</strong> {{ car.price }}</p>
-          <p><strong>пробег:</strong> {{ car.mileage }}</p>
+          <p><strong>Пробег:</strong> {{ car.mileage }}</p>
           <p><strong>Год:</strong> {{ car.year }}</p>
           <p><strong>Двигатель:</strong> {{ car.engineType }}</p>
           <p><strong>Мощность:</strong> {{ car.power }}</p>
@@ -633,6 +633,7 @@ export default {
 
 .remove-button {
   background: red;
+  width: 100px;
   color: white;
   padding: 10px;
   border: none;
@@ -661,9 +662,10 @@ export default {
 .modal-content {
   background: black;
   padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  width: 60%;
+  border-style: 4px;
+  box-shadow: 0 25px 35px rgba(255, 255, 255, 0.3);
   text-align: center;
   overflow-y: auto;
   max-height: 80%; 
@@ -820,6 +822,19 @@ width: 100px;
 @media (max-width: 468px) {
 .modal-content {
   width: 100%;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 12px; /* Сделаем шире */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #FFD700; /* Желтый цвет, можно заменить на #FFF для белого */
+  border-radius: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3); /* Светлый фон дорожки */
 }
 
 .car-card p {

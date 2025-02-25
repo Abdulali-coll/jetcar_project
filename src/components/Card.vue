@@ -16,7 +16,7 @@
       <button @click="toggleFavorite(car)" class="favorite-button">
         {{ isFavorite(car) ? 'Убрать из избранного' : 'Добавить в избранное' }}
       </button>
-      <button @click="openFavorites" class="favorite-button">Показать избранное</button>
+      <button @click="openFavorites" class="favorite-button">Показать Избранное</button>
       <button @click="addToCompare(car)" class="favorite-button">Сравнить</button>
     </div>
       </div>
@@ -81,7 +81,7 @@
 <!-- Modal window for comparing cars -->
 <section class="compare-modal" v-if="showCompareModal">
   <div class="modal-content">
-    <h3>Сравнение машин</h3>
+    <h3>Сравнение </h3>
     <button @click="closeCompare" class="close-button">Закрыть</button>
     <div v-if="compareCars.length > 0">
       <div class="compare-cars">
@@ -94,7 +94,7 @@
         </router-link>
           <h4>{{ car.name }}</h4>
           <p><strong>Цена:</strong> {{ car.price }}</p>
-          <p><strong>пробег:</strong> {{ car.mileage }}</p>
+          <p><strong>Пробег:</strong> {{ car.mileage }}</p>
           <p><strong>Год:</strong> {{ car.year }}</p>
           <p><strong>Двигатель:</strong> {{ car.engineType }}</p>
           <p><strong>Мощность:</strong> {{ car.power }}</p>
@@ -268,7 +268,7 @@ export default {
   background: black;
   padding: 20px;
   border-radius: 10px;
-  width: 100%;
+  width: 80%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   overflow-y: auto;
@@ -633,6 +633,19 @@ width: 100px;
 @media (max-width: 480px) {
   .modal-content {
   width: 100%;
+}
+/* Кастомизация скролл-бара */
+.modal-content::-webkit-scrollbar {
+  width: 12px; /* Сделаем шире */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #FFD700; /* Желтый цвет, можно заменить на #FFF для белого */
+  border-radius: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3); /* Светлый фон дорожки */
 }
 
 .car-card p {

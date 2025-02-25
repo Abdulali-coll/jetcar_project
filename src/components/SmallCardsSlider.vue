@@ -28,9 +28,9 @@
     <!-- Credit Section -->
     <div class="credit-container">
       <div class="image-container">
-        <img :src="creditCar" alt="Credit image" />
+       <!-- <img :src="creditCar" alt="Credit image" /> -->
        
-        <img :src="creditCar2" alt="Credit image" />
+      <!--  <img :src="creditCar2" alt="Credit image" /> -->
       </div>
 
       <div class="text-container">
@@ -542,6 +542,8 @@ input[type="range"]::-moz-range-thumb {
   align-items: flex-start;
   justify-content: space-between;
   margin-top: 40px;
+  margin-left: 10%;
+  margin-bottom: 60px;
 }
 
 .image-container img {
