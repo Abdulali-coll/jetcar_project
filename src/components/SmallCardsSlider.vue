@@ -27,11 +27,6 @@
 
     <!-- Credit Section -->
     <div class="credit-container">
-      <div class="image-container">
-       <!-- <img :src="creditCar" alt="Credit image" /> -->
-       
-      <!--  <img :src="creditCar2" alt="Credit image" /> -->
-      </div>
 
       <div class="text-container">
         <h2>Расчёт и оформление автокредита</h2>
@@ -53,7 +48,6 @@
     :max="maxCarPrice"
     :step="5000"
   />
-  
 
   <label for="initialPayment">Первоначальный взнос (руб):</label>
   <span>{{ initialPayment.toLocaleString() }} руб</span>
@@ -66,7 +60,6 @@
     :max="carPrice"
     :step="500"
   />
-  
 
   <label for="term">Срок кредита (лет):</label>
   <span>{{ creditTerm }} лет</span>
@@ -79,11 +72,9 @@
     :max="7"
     :step="1"
   />
- 
 
   <button type="submit">Рассчитать</button>
 </form>
-
 
         <div v-if="monthlyPayment" class="result">
           <h3>Результат расчёта:</h3>
@@ -446,7 +437,6 @@ export default {
           year: 2012 
         }
       ],
-      creditCar,
       carPrice: '',
       initialPayment: '',
       creditTerm: '',
@@ -538,27 +528,19 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .credit-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-top: 40px;
-  margin-left: 10%;
-  margin-bottom: 60px;
-}
-
-.image-container img {
-  max-width: 100%;
-  border-radius: 10px;
+  width: 80%;
+  align-items: center;
+  margin: 40px 200px 60px;
 }
 
 .text-container {
-  max-width: 600px;
-  margin-left: 20px;
+  width: 100%;
 }
 
 .text-container h2 {
   color: #E5B748;
   font-size: 24px;
+  text-align: center;
   margin-bottom: 10px;
 }
 
@@ -600,92 +582,14 @@ input[type="range"]::-moz-range-thumb {
   background-color: #d4a039;
 }
 
-.result {
-  background-color: #f8f8f8;
-  padding: 15px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.result h3 {
-  margin: 0;
-  margin-bottom: 5px;
-  color: black;
-}
-
-.result p {
-  color: black;
-}
-
 .text-container span {
   display: block;
-  color: #E5B748; 
+  color: #E5B748;
   font-weight: bold;
   font-size: 16px;
   margin-top: 5px;
 }
 
-/*credit form styles*/
-.credit-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-top: 40px;
-}
-
-.image-container img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-
-.text-container {
-  max-width: 600px;
-  margin-left: 20px;
-}
-
-.text-container h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.text-container p {
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-.text-container form {
-  margin-bottom: 20px;
-}
-
-.text-container label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.text-container input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.text-container button {
-  background-color: #E5B748;
-  color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-.text-container button:hover {
-  background-color: #d4a039;
-}
-
 .result {
   background-color: #f8f8f8;
   padding: 15px;
@@ -694,13 +598,13 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .result h3 {
-  margin: 0;
-  margin-bottom: 5px;
+  margin: 0 0 5px;
   color: black;
 }
 
 .result p {
-  color:black
+  color: black;
+  font-weight: bold;
 }
 
 .car-card a {
@@ -740,12 +644,6 @@ input[type="range"]::-moz-range-thumb {
   font-weight: bold;
   font-size: 20px;
   margin-top: 5px;
-}
-
-.car-details {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
 }
 
 .car-details li {
