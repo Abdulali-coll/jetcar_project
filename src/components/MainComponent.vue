@@ -95,67 +95,12 @@ export default {
 
 
 <style scoped>
-.contact-button {
-  background-color: #E5B748;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  height: 60px;
-  width: 300px;
-  margin: 40px;
-}
-
-.button-inside {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  font-weight: bold;
-  border-radius: 10px;
-  font-size: 18px;
-  color: black;
-  text-decoration: none;
-  font-family: 'Oswald', sans-serif;
-  cursor: pointer;
-}
-
-.number {
-  font-size: 22px;
-}
-
-.descript-text {
-  color: gray;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-}
-
-.car-spec {
-  font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-}
-
-.spec-value {
-  text-align: right;
-  margin-right: 80px;
-}
-
-.contact-info,
-.company-info {
-  padding-left: 25px;
-}
 
 .main-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
-  margin-bottom: 150px;
+  margin: 20px 0 150px;
 }
 
 .car-image {
@@ -191,6 +136,53 @@ export default {
   background-color: grey;
   margin: 35px 0;
 }
+
+.contact-button {
+  background-color: #E5B748;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  height: 60px;
+  width: 300px;
+  margin: 40px;
+}
+
+.button-inside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  cursor: pointer;
+}
+
+.descript-text {
+  color: gray;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.car-spec {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.spec-value {
+  text-align: right;
+  margin-right: 80px;
+}
+
 /*Styles for the test drive pop-up window*/
 .modal-overlay {
   position: fixed;

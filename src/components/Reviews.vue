@@ -40,9 +40,8 @@ export default {
     font-weight: 700;
     align-items: center;
     text-align: center; 
-    font-size: 48px; 
-    font-weight: bold; 
-    color: #E5B748; 
+    font-size: 48px;
+    color: #E5B748;
 }
 
 .reviews-essay {

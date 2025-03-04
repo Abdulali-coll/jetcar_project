@@ -114,12 +114,6 @@ export default {
     margin-bottom: 10px;
 }
 
-.number {
-    font-family: 'Roboto' , sans-serif;
-    color:#8D8D8D;
-    margin-bottom: 10px;
-}
-
 input {
     height: 40px;
     width: 300px;   
@@ -142,8 +136,7 @@ input {
 
 .text-marketing {
     bottom: 10px;
-    text-align: center; 
-    font-weight: bold;
+    text-align: center;
     font-size: 36px;
     margin-top: 73px;
     margin-bottom: 30px;

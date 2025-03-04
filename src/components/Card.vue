@@ -240,10 +240,123 @@ export default {
 
 
 <style scoped>
+.Buy-car {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
 .car-card p {
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   color: #e5b748;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.car-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.car-image img {
+  width: 500px;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.mini-images {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.mini-images img {
+  width: 245px;
+  height: 185px;
+  object-fit: cover;
+}
+
+.car-info {
+  font-family: 'Oswald', sans-serif;
+  width: 400px;
+  text-align: left;
+}
+
+.car-info h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.car-info h1 {
+  font-size: 45px;
+  color: #e5b748;
+  margin-bottom: 20px;
+}
+
+.car-text {
+  color: gray;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  word-wrap: break-word;
+}
+
+.car-details {
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.car-details li {
+  font-size: 20px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.car-details li:last-child {
+  border-bottom: none;
+}
+
+.big-button {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.Buy-car a {
+  text-decoration: none;
+}
+
+.buy-button a {
+  background-color: #e5b748;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: bold;
+  display: inline-block;
 }
 
 .Buttons {
@@ -360,23 +473,6 @@ export default {
   color: #e5b748;
 }
 
-/* cars list */
-.modal-car-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-  gap: 15px; 
-  margin-top: 20px;
-  justify-content: center; 
-}
-
-.modal-car-item {
-  background-color: #222; 
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
-
 .favorite-button {
   background-color: #f0c14b;
   border: 1px solid #a88734;
@@ -413,15 +509,6 @@ export default {
   padding: 10px;
 }
 
-.Buy-car {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  gap: 20px;
-  border-bottom: 1px solid #ccc;
-}
-
 .modal {
   display: flex;
   justify-content: center;
@@ -456,110 +543,6 @@ export default {
   color: #ccc;
   text-decoration: none;
   cursor: pointer;
-}
-
-.content-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.car-image-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.car-image img {
-  width: 500px;
-  height: auto;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-.mini-images {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.mini-images img {
-  width: 245px;
-  height: 185px;
-  object-fit: cover;
-}
-
-.car-info {
-  font-family: 'Oswald', sans-serif;
-  width: 400px;
-  text-align: left;
-}
-
-.car-info h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.car-info h1 {
-  font-size: 45px;
-  color: #e5b748;
-  margin-bottom: 20px;
-}
-
-.car-text {
- color: gray;
- font-family: 'Roboto', sans-serif;
- font-weight: 200;
- word-wrap: break-word;
-}
-
-.car-details {
-  list-style: none;
-  justify-content: space-between;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.car-details li {
-  font-size: 20px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #ccc;
-}
-
-.car-details li:last-child {
-  border-bottom: none;
-}
-
-.big-button {
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 50px;
-}
-
-.Buy-car a {
-  text-decoration: none;
-}
-
-.buy-button a {
-  background-color: #e5b748;
-  color: white;
-  padding: 15px 50px;
-  text-align: center;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 35px;
-  font-weight: bold;
-  display: inline-block;
 }
 
 @media (max-width: 1108px) {

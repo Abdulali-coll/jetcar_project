@@ -78,64 +78,9 @@ export default {
   }
 }
 
-
 </script>
 
 <style scoped>
-.video-player {
-  margin-top: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-video{
-  width: 1000px;
-  height: 700px;
-}
-
-.controls {
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.contact-button {
-  margin-top: 80px;
-  width: 500px;
-}
-
-.text-marketing{
-  margin-bottom: 60px;
-}
-
-.number {
-  font-size: 22px;
-}
-
-.descript-text {
-  color: gray;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 200;
-  font-size: 20px;
-}
-
-.car-spec {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  color: gray;
-}
-
-.spec-value {
-  text-align: right;
-  margin-right: 80px;
-}
-
-.contact-info,
-.company-info {
-  padding-left: 25px;
-}
 
 .main-card {
   display: flex;
@@ -172,6 +117,35 @@ video{
   height: 2px;
   background-color: grey;
   margin: 35px 0;
+}
+
+.video-player {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+video{
+  width: 1000px;
+  height: 700px;
+}
+
+.contact-button {
+  margin-top: 80px;
+  width: 500px;
+}
+
+.text-marketing{
+  margin-bottom: 60px;
+}
+
+.descript-text {
+  color: gray;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
 }
 
 /* Adaptive styles 768px */
