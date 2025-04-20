@@ -7,22 +7,31 @@
     </div>
     <!-- Added link in logo to main page--> 
     <router-link to="/">
-      <h1 class="logo">- JET CAR --</h1>
+      <h1 class="logo">- JET CAR -</h1>
     </router-link>
     <div class="company-info">
-      <div class="address">Москва, улица Подвойского, 5/19</div>
-      <div class="schedule">График: с 10:00 до 20:00</div>
+      <div class="info-container">
+        <div class="text-info">
+          <div class="address">Москва, улица Подвойского, 5/19</div>
+          <div class="schedule">График: с 10:00 до 20:00</div>
+        </div>
+        <router-link to="/login" class="profile-link">
+          <img :src="profileIcon" alt="Profile" class="profile-icon">
+        </router-link>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
 import phone from '@/assets/icon-phone.png';
+import profileIcon from '@/assets/icon_profile_white.png';
 export default {
   name: 'CarHeader',
   data() {
     return {
       phone,
+      profileIcon
     };
   }
 }
@@ -40,8 +49,8 @@ export default {
 }
 
 .contact-info{
-width: 30%;
-margin-left: 5%;
+  width: 30%;
+  margin-left: 5%;
 }
 .contact-info a {
   color: #e5b748;
@@ -54,6 +63,34 @@ margin-left: 5%;
 .company-info{
   width: 30%;
 }
+
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+
+.text-info {
+  text-align: right;
+  margin-right: 20px; 
+}
+
+.profile-link {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.profile-link:hover {
+  transform: scale(1.1);
+}
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+}
+
 .logo {
   font-family: 'Oswald', sans-serif;
   font-size: 55px;
@@ -124,6 +161,17 @@ margin-left: 5%;
     width: 100%;
   }
 
+  .info-container {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .text-info {
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
   .number, .contact-text, .address, .schedule {
     font-size: 13px;
   }
@@ -135,6 +183,12 @@ margin-left: 5%;
   .schedule {
     font-size: 12px;
     color: white;
+  }
+
+  .profile-icon {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
   }
 }
 </style>

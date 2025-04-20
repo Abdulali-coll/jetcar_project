@@ -5,6 +5,7 @@ import ContactsPage from "@/pages/ContactsPage.vue";
 import AboutPage from "@/pages/AboutPage.vue";
 import CarCardPage from "@/pages/CarCardPage.vue";
 import NotFoundPage from '@/pages/NotFoundPage.vue';
+import LogInPage from "@/pages/LogInPage.vue";
 
 export default VueRouter.createRouter({
   history: VueRouter.createWebHistory(),
@@ -34,6 +35,11 @@ export default VueRouter.createRouter({
       path: '/about',
       name: 'AboutUsPage',
       component: AboutPage
+    },
+    {
+      path: '/login',
+      name: 'LogInPage',
+      component: LogInPage
     },
     {
       path: '/:pathMatch(.*)*', 
