@@ -3,25 +3,34 @@
     <div class="header-bar">
       <router-link to="/" class="back-button">Назад</router-link>
       <h1 class="title">- JET CAR -</h1>
-      
     </div>
 
     <div class="main-wrapper">
       <div class="form-card">
-        <h2 class="form-title">Войти</h2>
+        <h2 class="form-title">{{ isLogin ? 'Войти' : 'Регистрация' }}</h2>
 
         <div class="form-group">
           <label for="name">Имя*</label>
           <input id="name" v-model="name" type="text" placeholder="Введите ваше имя" />
         </div>
+
         <div class="form-group">
-          <label for="phone">Пароль</label>
-          <input id="phone" v-model="number" type="tel" placeholder="+7 999 123 45 67" />
+          <label for="password">Пароль</label>
+          <input id="password" v-model="password" type="password" placeholder="Введите пароль" />
+        </div>
+
+        <div v-if="!isLogin" class="form-group">
+          <label for="confirmPassword">Повторите пароль</label>
+          <input id="confirmPassword" v-model="confirmPassword" type="password" placeholder="Повторите пароль" />
         </div>
 
         <div class="buttons-row">
-          <button class="main-btn">Войти</button>
-          <router-link to="/contacts" class="main-btn secondary">Регистрация</router-link>
+          <button class="main-btn">
+            {{ isLogin ? 'Войти' : 'Зарегистрироваться' }}
+          </button>
+          <button class="main-btn secondary" @click="toggleForm">
+            {{ isLogin ? 'Регистрация' : 'Назад ко входу' }}
+          </button>
         </div>
       </div>
     </div>
@@ -34,10 +43,20 @@ export default {
   name: 'MainComp',
   data() {
     return {
+      isLogin: true,
       name: '',
-      email: '',
-      number: ''
+      password: '',
+      confirmPassword: ''
     };
+  },
+  methods: {
+    toggleForm() {
+      this.isLogin = !this.isLogin;
+      // Можно очистить поля при переключении, если нужно
+      // this.name = '';
+      // this.password = '';
+      // this.confirmPassword = '';
+    }
   }
 }
 </script>
@@ -52,19 +71,20 @@ export default {
 }
 
 .header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
+  height: 80px;
 }
 
 .title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: 'Oswald', sans-serif;
   font-size: 55px;
   color: #e5b748;
-  text-align: center;
-  flex: 1;
+  margin: 0;
 }
+
 
 .back-button {
   font-family: 'Oswald', sans-serif;
@@ -95,9 +115,10 @@ export default {
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
-  height: 600px;
+  min-height: 400px; 
   max-width: 500px;
   width: 100%;
+  transition: all 0.3s ease;
 }
 
 .form-title {
