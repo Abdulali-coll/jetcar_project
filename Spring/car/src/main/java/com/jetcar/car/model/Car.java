@@ -1,6 +1,8 @@
 package com.jetcar.car.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -25,10 +27,16 @@ public class Car {
     
     private Integer year;
 
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    @JsonBackReference
+    private Brand brand;
+
+
     public Car() {}
 
     public Car(String name, String image, String imageAny, String imageBack, String price, Integer mileage,
-               Integer power, String engineType, String description, Integer year) {
+               Integer power, String engineType, String description, Integer year, Brand brand) {
         this.name = name;
         this.image = image;
         this.imageAny = imageAny;
@@ -39,6 +47,7 @@ public class Car {
         this.engineType = engineType;
         this.description = description;
         this.year = year;
+        this.brand = brand;
     }
 
     public Integer getId() {
@@ -129,4 +138,12 @@ public class Car {
         this.year = year;
     }
 
+    
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
 }

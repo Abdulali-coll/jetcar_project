@@ -18,13 +18,22 @@ public class CarController {
     private CarService carService;
 
     @GetMapping
-    public ResponseEntity<List<Car>> getAllCars() {
+public ResponseEntity<List<Car>> getCars(
+        @RequestParam(required = false) String brand,
+        @RequestParam(required = false) String price,
+        @RequestParam(required = false) String year
+) {
+    if (brand != null || price != null || year != null) {
+        return ResponseEntity.ok(carService.getFilteredCars(brand, price, year));
+    } else {
         return ResponseEntity.ok(carService.getAllCars());
     }
+}
+
 
     // Получение конкретного автомобиля по идентификатору
     @GetMapping("/{id}")
-    public ResponseEntity<Car> getCar(@PathVariable Long id) {
+    public ResponseEntity<Car> getCar(@PathVariable Integer id) {
         Optional<Car> car = carService.getCarById(id);
         return car.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -38,7 +47,7 @@ public class CarController {
 
     // Обновление данных автомобиля
     @PutMapping("/{id}")
-    public ResponseEntity<Car> updateCar(@PathVariable Long id, @RequestBody Car carDetails) {
+    public ResponseEntity<Car> updateCar(@PathVariable Integer id, @RequestBody Car carDetails) {
         Car updatedCar = carService.updateCar(id, carDetails);
         if(updatedCar != null){
             return ResponseEntity.ok(updatedCar);
@@ -48,8 +57,9 @@ public class CarController {
 
     // Удаление автомобиля
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCar(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCar(@PathVariable Integer id) {
         carService.deleteCar(id);
         return ResponseEntity.ok().build();
     }
+
 }

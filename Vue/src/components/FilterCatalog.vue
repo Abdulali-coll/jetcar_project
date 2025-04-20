@@ -14,7 +14,7 @@
         <option value="Peggasi">Peggasi</option>
         <option value="Grotti">Grotti</option>
         <option value="Revolter">Revolter</option>
-        <option value="Dominator">Dominator</option>
+        <option value="Benefactor">Benefactor</option>
         <option value="Vapid">Vapid</option>
         <option value="Comet">Comet</option>
       </select>

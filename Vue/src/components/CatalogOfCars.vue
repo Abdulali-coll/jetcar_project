@@ -25,10 +25,15 @@ import axios from 'axios'
 
 export default {
   name: "CarsSmall",
+  props: {
+    cars: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
-      cars: [],
-      baseUrl: import.meta.env.VITE_API_BASE_URL || '', 
+      baseUrl: import.meta.env.VITE_API_BASE_URL || '',
     }
   },
   created() {
