@@ -1,41 +1,81 @@
 <template>
-  <!-- Header -->
   <header class="header">
     <div class="contact-info">
       <div class="number">+7 (988) 152-65-67</div>
       <router-link to="/contacts"><div class="contact-text">Связаться!</div></router-link>
     </div>
-    <!-- Added link in logo to main page--> 
+
     <router-link to="/">
       <h1 class="logo">- JET CAR -</h1>
     </router-link>
+
     <div class="company-info">
       <div class="info-container">
         <div class="text-info">
           <div class="address">Москва, улица Подвойского, 5/19</div>
           <div class="schedule">График: с 10:00 до 20:00</div>
         </div>
-        <router-link to="/login" class="profile-link">
+
+        <!-- Кнопка выхода -->
+        <button v-if="isLoggedIn" @click="showLogoutModal = true" class="logout-btn">
+          Выйти
+        </button>
+
+        <!-- Иконка профиля -->
+        <router-link v-else to="/login" class="profile-link">
           <img :src="profileIcon" alt="Profile" class="profile-icon">
         </router-link>
+      </div>
+    </div>
+
+    <!-- Модалка подтверждения выхода -->
+    <div v-if="showLogoutModal" class="modal-overlay">
+      <div class="modal">
+        <p>Вы уверены, что хотите выйти?</p>
+        <div class="modal-buttons">
+          <button @click="confirmLogout">Да</button>
+          <button @click="showLogoutModal = false">Отмена</button>
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import phone from '@/assets/icon-phone.png';
 import profileIcon from '@/assets/icon_profile_white.png';
+
 export default {
   name: 'CarHeader',
   data() {
     return {
-      phone,
-      profileIcon
+      profileIcon,
+      isLoggedIn: false,
+      showLogoutModal: false
     };
+  },
+  methods: {
+    checkAuth() {
+      this.isLoggedIn = !!localStorage.getItem('user');
+    },
+    confirmLogout() {
+      localStorage.removeItem('user');
+      this.checkAuth();
+      this.showLogoutModal = false;
+      this.$router.push('/login');
+    }
+  },
+  created() {
+    this.checkAuth();
+  },
+  watch: {
+    $route() {
+      this.checkAuth();
+    }
   }
 }
 </script>
+
+
 
 <style>
 .header {
@@ -138,6 +178,53 @@ export default {
   font-family: 'Roboto', sans-serif;
   color: gray;
   font-weight: 400;
+}
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal p{
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.modal-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 @media (max-width: 700px) {

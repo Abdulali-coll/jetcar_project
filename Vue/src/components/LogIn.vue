@@ -25,7 +25,7 @@
         </div>
 
         <div class="buttons-row">
-          <button class="main-btn">
+          <button class="main-btn" @click="handleSubmit">
             {{ isLogin ? 'Войти' : 'Зарегистрироваться' }}
           </button>
           <button class="main-btn secondary" @click="toggleForm">
@@ -39,6 +39,8 @@
 
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'MainComp',
   data() {
@@ -46,19 +48,52 @@ export default {
       isLogin: true,
       name: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
     };
   },
   methods: {
-    toggleForm() {
-      this.isLogin = !this.isLogin;
-      // Можно очистить поля при переключении, если нужно
-      // this.name = '';
-      // this.password = '';
-      // this.confirmPassword = '';
+  toggleForm() {
+    this.isLogin = !this.isLogin;
+  },
+  async handleSubmit() {
+  if (!this.name || !this.password) {
+    alert('Заполните все обязательные поля');
+    return;
+  }
+
+  if (!this.isLogin && this.password !== this.confirmPassword) {
+    alert('Пароли не совпадают');
+    return;
+  }
+
+  const payload = {
+    name: this.name,
+    password: this.password,
+  };
+
+  try {
+    const endpoint = this.isLogin ? '/api/auth/login' : '/api/auth/register';
+    const response = await axios.post(`http://localhost:8080${endpoint}`, payload);
+
+    if (this.isLogin) {
+      if (response.data && typeof response.data === 'string' && response.data.includes('успешно')) {
+        localStorage.setItem('user', this.name);
+        this.$router.push('/');
+      } else {
+        alert('Неверные данные. Попробуйте снова.');
+      }
+    } else {
+      alert(response.data);
+      this.toggleForm(); 
     }
+  } catch (error) {
+    console.error(error);
+    alert('Ошибка при обращении к серверу');
   }
 }
+
+},
+};
 </script>
 
 <style scoped>

@@ -30,7 +30,6 @@ public ResponseEntity<List<Car>> getCars(
     }
 }
 
-
     // Получение конкретного автомобиля по идентификатору
     @GetMapping("/{id}")
     public ResponseEntity<Car> getCar(@PathVariable Integer id) {
