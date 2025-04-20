@@ -7,7 +7,7 @@
     </div>
     <!-- Added link in logo to main page--> 
     <router-link to="/">
-      <h1 class="logo">- JET CAR -</h1>
+      <h1 class="logo">- JET CAR --</h1>
     </router-link>
     <div class="company-info">
       <div class="address">Москва, улица Подвойского, 5/19</div>
@@ -41,6 +41,14 @@ export default {
 
 .contact-info{
 width: 30%;
+margin-left: 5%;
+}
+.contact-info a {
+  color: #e5b748;
+}
+
+.contact-info a:hover {
+  color: #fff;
 }
 
 .company-info{
@@ -48,12 +56,11 @@ width: 30%;
 }
 .logo {
   font-family: 'Oswald', sans-serif;
-  font-size: 48px;
+  font-size: 55px;
   color: #e5b748;
   text-decoration: none;
 }
 
-/* Mini style fixes */
 .header a {
   text-decoration: none;
 }
@@ -69,14 +76,6 @@ width: 30%;
   font-size: 24px;
   margin-left: 10px;
   padding-top: 5px;
-}
-
-.contact-info a {
-  color: #e5b748;
-}
-
-.contact-info a:hover {
-  color: #fff;
 }
 
 .number {
@@ -104,7 +103,6 @@ width: 30%;
   font-weight: 400;
 }
 
-/* Adaptive styles */
 @media (max-width: 700px) {
   .header {
     flex-direction: column;
@@ -136,7 +134,7 @@ width: 30%;
 
   .schedule {
     font-size: 12px;
-    color: rgb(255, 255, 255);
+    color: white;
   }
 }
 </style>

@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       cars: [],
-      baseUrl: import.meta.env.VITE_API_BASE_URL || '', // Подгружается из .env
+      baseUrl: import.meta.env.VITE_API_BASE_URL || '', 
     }
   },
   created() {

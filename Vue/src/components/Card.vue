@@ -2,11 +2,9 @@
   <section class="Buy-car">
     <div class="content-wrapper">
       <div class="car-image-wrapper">
-        <!-- Big picture -->
         <div class="car-image" @click="openModal(car.image)">
           <img :src="car.image" alt="Main Car" />
         </div>
-        <!-- Small pictures -->
         <div class="mini-images">
           <img :src="car.imageAny" alt="Mini Car 1" @click="openModal(car.imageAny)" />
           <img :src="car.imageBack" alt="Mini Car 2" @click="openModal(car.imageBack)" />
@@ -363,7 +361,6 @@ export default {
   display:flex;
 }
 
-/* Compare styles */
 .compare-modal {
   position: fixed;
   top: 0;
@@ -396,13 +393,12 @@ export default {
   width: 300px;
 }
 
-/* Стили для модальных окон */
 .compare-modal .car-image img{
-  max-width: 300px; /* Увеличить размер для сравнения машин */
+  max-width: 300px;
 }
 
 .favorites-modal .car-image img{
-  max-width: 300px; /* Размер для избранных машин */
+  max-width: 300px;
 }
 
 .compare-cars {
@@ -457,10 +453,10 @@ export default {
 
 .close-button {
   background: red;
-  width: 120px;
-  height: 40px;
+  width: 160px;
+  height: 60px;
   color: white;
-  font-size: 18px;
+  font-size: 26px;
   padding: 10px;
   border: none;
   border-radius: 5px;

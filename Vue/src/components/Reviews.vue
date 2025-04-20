@@ -5,7 +5,7 @@
         </div>
         <div class="reviews-essay">
             <div class="image-reviews">
-                <img :src="ReviewImage" alt="Main reviews" />
+                 <img :src="ReviewImage" alt="Main reviews" /> 
             </div>
             <div class="essay">
                 Мы будем благодарны за любые отзывы: положительные, если вы остались довольны, и конструктивные, если у вас есть предложения по улучшению.

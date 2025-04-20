@@ -6,7 +6,7 @@
                 Контакты:
             </div>
             <div class="enter-info">
-                Запиши Номер!
+                Оставьте заявку!
             </div>
             <div class="info-area">
                 <div class="name">
@@ -17,7 +17,7 @@
                     <p>{{ message }}</p>
                 </div>
                 <div class="email">
-                    main@gmail.com*
+                    name@gmail.com*
                 </div>
                 <div id="model-basic2" class="enter-email-area">
                     <input v-model="email" placeholder="Введите вашу почту" />
@@ -27,7 +27,7 @@
                     Телефон*
                 </div>
                 <div id="model-basic3" class="enter-number-area">
-                    <input v-model="number" placeholder="Введите ваш номер телефона" />
+                    <input v-model="number" placeholder="+8 880 000 00 00" />
                     <p>{{ message }}</p>
                 </div>
             </div>
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import CarImage from '@/assets/matiz-img-0.png';
+import CarImage from '@/assets/contact_back_img.jpg';
 
 export default {
     name: 'FormContacts',
@@ -90,7 +90,7 @@ export default {
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 24px;
     color: white; 
     text-decoration: none; 
     font-family: 'Oswald',sans-serif;
@@ -162,7 +162,7 @@ input {
   margin-top: 100px;
   width: 100%;
   height: auto;
-  max-width: 500px;
+  max-width: 700px;
 }
 
 .form-image {

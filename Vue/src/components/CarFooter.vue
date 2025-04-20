@@ -17,7 +17,6 @@
         <p>О нас</p>
         <p>Отзывы</p>
         <p>Контакты</p>
-        <p>Акции</p>
       </div>
       <div class="column">
         <p>Гарантия</p>
@@ -29,7 +28,7 @@
      <!-- <a href="#"><img src="@/assets/telegram.svg" alt="Telegram"></a>-->
     </div>
 
-    <p class="copyright">© 2004-2024 Все права защищены. Abdul & Bogdan Inc.</p>
+    <p class="copyright">© 2004-2025 Все права защищены. Abdul & Bogdan Inc.</p>
   </footer>
 </template>
 
