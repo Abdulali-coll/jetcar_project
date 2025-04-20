@@ -10,10 +10,18 @@
   </transition>
 
   <section class="small-cards">
-    <div v-for="(car, index) in cars" :key="index" class="car-card">
-      <router-link :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }" @click.native="scrollToHeader">
+    <div v-for="car in cars" :key="car.id" class="car-card">
+      <router-link
+        :to="{ name: 'CarCardPage', query: { car: JSON.stringify(car) } }"
+        @click.native="scrollToHeader"
+      >
         <div class="car-image">
-          <img :src="car.image" alt="Car Image" />
+          <img
+            v-if="car.image"
+            :src="getImageUrl(car.image)"
+            :alt="car.name"
+          />
+          <div v-else class="no-image">Нет фото</div>
         </div>
         <h4>{{ car.name }}</h4>
         <p>{{ car.price }}</p>
@@ -92,6 +100,8 @@ import FavoriteIconActive from '@/assets/Heart_active.svg';
 import ListIcon from '@/assets/List.svg';
 import CompareIconActive from '@/assets/cancel.svg';
 
+import axios from 'axios'
+
 export default {
   name: "CarsSmall",
   data() {
@@ -106,21 +116,29 @@ export default {
       FavoriteIconActive ,
       ListIcon ,
       CompareIconActive ,
+      baseUrl: import.meta.env.VITE_API_BASE_URL || ''
     };
   },
   created() {
     this.fetchCars();
   },
   methods: {
-  fetchCars() {
-    axios.get('http://localhost:8080/api/cars')
-      .then(response => {
-        this.cars = response.data;
-      })
+    fetchCars() {
+      axios.get(`${this.baseUrl}/api/cars`)
+    .then(resp => {
+      console.log("got cars:", resp.data)
+      this.cars = resp.data
+    })
         .catch(error => {
           console.error('Ошибка при загрузке данных автомобилей:', error);
       });
   },
+  getImageUrl(path) {
+    if (path.startsWith('/')) {
+        return this.baseUrl + path
+      }
+      return this.baseUrl + '/' + path
+    },
   /* Add to favorite method */
   toggleFavorite(car) {
     const index = this.favorites.findIndex((favorite) => favorite.name === car.name);
@@ -475,12 +493,12 @@ width: 100px;
 }
 
 .modal-content::-webkit-scrollbar-thumb {
-  background-color: #FFD700; /* Желтый цвет, можно заменить на #FFF для белого */
+  background-color: #FFD700; 
   border-radius: 6px;
 }
 
 .modal-content::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.3); /* Светлый фон дорожки */
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .car-card p {
