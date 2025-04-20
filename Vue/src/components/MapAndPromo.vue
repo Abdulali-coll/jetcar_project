@@ -66,10 +66,12 @@ export default {
 
 .map-container {
   margin-top: 15px;
+  margin-left: 5%;
   flex: 1 1 50%;
   min-width: 300px;
   height: 400px;
   border-radius: 15px;
+
 }
 
 .promo-container {
@@ -97,7 +99,6 @@ export default {
   color: white;
 }
 
-/* Adaptive styles for tablets and smaller screens */
 @media (max-width: 768px) {
   .map-promo {
     flex-direction: column;

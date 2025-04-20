@@ -230,9 +230,9 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .credit-container {
-  width: 80%;
+  width: 40%;
   align-items: center;
-  margin: 40px 200px 60px;
+  margin-right: 40%;
 }
 
 .text-container {
@@ -241,7 +241,7 @@ input[type="range"]::-moz-range-thumb {
 
 .text-container h2 {
   color: #E5B748;
-  font-size: 24px;
+  font-size: 36px;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -273,7 +273,7 @@ input[type="range"]::-moz-range-thumb {
 .text-container button {
   background-color: #E5B748;
   color: white;
-  font-size: 16px;
+  font-size: 22px;
   border: none;
   border-radius: 5px;
   padding: 10px 15px;
