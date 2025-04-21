@@ -230,9 +230,9 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .credit-container {
-  width: 40%;
+  width: 30%;
   align-items: center;
-  margin-right: 40%;
+  margin-right: 60%;
 }
 
 .text-container {

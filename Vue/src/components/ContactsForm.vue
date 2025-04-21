@@ -1,68 +1,92 @@
 <template>
     <div class="form-image">
-        <div class="main">
+      <div class="main">
         <div class="info-words">
-            <div class="main-word">
-                Контакты:
+          <div class="main-word">Контакты:</div>
+          <div class="enter-info">Оставьте заявку!</div>
+  
+          <div class="info-area">
+            <div class="name">Имя*</div>
+            <div id="model-basic1" class="enter-name-area">
+              <input v-model="name" placeholder="Введите ваше имя" />
             </div>
-            <div class="enter-info">
-                Оставьте заявку!
+  
+            <div class="email">name@gmail.com*</div>
+            <div id="model-basic2" class="enter-email-area">
+              <input v-model="email" placeholder="Введите вашу почту" />
             </div>
-            <div class="info-area">
-                <div class="name">
-                    Имя*
-                </div>
-                <div id="model-basic1" class="enter-name-area">
-                    <input v-model="name" placeholder="Введите ваше имя" />
-                    <p>{{ message }}</p>
-                </div>
-                <div class="email">
-                    name@gmail.com*
-                </div>
-                <div id="model-basic2" class="enter-email-area">
-                    <input v-model="email" placeholder="Введите вашу почту" />
-                    <p>{{ message }}</p>
-                </div>
-                <div class="email">
-                    Телефон*
-                </div>
-                <div id="model-basic3" class="enter-number-area">
-                    <input v-model="number" placeholder="+8 880 000 00 00" />
-                    <p>{{ message }}</p>
-                </div>
+  
+            <div class="email">Телефон*</div>
+            <div id="model-basic3" class="enter-number-area">
+              <input v-model="number" placeholder="+8 880 000 00 00" />
             </div>
-           
-            <div class="contact-button">
-                    <nav class="button-inside">
-                        <router-link to="/contacts">Отправить Заявку!</router-link>
-                    </nav>
-                </div>
+  
+            <p style="color: red; font-size: 14px;">{{ message }}</p>
+          </div>
+  
+          <div class="contact-button" @click="sendEmail">
+            <div class="button-inside">Отправить Заявку!</div>
+          </div>
         </div>
+  
         <div class="avto-image">
-            <img :src="CarImage" alt="Main Car" />
+          <img :src="CarImage" alt="Main Car" />
         </div>
+      </div>
+  
+      <div class="text-marketing">Лучшие цены во всём Лос-Сантос!</div>
     </div>
-        <div class="text-marketing">
-            Лучшие цены во всём Лос-Сантос!
-        </div>
-    </div>
-</template>
+  </template>
 
 <script>
 import CarImage from '@/assets/contact_back_img.jpg';
+import emailjs from 'emailjs-com';
 
 export default {
-    name: 'FormContacts',
-    data() {
-        return {
-            CarImage,
-            message: '',
-            name: '',
-            email: '',
-            number: '',
-            consentGiven: false 
-        };
-    }
+  name: 'FormContacts',
+  data() {
+    return {
+      CarImage,
+      message: '',
+      name: '',
+      email: '',
+      number: ''
+    };
+  },
+  methods: {
+    sendEmail() {
+  if (!this.name || !this.email || !this.number) {
+    this.message = 'Заполните все поля';
+    return;
+  }
+
+  const templateParams = {
+    name: this.name,
+    email: this.email,
+    number: this.number,
+    time: new Date().toLocaleString()
+  };
+
+  emailjs
+    .send(
+      'service_id',
+      'template_usr6oaa',
+      templateParams,
+      'nmmHJ8j768TA5oeiz'
+    )
+    .then(() => {
+      this.message = 'Успешно отправлено!';
+      this.name = '';
+      this.email = '';
+      this.number = '';
+    })
+    .catch((error) => {
+      console.error('Ошибка отправки:', error);
+      this.message = 'Произошла ошибка при отправке';
+    });
+}
+
+  }
 };
 </script>
 
