@@ -74,21 +74,26 @@ export default {
   try {
     const endpoint = this.isLogin ? '/api/auth/login' : '/api/auth/register';
     const response = await axios.post(`http://localhost:8080${endpoint}`, payload);
-
-    if (this.isLogin) {
-      if (response.data && typeof response.data === 'string' && response.data.includes('успешно')) {
-        localStorage.setItem('user', this.name);
-        this.$router.push('/');
-      } else {
-        alert('Неверные данные. Попробуйте снова.');
-      }
-    } else {
+    
+    if (!this.isLogin) {
       alert(response.data);
-      this.toggleForm(); 
+      this.toggleForm();
+      return;
     }
+
+    alert(response.data);
+    localStorage.setItem('user', this.name);
+    this.$router.push('/');
+    
   } catch (error) {
-    console.error(error);
-    alert('Ошибка при обращении к серверу');
+    if (error.response) {
+     
+    if (error.response.status === 400 || error.response.status === 401) {
+      alert(error.response.data);
+      return;
+    }   
+  }   console.error(error);
+  alert('Ошибка при обращении к серверу');
   }
 }
 

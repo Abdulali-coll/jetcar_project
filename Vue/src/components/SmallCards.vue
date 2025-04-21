@@ -126,7 +126,6 @@ export default {
     fetchCars() {
       axios.get(`${this.baseUrl}/api/cars`)
     .then(resp => {
-      console.log("got cars:", resp.data)
       this.cars = resp.data
     })
         .catch(error => {
