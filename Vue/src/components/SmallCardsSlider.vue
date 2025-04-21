@@ -74,33 +74,14 @@
 
   <button type="submit">Рассчитать</button>
 </form>
-
         <div v-if="monthlyPayment" class="result">
           <h3>Результат расчёта:</h3>
           <p>Ежемесячный платёж: {{ monthlyPayment.toLocaleString() }} руб</p>
         </div>
-
-        <!-- Credit Application Form -->
-        <form @submit.prevent="submitCreditApplication">
-          <br>
-          <br>
-          <label for="fullName">ФИО:</label>
-          <input type="text" id="fullName" v-model="fullName" placeholder="Введите ваше имя" required />
-
-          <label for="phone">Телефон:</label>
-          <input type="tel" id="phone" v-model="phone" placeholder="Введите телефон" required />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" v-model="email" placeholder="Введите email" required />
-
-          <button type="submit">Оформить заявку</button>
-        </form>
       </div>
     </div>
   </section>
 </template>
-
-
 
 <script>
 import axios from 'axios'
@@ -230,13 +211,14 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .credit-container {
-  width: 30%;
+
   align-items: center;
-  margin-right: 60%;
+  margin-right: 100px;
 }
 
 .text-container {
-  width: 100%;
+  margin-left: 500px;
+  width: 60%;
 }
 
 .text-container h2 {

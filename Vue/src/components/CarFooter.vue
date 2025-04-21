@@ -7,21 +7,7 @@
     </div>
 
     <div class="footer-links">
-      <div class="column">
-        <p>Автосалон</p>
-        <p>Машины</p>
-        <p>Заказать</p>
-        <p>Кредит</p>
-      </div>
-      <div class="column">
-        <p>О нас</p>
-        <p>Отзывы</p>
-        <p>Контакты</p>
-      </div>
-      <div class="column">
-        <p>Гарантия</p>
-        <p>Сервис</p>
-      </div>
+      
     </div>
 
     <div class="social-icons">

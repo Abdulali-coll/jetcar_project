@@ -8,43 +8,43 @@
         <span>Bravado</span>
       </button>
     </router-link>
-    <router-link :to="{ path: '/catalog', query: { brand: 'Benefactor' } }">
+    <router-link :to="{ path: '/', query: { brand: 'Benefactor' } }">
       <button>
         <img :src="CarBenefactor" alt="Benefactor Logo" />
         <span>Benefactor</span>
       </button>
     </router-link>
-    <router-link :to="{ path: '/catalog', query: { brand: 'Grotti' } }">
+    <router-link :to="{ path: '/', query: { brand: 'Grotti' } }">
       <button>
         <img :src="CarGrotti" alt="Grotti Logo" />
         <span>Grotti</span>
       </button>
     </router-link>
-    <router-link :to="{ path: '/catalog', query: { brand: 'Comet' } }">
+    <router-link :to="{ path: '/', query: { brand: 'Comet' } }">
       <button>
         <img :src="CarCommet" alt="Comet Logo" />
         <span>Comet</span>
       </button>
     </router-link>
-    <router-link :to="{ path: '/catalog', query: { brand: 'Obey' } }">
+    <router-link :to="{ path: '/', query: { brand: 'Obey' } }">
       <button>
         <img :src="CarObey" alt="Obey Logo" />
         <span>Obey</span>
       </button>
     </router-link>
-    <router-link :to="{ path: '/catalog', query: { brand: 'Revolter' } }">
+    <router-link :to="{ path: '/', query: { brand: 'Revolter' } }">
       <button>
         <img :src="CarRevolter" alt="Revolter Logo" />
         <span>Revolter</span>
       </button>
     </router-link>
-    <router-link :to="{ path: '/catalog', query: { brand: 'Vapid' } }">
+    <router-link :to="{ path: '/', query: { brand: 'Vapid' } }">
       <button>
         <img :src="CarVapid" alt="Vapid Logo" />
         <span>Vapid</span>
       </button>
     </router-link>
-    <router-link :to="{ path: '/catalog', query: { brand: 'Peggasi' } }">
+    <router-link :to="{ path: '/', query: { brand: 'Peggasi' } }">
       <button>
         <img :src="CarPeggasi" alt="Peggasi Logo" />
         <span>Peggasi</span>
